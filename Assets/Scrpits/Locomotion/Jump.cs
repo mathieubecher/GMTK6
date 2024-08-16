@@ -23,6 +23,9 @@ namespace Locomotion
             m_character.IgnoreKoyoteeTime();
             m_character.gravityScale = 0.0f;
             m_lastPos = 0.0f;
+            
+            m_character.animation.SetTrigger("Jump");
+            m_character.animation.SetBool("inAir", true);
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -42,6 +45,8 @@ namespace Locomotion
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             m_character.gravityScale = 1.0f;
+            
+            m_character.animation.ResetTrigger("Jump");
         }
     }
 }

@@ -15,6 +15,8 @@ namespace Locomotion
             animator.SetFloat("currentTimer", 0.0f);
             
             m_character.gravityScale = 1.0f;
+            
+            m_character.animation.SetBool("inAir", true);
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

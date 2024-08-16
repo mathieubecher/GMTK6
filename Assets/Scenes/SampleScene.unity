@@ -567,14 +567,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 661632960903842071, guid: 94bb7994d3a344348b561130a49502df, type: 3}
-      propertyPath: coyoteeTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3113224343374019977, guid: 94bb7994d3a344348b561130a49502df, type: 3}
-      propertyPath: m_UpdateMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4524201267185995972, guid: 94bb7994d3a344348b561130a49502df, type: 3}
       propertyPath: m_Name
       value: Character

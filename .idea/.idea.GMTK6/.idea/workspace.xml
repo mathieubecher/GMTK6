@@ -6,14 +6,11 @@
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/DetectGround.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/DetectGround.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Air.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Air.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Dead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Dead.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/ElbowDrop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/ElbowDrop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/ElbowDropHitGround.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/ElbowDropHitGround.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Ground.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Ground.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Jump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Jump.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Locomotion.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Locomotion.controller" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723798479157</updated>
       <workItem from="1723798482997" duration="3000" />
-      <workItem from="1723834598142" duration="11116000" />
+      <workItem from="1723834598142" duration="12262000" />
     </task>
     <servers />
   </component>

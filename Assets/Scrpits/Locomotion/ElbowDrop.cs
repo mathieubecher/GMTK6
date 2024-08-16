@@ -23,6 +23,8 @@ namespace Locomotion
             m_timer = 0.0f;
             m_character.gravityScale = 0.0f;
             m_startPos = animator.transform.position.y;
+            
+            m_character.animation.SetTrigger("ElbowDrop");
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -40,6 +42,8 @@ namespace Locomotion
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             m_character.gravityScale = 1.0f;
+            
+            m_character.animation.ResetTrigger("ElbowDrop");
         }
     }
 }

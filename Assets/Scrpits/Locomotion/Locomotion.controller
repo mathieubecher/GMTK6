@@ -383,18 +383,18 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.3
+      time: 0.4503569
       value: -1
-      inSlope: -9.802427
-      outSlope: -9.802427
+      inSlope: -5.6692467
+      outSlope: -5.6692467
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.03582398
+      inWeight: 0.09816471
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_elbowDropFallSpeed: 50
+  m_elbowDropFallSpeed: 40
   m_friction: 0
 --- !u!1102 &-840283080922322126
 AnimatorState:

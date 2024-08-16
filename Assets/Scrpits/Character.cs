@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -10,6 +11,7 @@ public class Character : MonoBehaviour
     
     [Header("System")]
     [SerializeField] private DetectGround m_detectGround;
+    [SerializeField] public Animator animation;
     private Rigidbody2D m_rigidbody;
     private Animator m_locomotion;
     
@@ -47,6 +49,11 @@ public class Character : MonoBehaviour
         
     }
 
+    void Update()
+    {
+        if(math.abs(velocity.x) > 0.01f)
+            animation.transform.localScale = new Vector3(math.sign(velocity.x), 1.0f, 1.0f);
+    }
     void FixedUpdate()
     {
         m_locomotion.SetFloat("tilt", Controller.instance.tilt);
