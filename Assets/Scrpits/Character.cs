@@ -10,13 +10,29 @@ public class Character : MonoBehaviour
     
     [Header("System")]
     [SerializeField] private DetectGround m_detectGround;
+    private Rigidbody2D m_rigidbody;
     private Animator m_locomotion;
     
-    public bool OnGround() {return m_detectGround.OnGround(); }
+    #region getter and setter
+    public bool onGround {get => m_detectGround.OnGround(); }
+
+    public float gravityScale
+    {
+        get => m_rigidbody.gravityScale;
+        set => m_rigidbody.gravityScale = value;
+    }
+    
+    public Vector2 velocity
+    {
+        get => m_rigidbody.velocity;
+        set => m_rigidbody.velocity = value;
+    }
+    #endregion
 
     void Awake()
     {
         m_locomotion = GetComponent<Animator>();
+        m_rigidbody = GetComponent<Rigidbody2D>();
     }
     void OnEnable()
     {
@@ -34,7 +50,7 @@ public class Character : MonoBehaviour
     void FixedUpdate()
     {
         m_locomotion.SetFloat("tilt", Controller.instance.tilt);
-        m_locomotion.SetBool("inAir", !OnGround());
+        m_locomotion.SetBool("inAir", !onGround);
 
     }
 

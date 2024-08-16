@@ -37,7 +37,7 @@
                 {
                     "name": "",
                     "id": "bcc16370-afb5-4b62-9a1a-ede1b4791f8c",
-                    "path": "<Gamepad>/dpad/x",
+                    "path": "<Gamepad>/leftStick/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -4,11 +4,14 @@
     <list default="true" id="11ea1a11-314d-4c72-b2c0-f25a7677f266" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Controller/InputActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Controller/InputActions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Controller/InputActions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Controller/InputActions.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Dead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Dead.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Ground.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Ground.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Jump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Jump.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Locomotion.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Locomotion.controller" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +20,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Character.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.6/Unity.Mathematics/math.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -75,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723798479157</updated>
       <workItem from="1723798482997" duration="3000" />
-      <workItem from="1723834598142" duration="4108000" />
+      <workItem from="1723834598142" duration="7850000" />
     </task>
     <servers />
   </component>
