@@ -15,11 +15,11 @@ public class Character : MonoBehaviour
     
     #region getter and setter
     public bool onGround {get => m_detectGround.OnGround(); }
+    public void IgnoreKoyoteeTime() { m_detectGround.IgnoreKoyoteeTime(); }
 
     public float gravityScale
     {
-        get => m_rigidbody.gravityScale;
-        set => m_rigidbody.gravityScale = value;
+        set => m_rigidbody.gravityScale = value * 10.0f;
     }
     
     public Vector2 velocity

@@ -24,13 +24,24 @@ public class DetectGround : MonoBehaviour
     {
         if (other.isTrigger) return;
         _contacts.Add(other);
+        _coyoteeTimer = 0.0f;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.isTrigger) return;
+        if (other.isTrigger || _contacts.Count == 0) return;
         _contacts.Remove(other);
-        if (_contacts.Count == 0)
-            _coyoteeTimer = 0.0f;
+    }
+
+    public void ForceAir()
+    {
+        _contacts = new List<Collider2D>();
+        _coyoteeTimer = coyoteeTime;
+        
+    }
+
+    public void IgnoreKoyoteeTime()
+    {
+        _coyoteeTimer = coyoteeTime;
     }
 }

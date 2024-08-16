@@ -13,12 +13,15 @@ namespace Locomotion
         {
             m_character = animator.GetComponent<Character>();
             animator.SetFloat("currentTimer", 0.0f);
+            
+            m_character.gravityScale = 0.0f;
+            m_character.velocity = Vector2.zero;
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
         override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            m_character.velocity = Vector2.zero;
+            
         }
 
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

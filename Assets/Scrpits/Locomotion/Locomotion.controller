@@ -36,6 +36,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: ElbowDrop
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: inAir
+    m_EventTreshold: 0.2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6885182320443711952}
   m_Solo: 0
@@ -62,6 +65,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290f0aeeddf283242b8af263f673b72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_jumpPositionOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 10.0914545
+      outSlope: 10.0914545
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.056674752
+    - serializedVersion: 3
+      time: 0.2800973
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.90304536
+      value: -0.49286377
+      inSlope: -5.2412577
+      outSlope: -5.2412577
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.086344264
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_jumpHeight: 6
 --- !u!1101 &-7356176675836475302
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -333,6 +370,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060c32098518e0649afa797a1f060c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_speedOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3
+      value: -1
+      inSlope: -9.802427
+      outSlope: -9.802427
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.03582398
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_elbowDropFallSpeed: 50
+  m_friction: 0
 --- !u!1102 &-840283080922322126
 AnimatorState:
   serializedVersion: 6
@@ -432,6 +495,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: elbowDropHeight
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Locomotion
@@ -442,18 +511,6 @@ AnimatorController:
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
     m_DefaultWeight: 0
-    m_IKPass: 0
-    m_SyncedLayerAffectsTiming: 0
-    m_Controller: {fileID: 9100000}
-  - serializedVersion: 5
-    m_Name: Animation
-    m_StateMachine: {fileID: 9134704412401767132}
-    m_Mask: {fileID: 0}
-    m_Motions: []
-    m_Behaviours: []
-    m_BlendingMode: 0
-    m_SyncedLayerIndex: -1
-    m_DefaultWeight: 1
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
@@ -469,25 +526,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c8d6b4a292a9c34683ed952f18717ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_runSpeed: 5
+  m_runSpeed: 8
   m_accel:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 6.567636
+      outSlope: 6.567636
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.076832436
     - serializedVersion: 3
-      time: 1
+      time: 0.40460402
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -500,20 +557,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0.01643917
+      outSlope: 0.01643917
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.8396179
     - serializedVersion: 3
-      time: 1
+      time: 0.25002584
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 9.974814
+      outSlope: 9.974814
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.04622971
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -565,7 +622,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: currentTimer
-    m_EventTreshold: 0.6
+    m_EventTreshold: 0.4
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -840283080922322126}
   m_Solo: 0
@@ -596,7 +653,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 1.6
+  m_ExitTime: 0.8
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -696,22 +753,3 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1107 &9134704412401767132
-AnimatorStateMachine:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Animation
-  m_ChildStates: []
-  m_ChildStateMachines: []
-  m_AnyStateTransitions: []
-  m_EntryTransitions: []
-  m_StateMachineTransitions: {}
-  m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 50, y: 20, z: 0}
-  m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
-  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 0}

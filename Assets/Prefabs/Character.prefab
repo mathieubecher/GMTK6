@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb438177bfc90a943ae20dc22e0c172f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coyoteeTime: 0.2
+  coyoteeTime: 0.1
   _contacts: []
 --- !u!58 &2430803008030049919
 CircleCollider2D:
@@ -258,7 +258,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b6c40475d46753f4186fb3f3cbe319de, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -282,8 +282,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 10
+  m_Material: {fileID: 6200000, guid: ac4aa328fe6a6894090a6e2e89a5a5e8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
