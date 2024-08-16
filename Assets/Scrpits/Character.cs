@@ -21,7 +21,7 @@ public class Character : MonoBehaviour
 
     public float gravityScale
     {
-        set => m_rigidbody.gravityScale = value * 10.0f;
+        set => m_rigidbody.gravityScale = value * 5.0f;
     }
     
     public Vector2 velocity
