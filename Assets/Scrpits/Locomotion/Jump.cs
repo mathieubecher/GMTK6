@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Locomotion
 {
     public class Jump : StateMachineBehaviour
     {
+        [Header("Air Control")]
+        [SerializeField] private float m_accel = 10.0f;
+        [SerializeField] private float m_maxSpeed = 8.0f;
+        
+        [Header("Jump dynamic")]
         [SerializeField] private AnimationCurve m_jumpPositionOverTime;
         [SerializeField] private float m_jumpHeight = 10.0f;
         
@@ -34,11 +40,34 @@ namespace Locomotion
             m_timer += Time.deltaTime;
             animator.SetFloat("currentTimer", m_timer);
             
+            Vector2 currentSpeed = m_character.velocity;
             float desiredPos = m_jumpPositionOverTime.Evaluate(m_timer) * m_jumpHeight;
 
-            float desiredVerticalSpeed = Time.deltaTime > 0.0f? (desiredPos - m_lastPos) / Time.deltaTime : 0.0f;
+            float verticalSpeed = Time.deltaTime > 0.0f? (desiredPos - m_lastPos) / Time.deltaTime : 0.0f;
             m_lastPos = desiredPos;
-            m_character.velocity = new Vector2(m_character.velocity.x, desiredVerticalSpeed);
+            
+            float desiredSpeed = m_maxSpeed * Controller.instance.tilt;
+            float horizontalSpeed = ComputeAirControl(m_accel, currentSpeed.x, desiredSpeed);
+            
+            m_character.velocity = new Vector2(horizontalSpeed, verticalSpeed);
+        }
+
+        private float ComputeAirControl(float _accel, float _currentSpeed, float _desiredSpeed)
+        {
+            
+            float speed = _currentSpeed;
+            
+            float accel = math.sign(_desiredSpeed - _currentSpeed) * m_accel * Time.deltaTime;
+            if (math.abs(_desiredSpeed - _currentSpeed) < math.abs(accel))
+            {
+                speed = _desiredSpeed;
+            }
+            else
+            {
+                speed += accel;
+            }
+
+            return speed;
         }
 
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

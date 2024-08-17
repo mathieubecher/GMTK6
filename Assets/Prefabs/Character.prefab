@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb438177bfc90a943ae20dc22e0c172f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coyoteeTime: 0.05
+  coyoteeTime: 0
   _contacts: []
 --- !u!58 &2430803008030049919
 CircleCollider2D:
