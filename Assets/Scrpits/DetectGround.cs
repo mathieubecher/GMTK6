@@ -19,8 +19,13 @@ public class DetectGround : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.isTrigger) return;
+        
         m_contacts.Add(other);
-        transform.parent.parent = other.transform;
+        
+        if(!GameManager.IsBalloon(other.gameObject.layer))
+        {
+            transform.parent.parent = other.transform;
+        }
         if (GameManager.IsPump(other.gameObject.layer) && other.TryGetComponent(out Pump _pump))
         {
             _pump.Press(m_character.elbowDropHeight);
@@ -30,13 +35,16 @@ public class DetectGround : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.isTrigger || m_contacts.Count == 0) return;
+        
         if (GameManager.IsPump(other.gameObject.layer) && other.TryGetComponent(out Pump _pump))
         {
             _pump.Release();
         }
         
-        if(transform.parent.parent == other.transform)
+        if(transform.parent.parent == other.transform )
+        {
             transform.parent.parent = null;
+        }
         
         m_contacts.Remove(other);
     }

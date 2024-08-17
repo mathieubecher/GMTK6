@@ -13,12 +13,14 @@ public class Balloon : MonoBehaviour
   
     private Vector2 m_currentInflateDir;
     private Vector2 m_headObjectivePos;
+    private List<Transform> m_balloonBodies;
     private bool m_collided;
     
     private float m_pressure => (m_headObjectivePos - (Vector2)m_head.position).magnitude;
     
     void Awake()
     {
+        m_balloonBodies = new List<Transform>();
         m_line = GetComponent<LineRenderer>();
         ResetBalloon();
     }
@@ -35,8 +37,13 @@ public class Balloon : MonoBehaviour
         m_head.position = m_headObjectivePos;
         
         m_line.positionCount = 2;
-        m_line.SetPositions(new Vector3[]{transform.position, m_headObjectivePos });
-        m_line.widthMultiplier = m_size;
+        m_line.SetPositions(new Vector3[]{m_headObjectivePos, m_headObjectivePos });
+        
+        foreach (Transform body in m_balloonBodies) Destroy(body);
+        m_balloonBodies = new List<Transform>();
+        AddBody();
+        UpdateBodyPosition();
+
     }
     
     void FixedUpdate()
@@ -44,21 +51,34 @@ public class Balloon : MonoBehaviour
         Vector2 delta = (m_headObjectivePos - (Vector2)m_head.position) * GameManager.inflateBlendForce;
         Vector2 desiredPos = CheckCollision(m_head.position, delta);
         m_head.position = desiredPos;
+        
         m_line.SetPosition(m_line.positionCount - 1, m_head.position);
+        UpdateBodyPosition();
     }
 
-    
+    private void AddBody()
+    {
+        GameObject instance = Instantiate(GameManager.balloonBody, Vector3.zero, Quaternion.identity);
+        m_balloonBodies.Add(instance.transform);
+    }
+    private void UpdateBodyPosition()
+    {
+        Vector2 pointA = m_line.GetPosition(m_line.positionCount - 1);
+        Vector2 pointB = m_line.GetPosition(m_line.positionCount - 2);
+        m_balloonBodies[^1].position = (pointA + pointB)/ 2.0f;
+        m_balloonBodies[^1].localScale = new Vector2(math.abs(pointA.x - pointB.x) + m_size, math.abs(pointA.y - pointB.y) + m_size);
+    }
+
     private void Explode()
     {
         ResetBalloon();
     }
     
-
     public void Inflate(float _value = 1.0f)
     {
         m_headObjectivePos += m_currentInflateDir * (m_collided ? math.min(_value, GameManager.maxPressure - m_pressure) : _value);
     }
-
+    
     public void Hit(Vector2 _dir)
     {
         if (m_collided)
@@ -70,7 +90,8 @@ public class Balloon : MonoBehaviour
     private Vector2 CheckCollision(Vector2 _currentPos, Vector2 _delta)
     {
         //Disable current actor to ignore it
-        gameObject.SetActive(false);
+        ActiveCollider(false, 3);
+        
         RaycastHit2D hit = Physics2D.Raycast(
             m_head.position, 
                 _delta.normalized, 
@@ -101,9 +122,18 @@ public class Balloon : MonoBehaviour
         }
     
         // Enable current actor at the end of raycast
-        gameObject.SetActive(true);
+        ActiveCollider(true, 4);
         
         return desiredPosition;
+    }
+
+    private void ActiveCollider(bool _active, int _nb = 3)
+    {
+        gameObject.SetActive(_active);
+        for (int i = m_balloonBodies.Count - 1; i >= m_balloonBodies.Count - 3 && i >= 0; --i)
+        {
+            m_balloonBodies[i].gameObject.SetActive(_active);
+        }
     }
 
 
@@ -140,8 +170,13 @@ public class Balloon : MonoBehaviour
     {
         m_currentInflateDir = _dir;
         m_line.SetPosition(m_line.positionCount - 1, _currentPos);
+        UpdateBodyPosition();
+        
         ++m_line.positionCount;
         m_line.SetPosition(m_line.positionCount - 1, _currentPos);
+        AddBody();
+        UpdateBodyPosition();
+        
         m_headObjectivePos = _currentPos + m_currentInflateDir * (m_headObjectivePos - _currentPos).magnitude;
         m_collided = false;
         m_head.localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));

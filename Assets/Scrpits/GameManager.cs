@@ -19,13 +19,15 @@ public class GameManager : MonoBehaviour
     }
 
     public static List<Vector2> possibleInflateDir => instance.m_possibleInflateDir;
+    
+    public static GameObject balloonBody => instance.m_ballonBody;
     public static float inflateBlendForce => instance.m_inflateBlendForce;
     public static float maxPressure => instance.m_maxPressure;
     public static LayerMask obstacleLayermask => instance.m_obstacleLayermask;
     public static LayerMask deadLayermask => instance.m_deadLayermask;
     public static LayerMask balloonHeadLayermask => instance.m_balloonHeadLayermask;
+    public static LayerMask balloonLayermask => instance.m_balloonLayermask;
     public static LayerMask pumpLayermask => instance.m_pumpLayermask;
-    
     public static AnimationCurve pumpPressOverTime => instance.m_pressOverTime;
     public static AnimationCurve pumpReleaseOverTime => instance.m_releaseOverTime;
     public static AnimationCurve pressureToOffsetValue => instance.m_pressureToOffsetValue;
@@ -33,18 +35,23 @@ public class GameManager : MonoBehaviour
     public static bool IsBalloonHead(int _layer){ return balloonHeadLayermask == (balloonHeadLayermask | (1 << _layer));}
     public static bool IsCactus(int _layer){ return deadLayermask == (deadLayermask | (1 << _layer));}
     public static bool IsPump(int _layer){ return pumpLayermask == (pumpLayermask | (1 << _layer));}
+    public static bool IsBalloon(int _layer){ return balloonLayermask == (balloonLayermask | (1 << _layer));}
     public static float elbowForceToPressure(float elbowDropHeight) { return instance.m_elbowForceToPressure.Evaluate(elbowDropHeight); }
     
     #endregion
+    
+    [Header("Layer")]
+    [SerializeField] private LayerMask m_obstacleLayermask;
+    [SerializeField] private LayerMask m_deadLayermask;
+    [SerializeField] private LayerMask m_balloonHeadLayermask;
+    [SerializeField] private LayerMask m_balloonLayermask;
+    [SerializeField] private LayerMask m_pumpLayermask;
     
     [Header("Balloon")]
     [SerializeField] private List<Vector2> m_possibleInflateDir;
     [SerializeField] private float m_inflateBlendForce = 0.1f;
     [SerializeField] private float m_maxPressure = 3.0f;
-    [SerializeField] private LayerMask m_obstacleLayermask;
-    [SerializeField] private LayerMask m_deadLayermask;
-    [SerializeField] private LayerMask m_balloonHeadLayermask;
-    [SerializeField] private LayerMask m_pumpLayermask;
+    [SerializeField] private GameObject m_ballonBody;
 
     [Header("Pump")] 
     [SerializeField] private AnimationCurve m_elbowForceToPressure;

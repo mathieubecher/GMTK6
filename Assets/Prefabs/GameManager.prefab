@@ -380,12 +380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25f9420e116145499bffb072d4bf2a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_possibleInflateDir:
-  - {x: 0, y: 1}
-  - {x: -1, y: 0}
-  - {x: 1, y: 0}
-  m_inflateBlendForce: 0.1
-  m_maxPressure: 3
   m_obstacleLayermask:
     serializedVersion: 2
     m_Bits: 137
@@ -395,9 +389,19 @@ MonoBehaviour:
   m_balloonHeadLayermask:
     serializedVersion: 2
     m_Bits: 512
+  m_balloonLayermask:
+    serializedVersion: 2
+    m_Bits: 520
   m_pumpLayermask:
     serializedVersion: 2
     m_Bits: 256
+  m_possibleInflateDir:
+  - {x: 0, y: 1}
+  - {x: -1, y: 0}
+  - {x: 1, y: 0}
+  m_inflateBlendForce: 0.1
+  m_maxPressure: 3
+  m_ballonBody: {fileID: 4905541296505704561, guid: adae2ea4cb0f39947b0b5c57cd3cb561, type: 3}
   m_elbowForceToPressure:
     serializedVersion: 2
     m_Curve:
