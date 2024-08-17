@@ -12,9 +12,10 @@ public class Ballon : MonoBehaviour
     [SerializeField] private float m_inflateBlendForce = 0.1f;
     private LineRenderer m_line;
   
-    [Header("Debug")]
-    [SerializeField] private Vector2 m_currentInflateDir;
-    [SerializeField] private Vector2 m_headObjectivePos;
+    private Vector2 m_currentInflateDir;
+    private Vector2 m_headObjectivePos;
+    private bool m_collided;
+    
     void Awake()
     {
         m_line = GetComponent<LineRenderer>();
@@ -33,9 +34,39 @@ public class Ballon : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 desiredPos = Vector2.Lerp(m_head.localPosition, m_headObjectivePos, m_inflateBlendForce);
-        m_head.localPosition = desiredPos;
+        Vector2 delta = (m_headObjectivePos - (Vector2)m_head.localPosition) * m_inflateBlendForce;
+        if (delta.magnitude > 0.01f && !m_collided)
+        {
+            Vector2 desiredPos = CheckCollision(m_head.localPosition, delta);
+        
+            m_head.localPosition = desiredPos;
+        }
         m_line.SetPosition(m_line.positionCount - 1, m_head.position);
+    }
+
+    private Vector2 CheckCollision(Vector2 _currentPos, Vector2 _delta)
+    {
+        //Disable current actor to ignore it
+        gameObject.SetActive(false);
+        
+        RaycastHit2D hit = Physics2D.BoxCast(
+            m_head.position, 
+                Vector2.one * (m_size * 0.99f), 
+                0.0f, 
+                _delta.normalized, 
+                _delta.magnitude
+            );
+
+        Vector2 delta = _delta;
+        
+        if (hit.collider != null)
+        {
+            delta = _delta.normalized * hit.distance;
+            m_collided = true;
+        }
+
+        gameObject.SetActive(true);
+        return _currentPos + delta;
     }
 
     private void ResetBalloon()
