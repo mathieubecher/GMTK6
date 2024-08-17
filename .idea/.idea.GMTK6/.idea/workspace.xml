@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="11ea1a11-314d-4c72-b2c0-f25a7677f266" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Controller/Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Controller/Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Controller/InputActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Controller/InputActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Controller/InputActions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Controller/InputActions.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Locomotion.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Locomotion.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Kick.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Kick.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Jump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Jump.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +15,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Character.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Locomotion/Kick.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.6/Unity.Mathematics/math.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -77,7 +76,7 @@
       <updated>1723798479157</updated>
       <workItem from="1723798482997" duration="3000" />
       <workItem from="1723834598142" duration="12996000" />
-      <workItem from="1723878340252" duration="1540000" />
+      <workItem from="1723878340252" duration="2282000" />
     </task>
     <servers />
   </component>

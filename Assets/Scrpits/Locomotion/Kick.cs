@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Kick : StateMachineBehaviour
@@ -15,6 +16,8 @@ public class Kick : StateMachineBehaviour
         m_character.gravityScale = 0.0f;
         m_character.velocity = Vector2.zero;
         
+        if(math.abs(Controller.instance.tilt) > 0.01f)
+            m_character.animation.transform.localScale = new Vector3(math.sign(Controller.instance.tilt), 1.0f, 1.0f);
         m_character.animation.SetTrigger("Kick");
     }
 

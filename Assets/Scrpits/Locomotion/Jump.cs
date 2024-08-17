@@ -30,6 +30,9 @@ namespace Locomotion
             m_character.gravityScale = 0.0f;
             m_lastPos = 0.0f;
             
+            Vector2 currentSpeed = m_character.velocity;
+            m_character.velocity = new Vector2(m_maxSpeed * Controller.instance.tilt, currentSpeed.y);
+            
             m_character.animation.SetTrigger("Jump");
             m_character.animation.SetBool("inAir", true);
         }
