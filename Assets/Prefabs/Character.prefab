@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_jumpBuffer: 0.2
+  m_kickBuffer: 0.2
   m_jelbowDropBuffer: 0.2
   m_detectGround: {fileID: 661632960903842071}
   animation: {fileID: 3873913011968986043}
