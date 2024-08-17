@@ -29,6 +29,9 @@ public class Controller : MonoBehaviour
     public static event SimpleEvent OnElbowDropPress;
     public static event SimpleEvent OnElbowDropRelease;
     
+    public static event SimpleEvent OnKickPress;
+    public static event SimpleEvent OnKickRelease;
+    
     public void ReadMoveInput(InputAction.CallbackContext _context)
     {
         float input = _context.ReadValue<float>();
@@ -56,6 +59,18 @@ public class Controller : MonoBehaviour
         else if (_context.canceled)
         {
             OnElbowDropRelease?.Invoke();
+        }
+    }
+    
+    public void ReadKickInput(InputAction.CallbackContext _context)
+    {
+        if (_context.performed)
+        {
+            OnKickPress?.Invoke(); 
+        }
+        else if (_context.canceled)
+        {
+            OnKickRelease?.Invoke();
         }
     }
     

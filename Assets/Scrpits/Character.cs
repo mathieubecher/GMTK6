@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
 {
     [Header("Input")]
     [SerializeField] private float m_jumpBuffer = 0.2f;
+    [SerializeField] private float m_kickBuffer = 0.2f;
     [SerializeField] private float m_jelbowDropBuffer = 0.2f;
     
     [Header("System")]
@@ -40,12 +41,14 @@ public class Character : MonoBehaviour
     {
         Controller.OnJumpPress += JumpPress;
         Controller.OnElbowDropPress += ElbowDropPress;
+        Controller.OnKickPress += KickPress;
     }
 
     void OnDisable()
     {
         Controller.OnJumpPress -= JumpPress;
         Controller.OnElbowDropPress -= ElbowDropPress;
+        Controller.OnKickPress -= KickPress;
         
     }
 
@@ -72,6 +75,12 @@ public class Character : MonoBehaviour
     {
         Debug.Log("ElbowDrop");
         StartCoroutine(TryPlayAction("ElbowDrop", m_jelbowDropBuffer));
+    }
+    
+    private void KickPress()
+    {
+        Debug.Log("Kick");
+        StartCoroutine(TryPlayAction("Kick", m_kickBuffer));
     }
     
     private IEnumerator TryPlayAction(string _name, float _buffer)
