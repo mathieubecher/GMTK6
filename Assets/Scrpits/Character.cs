@@ -17,8 +17,8 @@ public class Character : MonoBehaviour
     private Animator m_locomotion;
     
     #region getter and setter
-    public bool onGround {get => m_detectGround.OnGround(); }
-    public void IgnoreKoyoteeTime() { m_detectGround.IgnoreKoyoteeTime(); }
+    public bool onGround => m_detectGround.OnGround();
+    public float elbowDropHeight => m_locomotion.GetFloat("elbowDropHeight");
 
     public float gravityScale
     {
@@ -66,20 +66,17 @@ public class Character : MonoBehaviour
 
     private void JumpPress()
     {
-        Debug.Log("Jump");
         StartCoroutine(TryPlayAction("Jump", m_jumpBuffer));
 
     }
 
     private void ElbowDropPress()
     {
-        Debug.Log("ElbowDrop");
         StartCoroutine(TryPlayAction("ElbowDrop", m_jelbowDropBuffer));
     }
     
     private void KickPress()
     {
-        Debug.Log("Kick");
         StartCoroutine(TryPlayAction("Kick", m_kickBuffer));
     }
     

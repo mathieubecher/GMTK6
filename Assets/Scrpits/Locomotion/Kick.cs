@@ -43,7 +43,7 @@ public class Kick : StateMachineBehaviour
 
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Balloon"))
+                if (GameManager.IsBalloonHead(hit.collider.gameObject.layer))
                 {
                     if (hit.collider.transform.parent.TryGetComponent(out Balloon ballon))
                     {

@@ -1,47 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DetectGround : MonoBehaviour
 {
-    [SerializeField] private float coyoteeTime = 1f;
-    [SerializeField] private List<Collider2D> _contacts;
-    private float _coyoteeTimer = 0.0f;
-    public bool OnGround(){return (_contacts != null && _contacts.Count > 0) || _coyoteeTimer < coyoteeTime;}
+    [SerializeField] private List<Collider2D> m_contacts;
+
+    private Character m_character;
+    public bool OnGround(){return (m_contacts != null && m_contacts.Count > 0);}
 
     void Awake()
     {
-        _contacts = new List<Collider2D>();
-        _coyoteeTimer = coyoteeTime;
+        m_character = transform.parent.GetComponent<Character>();
+        m_contacts = new List<Collider2D>();
     }
 
-    void Update()
-    {
-        if (_contacts.Count == 0 && _coyoteeTimer < coyoteeTime)
-            _coyoteeTimer += Time.deltaTime;
-    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.isTrigger) return;
-        _contacts.Add(other);
-        _coyoteeTimer = 0.0f;
+        m_contacts.Add(other);
+        transform.parent.parent = other.transform;
+        if (GameManager.IsPump(other.gameObject.layer) && other.TryGetComponent(out Pump _pump))
+        {
+            _pump.Press(m_character.elbowDropHeight);
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.isTrigger || _contacts.Count == 0) return;
-        _contacts.Remove(other);
+        if (other.isTrigger || m_contacts.Count == 0) return;
+        if (GameManager.IsPump(other.gameObject.layer) && other.TryGetComponent(out Pump _pump))
+        {
+            _pump.Release();
+        }
+        
+        if(transform.parent.parent == other.transform)
+            transform.parent.parent = null;
+        
+        m_contacts.Remove(other);
     }
 
     public void ForceAir()
     {
-        _contacts = new List<Collider2D>();
-        _coyoteeTimer = coyoteeTime;
+        m_contacts = new List<Collider2D>();
+        transform.parent.parent = null;
         
-    }
-
-    public void IgnoreKoyoteeTime()
-    {
-        _coyoteeTimer = coyoteeTime;
     }
 }

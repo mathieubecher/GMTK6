@@ -26,7 +26,6 @@ namespace Locomotion
             m_timer = 0.0f;
             animator.SetFloat("currentTimer", 0.0f);
 
-            m_character.IgnoreKoyoteeTime();
             m_character.gravityScale = 0.0f;
             m_lastPos = 0.0f;
             

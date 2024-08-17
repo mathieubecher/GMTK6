@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 
@@ -37,17 +38,7 @@ public class Balloon : MonoBehaviour
         m_line.SetPositions(new Vector3[]{transform.position, m_headObjectivePos });
         m_line.widthMultiplier = m_size;
     }
-    void OnEnable()
-    {
-        Controller.OnElbowDropPress += DebugInflate;
-    }
-
-    void OnDisable()
-    {
-        Controller.OnElbowDropPress -= DebugInflate;
-        
-    }
-
+    
     void FixedUpdate()
     {
         Vector2 delta = (m_headObjectivePos - (Vector2)m_head.position) * GameManager.inflateBlendForce;
@@ -61,16 +52,11 @@ public class Balloon : MonoBehaviour
     {
         ResetBalloon();
     }
-
-    private void DebugInflate()
-    {
-        Inflate();
-    }
+    
 
     public void Inflate(float _value = 1.0f)
     {
-        if(!m_collided || m_pressure < GameManager.maxPressure) 
-            m_headObjectivePos += m_currentInflateDir * _value;
+        m_headObjectivePos += m_currentInflateDir * (m_collided ? math.min(_value, GameManager.maxPressure - m_pressure) : _value);
     }
 
     public void Hit(Vector2 _dir)
@@ -96,7 +82,7 @@ public class Balloon : MonoBehaviour
         
         if (hit.collider != null)
         {
-            if (GameManager.deadLayermask == (GameManager.deadLayermask | (1 << hit.collider.gameObject.layer)))
+            if (GameManager.IsCactus(hit.collider.gameObject.layer))
             {
                 Explode();
                 desiredPosition = m_head.position;
