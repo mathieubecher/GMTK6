@@ -50,6 +50,8 @@ MonoBehaviour:
   m_head: {fileID: 6512380097319148071}
   m_size: 2
   m_defaultDir: {x: 0, y: 1}
+  m_resetAtExplode: 0
+  m_color: {r: 0.37072107, g: 1, b: 0.3443396, a: 0}
 --- !u!120 &5812934231550645577
 LineRenderer:
   serializedVersion: 2

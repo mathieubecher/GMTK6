@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class Balloon : MonoBehaviour
     [SerializeField] private Transform m_head;
     [SerializeField] private float m_size = 2.0f;
     [SerializeField] private Vector2 m_defaultDir;
+    [SerializeField] private bool m_resetAtExplode;
+    [SerializeField] private Color m_color;
     private LineRenderer m_line;
   
     private Vector2 m_currentInflateDir;
@@ -32,6 +35,7 @@ public class Balloon : MonoBehaviour
         
         m_head.localScale = Vector3.one * m_size;
         m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
+        m_head.GetChild(0).GetComponent<SpriteRenderer>().color = m_color;
         
         m_headObjectivePos = transform.position + new Vector3(0.0f, m_size / 2.0f, 0.0f);
         m_head.position = m_headObjectivePos;
@@ -39,7 +43,7 @@ public class Balloon : MonoBehaviour
         m_line.positionCount = 2;
         m_line.SetPositions(new Vector3[]{m_headObjectivePos, m_headObjectivePos });
         
-        foreach (Transform body in m_balloonBodies) Destroy(body);
+        foreach (Transform body in m_balloonBodies) Destroy(body.gameObject);
         m_balloonBodies = new List<Transform>();
         AddBody();
         UpdateBodyPosition();
@@ -59,6 +63,7 @@ public class Balloon : MonoBehaviour
     private void AddBody()
     {
         GameObject instance = Instantiate(GameManager.balloonBody, Vector3.zero, Quaternion.identity);
+        instance.GetComponent<SpriteRenderer>().color = m_color;
         m_balloonBodies.Add(instance.transform);
     }
     private void UpdateBodyPosition()

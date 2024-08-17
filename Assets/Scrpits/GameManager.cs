@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     }
 
     public static List<Vector2> possibleInflateDir => instance.m_possibleInflateDir;
-    
     public static GameObject balloonBody => instance.m_ballonBody;
     public static float inflateBlendForce => instance.m_inflateBlendForce;
     public static float maxPressure => instance.m_maxPressure;
@@ -59,6 +58,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AnimationCurve m_releaseOverTime;
     [SerializeField] private AnimationCurve m_pressureToOffsetValue;
     [SerializeField] private AnimationCurve m_offsetValueToPressDuration;
+    
     public static float TimeFromValue(AnimationCurve c, float value, float precision = 1e-6f)
     {
         float minTime = c.keys[0].time;
@@ -81,4 +81,18 @@ public class GameManager : MonoBehaviour
         return best;
     }
 
+    public void OnEnable()
+    {
+        Controller.OnReset += Reset;
+    }
+
+    public void OnDisable()
+    {
+        Controller.OnReset -= Reset;
+    }
+
+    private void Reset()
+    {
+        
+    }
 }
