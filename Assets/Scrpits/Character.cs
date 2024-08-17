@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -87,4 +88,18 @@ public class Character : MonoBehaviour
         m_locomotion.ResetTrigger(_name);
     }
 
+    private void OnCollisionEnter2D(Collision2D _collision)
+    {
+        foreach (var contact in _collision.contacts)
+        {
+            Debug.Log(contact.normal);
+            if (Vector2.Dot(contact.normal, Vector2.up) < 0.0f)
+            {
+                Debug.Log("Ceil");
+                StartCoroutine(TryPlayAction("CeilBump", 0.033f));
+                break;
+            }
+        }
+        //col.contacts[0].normal
+    }
 }

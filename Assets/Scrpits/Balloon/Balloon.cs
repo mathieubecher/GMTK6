@@ -59,17 +59,17 @@ public class Balloon : MonoBehaviour
     private void AddBody()
     {
         GameObject instance = Instantiate(GameManager.balloonBody, Vector3.zero, Quaternion.identity);
-        if (math.abs(m_currentInflateDir.y) > 0.0f) instance.GetComponent<Collider2D>().enabled = false;
         m_balloonBodies.Add(instance.transform);
     }
     private void UpdateBodyPosition()
     {
+        bool isUp = (math.abs(m_currentInflateDir.y) > 0.0f);
         Vector2 pointB = m_line.GetPosition(m_line.positionCount - 1);
         Vector2 pointA = m_line.GetPosition(m_line.positionCount - 2);
-        m_balloonBodies[^1].position = (pointA + pointB)/ 2.0f - m_currentInflateDir * m_size / 2.0f;
+        m_balloonBodies[^1].position = (pointA + pointB)/ 2.0f - (isUp ? Vector2.zero : m_currentInflateDir * m_size / 2.0f);
         m_balloonBodies[^1].localScale = new Vector2(
-            math.abs(pointA.x - pointB.x) + (math.abs(m_currentInflateDir.x) > 0.0f ? 0.0f : m_size),
-            math.abs(pointA.y - pointB.y) + (math.abs(m_currentInflateDir.y) > 0.0f ? 0.0f : m_size)
+            math.abs(pointA.x - pointB.x) + (isUp ? m_size : 0.0f),
+            math.abs(pointA.y - pointB.y) + m_size
             );
     }
 
