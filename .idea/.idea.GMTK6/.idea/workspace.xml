@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11ea1a11-314d-4c72-b2c0-f25a7677f266" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scrpits/Ballon/Balloon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ballon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Ballon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Palette.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Palette.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ballon.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ballon.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Grid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Grid.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Ballon/Ballon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Ballon/Ballon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Ballon/Ballon.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Ballon/Ballon.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Ballon/Balloon.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Kick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Kick.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Locomotion.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Locomotion.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +23,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Ballon/Ballon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/54724222b7684530a2810ae1eac94ec7176000/2c/1958c87b/LayerMask.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Ballon/Balloon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Character.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Locomotion/Kick.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.6/Unity.Mathematics/math.cs" root0="SKIP_HIGHLIGHTING" />
@@ -80,7 +88,7 @@
       <workItem from="1723798482997" duration="3000" />
       <workItem from="1723834598142" duration="12996000" />
       <workItem from="1723878340252" duration="9007000" />
-      <workItem from="1723891699494" duration="1846000" />
+      <workItem from="1723891699494" duration="13585000" />
     </task>
     <servers />
   </component>

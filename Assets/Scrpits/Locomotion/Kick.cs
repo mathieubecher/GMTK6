@@ -5,12 +5,19 @@ using UnityEngine;
 
 public class Kick : StateMachineBehaviour
 {
+    [SerializeField] private Vector2 m_kickOffset;
+    [SerializeField] private float m_kickDist = 1.5f;
+    [SerializeField] private float m_kickTime = 0.3f;
+    [SerializeField] private LayerMask m_layermask;
+    
     private Character m_character;
-        
+    private float m_timer;
+    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_character = animator.GetComponent<Character>();
+        m_timer = 0.0f;
         animator.SetFloat("currentTimer", 0.0f);
             
         m_character.gravityScale = 0.0f;
@@ -24,7 +31,28 @@ public class Kick : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-            
+        if (m_kickTime - m_timer > 0.0f && m_kickTime - m_timer <= Time.deltaTime)
+        {
+            Vector2 dir = m_character.animation.transform.localScale.x > 0.0f ? Vector2.right : Vector2.left;
+            RaycastHit2D hit = Physics2D.Raycast(
+                (Vector2)animator.transform.position + m_kickOffset, 
+                dir, 
+                m_kickDist,
+                m_layermask
+            );
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Balloon"))
+                {
+                    if (hit.collider.transform.parent.TryGetComponent(out Balloon ballon))
+                    {
+                        ballon.Hit(dir);
+                    }
+                }
+            }
+        }
+        m_timer += Time.deltaTime;
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

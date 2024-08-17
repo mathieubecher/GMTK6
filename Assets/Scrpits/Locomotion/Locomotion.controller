@@ -546,6 +546,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7477bbf9b355dad44befb3feac84f68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_kickOffset: {x: 0, y: 1.25}
+  m_kickDist: 2
+  m_kickTime: 0.1
+  m_layermask:
+    serializedVersion: 2
+    m_Bits: 9
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
