@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
     public static LayerMask deadLayermask => instance.m_deadLayermask;
     public static LayerMask balloonHeadLayermask => instance.m_balloonHeadLayermask;
     public static LayerMask pumpLayermask => instance.m_pumpLayermask;
+    
+    public static AnimationCurve pumpPressOverTime => instance.m_pressOverTime;
+    public static AnimationCurve pumpReleaseOverTime => instance.m_releaseOverTime;
+    public static AnimationCurve pressureToOffsetValue => instance.m_pressureToOffsetValue;
+    public static AnimationCurve offsetValueToPressDuration => instance.m_offsetValueToPressDuration;
     public static bool IsBalloonHead(int _layer){ return balloonHeadLayermask == (balloonHeadLayermask | (1 << _layer));}
     public static bool IsCactus(int _layer){ return deadLayermask == (deadLayermask | (1 << _layer));}
     public static bool IsPump(int _layer){ return pumpLayermask == (pumpLayermask | (1 << _layer));}
@@ -43,8 +48,10 @@ public class GameManager : MonoBehaviour
 
     [Header("Pump")] 
     [SerializeField] private AnimationCurve m_elbowForceToPressure;
-    [SerializeField] private AnimationCurve m_press;
-    [SerializeField] private AnimationCurve m_releaseSpeed;
+    [SerializeField] private AnimationCurve m_pressOverTime;
+    [SerializeField] private AnimationCurve m_releaseOverTime;
+    [SerializeField] private AnimationCurve m_pressureToOffsetValue;
+    [SerializeField] private AnimationCurve m_offsetValueToPressDuration;
     public static float TimeFromValue(AnimationCurve c, float value, float precision = 1e-6f)
     {
         float minTime = c.keys[0].time;

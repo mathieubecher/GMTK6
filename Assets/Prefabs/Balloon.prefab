@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 6512380097319148071}
   - component: {fileID: 6619406311902973833}
   - component: {fileID: 7652468102850802034}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:

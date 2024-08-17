@@ -282,236 +282,304 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_pumpLayermask.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_press.m_Curve.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
       propertyPath: m_balloonHeadLayermask.m_Bits
-      value: 8
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.size
+      propertyPath: m_pressOverTime.m_Curve.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_press.m_Curve.Array.data[1].time
-      value: 0.19903408
+      propertyPath: m_releaseOverTime.m_Curve.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_press.m_Curve.Array.data[2].time
-      value: 0.4
+      propertyPath: m_pressOverTime.m_Curve.Array.data[1].time
+      value: 0.72188854
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_press.m_Curve.Array.data[0].value
+      propertyPath: m_pressOverTime.m_Curve.Array.data[2].time
+      value: 0.9026785
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_pressOverTime.m_Curve.Array.data[3].time
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_press.m_Curve.Array.data[1].value
+      propertyPath: m_pressureToOffsetValue.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_pressOverTime.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_pressOverTime.m_Curve.Array.data[1].value
       value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_press.m_Curve.Array.data[0].inSlope
-      value: -10.504257
+      propertyPath: m_pressOverTime.m_Curve.Array.data[2].value
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_press.m_Curve.Array.data[1].inSlope
-      value: -0.0066256607
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[1].time
+      value: 0.8966401
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_press.m_Curve.Array.data[0].outSlope
-      value: -10.504257
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_press.m_Curve.Array.data[1].inWeight
-      value: 0.17526734
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_press.m_Curve.Array.data[1].outSlope
-      value: -0.0066256607
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_press.m_Curve.Array.data[0].outWeight
-      value: 0.072002046
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[1].time
-      value: 0.18455048
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[2].time
-      value: 0.26167282
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[3].time
-      value: 0.2914151
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[1].value
-      value: 1.1388414
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[2].value
-      value: 0.9382324
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[3].value
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[2].time
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[0].inSlope
-      value: 7.8509936
+      propertyPath: m_pressOverTime.m_Curve.Array.data[0].inSlope
+      value: -2.2576063
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[1].inSlope
-      value: 0.009255662
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[1].value
+      value: 1.1047865
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[2].inSlope
-      value: -0.0010644895
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[2].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[0].outSlope
-      value: 7.8509936
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[1].inWeight
+      propertyPath: m_pressOverTime.m_Curve.Array.data[0].inWeight
       value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[1].outSlope
-      value: 0.009255662
+      propertyPath: m_pressOverTime.m_Curve.Array.data[0].outSlope
+      value: -2.2576063
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[2].inWeight
-      value: 1
+      propertyPath: m_pressOverTime.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[2].outSlope
-      value: -0.0010644895
+      propertyPath: m_pressOverTime.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[0].outWeight
-      value: 0.15546921
+      propertyPath: m_pressOverTime.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_releaseSpeed.m_Curve.Array.data[1].outWeight
-      value: 0.91229093
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[1].time
-      value: 1
+      propertyPath: m_pressOverTime.m_Curve.Array.data[0].outWeight
+      value: 0.09976153
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_pressOverTime.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_pressOverTime.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_pressOverTime.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[0].inSlope
+      value: 0.04830066
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[1].inSlope
+      value: -0.038889013
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[0].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[0].outSlope
+      value: 0.04830066
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[1].outSlope
+      value: -0.038889013
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
       propertyPath: m_elbowForceToPressure.m_Curve.Array.data[2].time
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[3].time
-      value: 6
+      propertyPath: m_pressOverTime.m_Curve.Array.data[1].tangentMode
+      value: 136
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[4].time
-      value: 10
+      propertyPath: m_pressOverTime.m_Curve.Array.data[2].tangentMode
+      value: 136
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[1].value
+      propertyPath: m_pressOverTime.m_Curve.Array.data[3].tangentMode
+      value: 136
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[0].outWeight
+      value: 0.23914288
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[1].outWeight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[2].value
-      value: 3
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[3].value
-      value: 6
+      propertyPath: m_pressureToOffsetValue.m_Curve.Array.data[0].time
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[4].value
+      propertyPath: m_pressureToOffsetValue.m_Curve.Array.data[1].time
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[0].inSlope
-      value: Infinity
+      propertyPath: m_pressureToOffsetValue.m_Curve.Array.data[0].value
+      value: 0.29892635
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_pressureToOffsetValue.m_Curve.Array.data[1].value
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_releaseOverTime.m_Curve.Array.data[2].tangentMode
+      value: 136
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
       propertyPath: m_elbowForceToPressure.m_Curve.Array.data[1].inSlope
-      value: 1
+      value: Infinity
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
       propertyPath: m_elbowForceToPressure.m_Curve.Array.data[2].inSlope
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
       propertyPath: m_elbowForceToPressure.m_Curve.Array.data[3].inSlope
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[4].inSlope
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[0].outSlope
-      value: Infinity
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
       propertyPath: m_elbowForceToPressure.m_Curve.Array.data[1].outSlope
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[2].outSlope
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[3].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[3].outSlope
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[4].outSlope
       value: Infinity
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[1].outWeight
-      value: 0.3495475
+      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[2].outSlope
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[3].outWeight
+      propertyPath: m_pressureToOffsetValue.m_Curve.Array.data[1].inSlope
+      value: 0.0012276948
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[1].outWeight
       value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[0].tangentMode
-      value: 103
+      propertyPath: m_pressureToOffsetValue.m_Curve.Array.data[0].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_pressureToOffsetValue.m_Curve.Array.data[0].outSlope
+      value: 0.17293581
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_pressureToOffsetValue.m_Curve.Array.data[1].inWeight
+      value: 0.27053705
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[0].time
+      value: 0.0045716614
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[1].time
+      value: 0.20457166
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[2].time
+      value: 0.4988426
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_pressureToOffsetValue.m_Curve.Array.data[0].outWeight
+      value: 0.049633846
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_pressureToOffsetValue.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
       propertyPath: m_elbowForceToPressure.m_Curve.Array.data[1].tangentMode
-      value: 69
+      value: 103
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[2].tangentMode
-      value: 69
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[0].value
+      value: 0.15063356
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[3].tangentMode
-      value: 69
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[1].value
+      value: 0.15063356
       objectReference: {fileID: 0}
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
-      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[4].tangentMode
-      value: 69
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[2].value
+      value: 0.2995923
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_elbowForceToPressure.m_Curve.Array.data[1].weightedMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_pressureToOffsetValue.m_Curve.Array.data[0].tangentMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_pressureToOffsetValue.m_Curve.Array.data[1].tangentMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[0].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[0].tangentMode
+      value: 136
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[1].tangentMode
+      value: 136
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_offsetValueToPressDuration.m_Curve.Array.data[2].tangentMode
+      value: 136
       objectReference: {fileID: 0}
     - target: {fileID: 5236268846978333153, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
       propertyPath: m_LocalPosition.x
