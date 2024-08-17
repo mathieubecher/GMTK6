@@ -34,6 +34,8 @@ public class Controller : MonoBehaviour
     public static event SimpleEvent OnKickPress;
     public static event SimpleEvent OnKickRelease;
     
+    public static event SimpleEvent OnReset;
+    
     public void ReadMoveInput(InputAction.CallbackContext _context)
     {
         float input = _context.ReadValue<float>();
@@ -75,6 +77,13 @@ public class Controller : MonoBehaviour
             OnKickRelease?.Invoke();
         }
     }
-    
+
+    public void ReadResetInput(InputAction.CallbackContext _context)
+    {
+        if (_context.performed)
+        {
+            OnReset?.Invoke();
+        }
+    }
     
 }

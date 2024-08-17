@@ -382,7 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_obstacleLayermask:
     serializedVersion: 2
-    m_Bits: 137
+    m_Bits: 649
   m_deadLayermask:
     serializedVersion: 2
     m_Bits: 128
@@ -729,6 +729,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: bd933c7a-e591-4ae2-8517-6e57e08a0ff4
     m_ActionName: Default/Kick[/Mouse/leftButton,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8173852285411618277}
+        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+        m_MethodName: ReadResetInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6580b0fb-f2ae-4c01-94cf-5bf7a5b65d79
+    m_ActionName: Default/Reset[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Mouse and Keyboard
   m_DefaultActionMap: Default
