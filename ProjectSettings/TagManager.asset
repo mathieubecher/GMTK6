@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Balloon
   - Water
   - UI
   - Character
@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 67208413
+    locked: 0
+  - name: Balloon
+    uniqueID: 2227348717
+    locked: 0
+  - name: Player
+    uniqueID: 469808901
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
