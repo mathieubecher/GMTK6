@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,6 +21,7 @@ public class Controller : MonoBehaviour
     }
     #endregion
 
+    [SerializeField] private AnimationCurve m_deadzone;
     [HideInInspector] public float tilt;
 
     public delegate void SimpleEvent();
@@ -35,7 +37,7 @@ public class Controller : MonoBehaviour
     public void ReadMoveInput(InputAction.CallbackContext _context)
     {
         float input = _context.ReadValue<float>();
-        tilt = input; 
+        tilt = m_deadzone.Evaluate(math.abs(input)) * math.sign(input); 
     }
     
     public void ReadJumpInput(InputAction.CallbackContext _context)

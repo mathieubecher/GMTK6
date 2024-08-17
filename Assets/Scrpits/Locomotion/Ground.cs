@@ -23,7 +23,10 @@ namespace Locomotion
             animator.SetFloat("currentTimer", 0.0f);
             
             m_character.gravityScale = 1.0f;
+            float desiredSpeed = m_runSpeed * Controller.instance.tilt;
+            m_character.velocity = new Vector2(desiredSpeed, m_character.velocity.y);
             
+            m_character.animation.SetFloat("speed", desiredSpeed);
             m_character.animation.SetBool("inAir", false);
         }
 
