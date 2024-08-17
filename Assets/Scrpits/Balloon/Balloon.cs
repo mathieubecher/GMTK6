@@ -31,7 +31,7 @@ public class Balloon : MonoBehaviour
         m_collided = false;
         
         m_head.localScale = Vector3.one * m_size;
-        m_head.localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
+        m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
         
         m_headObjectivePos = transform.position + new Vector3(0.0f, m_size / 2.0f, 0.0f);
         m_head.position = m_headObjectivePos;
@@ -59,14 +59,18 @@ public class Balloon : MonoBehaviour
     private void AddBody()
     {
         GameObject instance = Instantiate(GameManager.balloonBody, Vector3.zero, Quaternion.identity);
+        if (math.abs(m_currentInflateDir.y) > 0.0f) instance.GetComponent<Collider2D>().enabled = false;
         m_balloonBodies.Add(instance.transform);
     }
     private void UpdateBodyPosition()
     {
-        Vector2 pointA = m_line.GetPosition(m_line.positionCount - 1);
-        Vector2 pointB = m_line.GetPosition(m_line.positionCount - 2);
-        m_balloonBodies[^1].position = (pointA + pointB)/ 2.0f;
-        m_balloonBodies[^1].localScale = new Vector2(math.abs(pointA.x - pointB.x) + m_size, math.abs(pointA.y - pointB.y) + m_size);
+        Vector2 pointB = m_line.GetPosition(m_line.positionCount - 1);
+        Vector2 pointA = m_line.GetPosition(m_line.positionCount - 2);
+        m_balloonBodies[^1].position = (pointA + pointB)/ 2.0f - m_currentInflateDir * m_size / 2.0f;
+        m_balloonBodies[^1].localScale = new Vector2(
+            math.abs(pointA.x - pointB.x) + (math.abs(m_currentInflateDir.x) > 0.0f ? 0.0f : m_size),
+            math.abs(pointA.y - pointB.y) + (math.abs(m_currentInflateDir.y) > 0.0f ? 0.0f : m_size)
+            );
     }
 
     private void Explode()
@@ -130,7 +134,7 @@ public class Balloon : MonoBehaviour
     private void ActiveCollider(bool _active, int _nb = 3)
     {
         gameObject.SetActive(_active);
-        for (int i = m_balloonBodies.Count - 1; i >= m_balloonBodies.Count - 3 && i >= 0; --i)
+        for (int i = m_balloonBodies.Count - 1; i >= m_balloonBodies.Count - _nb && i >= 0; --i)
         {
             m_balloonBodies[i].gameObject.SetActive(_active);
         }
@@ -168,10 +172,10 @@ public class Balloon : MonoBehaviour
 
     private void UpdateDirection(Vector2 _dir, Vector2 _currentPos)
     {
-        m_currentInflateDir = _dir;
         m_line.SetPosition(m_line.positionCount - 1, _currentPos);
         UpdateBodyPosition();
         
+        m_currentInflateDir = _dir;
         ++m_line.positionCount;
         m_line.SetPosition(m_line.positionCount - 1, _currentPos);
         AddBody();
@@ -179,6 +183,6 @@ public class Balloon : MonoBehaviour
         
         m_headObjectivePos = _currentPos + m_currentInflateDir * (m_headObjectivePos - _currentPos).magnitude;
         m_collided = false;
-        m_head.localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
+        m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
     }
 }
