@@ -219,7 +219,6 @@ public class Balloon : MonoBehaviour
 
     private void UpdateDirection(Vector2 _dir, Vector2 _currentPos)
     {
-        Debug.LogWarning("Update direction");
         m_line.SetPosition(m_line.positionCount - 1, _currentPos);
         if(m_line.positionCount > 1 && m_balloonBodies.Count > 0) UpdateBodyPosition();
         
