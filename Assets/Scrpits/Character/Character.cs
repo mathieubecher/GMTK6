@@ -117,6 +117,11 @@ public class Character : MonoBehaviour
     {
         foreach (var contact in _collision.contacts)
         {
+            if(GameManager.IsCactus(contact.collider.gameObject.layer))
+            {
+                m_locomotion.SetBool("dead", true);
+                GameManager.instance.Reset();
+            }
             if (!contact.collider.usedByEffector && Vector2.Dot(contact.normal, Vector2.up) < 0.0f)
             {
                 StartCoroutine(TryPlayAction("CeilBump", 0.033f));

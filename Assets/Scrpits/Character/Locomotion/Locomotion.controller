@@ -42,7 +42,7 @@ MonoBehaviour:
   m_inflateSpeed: 1
   m_layermask:
     serializedVersion: 2
-    m_Bits: 520
+    m_Bits: 512
 --- !u!1101 &-8466371504343392166
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
