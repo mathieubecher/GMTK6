@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public static Vector2 downInflateDir => instance.m_downInflateDir;
     public static GameObject balloonBody => instance.m_ballonBody;
     public static float inflateBlendForce => instance.m_inflateBlendForce;
+    public static float explodeSpeed => instance.m_explodeSpeed;
     public static float maxPressure => instance.m_maxPressure;
     public static AnimationCurve pumpPressOverTime => instance.m_pressOverTime;
     public static AnimationCurve pumpReleaseOverTime => instance.m_releaseOverTime;

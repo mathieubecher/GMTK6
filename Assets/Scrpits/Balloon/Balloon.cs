@@ -86,7 +86,26 @@ public class Balloon : MonoBehaviour
 
     private void UpdateExplode()
     {
+        if (m_line.positionCount <= m_saveLineId) return;
         
+        Vector2 currentDir = -m_currentInflateDir;
+        float delta = GameManager.explodeSpeed * Time.deltaTime;
+        
+        m_head.gameObject.SetActive(false);
+        m_head.position += (Vector3)currentDir * delta;
+        if (Vector3.Distance(m_head.position, m_line.GetPosition(m_line.positionCount - 2)) < delta)
+        {
+            --m_line.positionCount;
+            Destroy(m_balloonBodies[^1].gameObject);
+            m_balloonBodies.RemoveAt(m_balloonBodies.Count - 1);
+
+            if (m_line.positionCount <= 1) return; 
+            
+            m_currentInflateDir = (m_line.GetPosition(m_line.positionCount - 1) - m_line.GetPosition(m_line.positionCount - 2)).normalized;
+        }
+        
+        m_line.SetPosition(m_line.positionCount - 1, m_head.position);
+        UpdateBodyPosition();
     }
 
     private void UpdateInflate()
@@ -116,14 +135,19 @@ public class Balloon : MonoBehaviour
         bool isUp = (math.abs(m_currentInflateDir.y) > 0.0f);
         Vector2 pointB = m_line.GetPosition(m_line.positionCount - 1);
         Vector2 pointA = m_line.GetPosition(m_line.positionCount - 2);
-        m_balloonBodies[^1].transform.position = (pointA + pointB)/ 2.0f - (isUp ? Vector2.zero : m_currentInflateDir * m_size / 2.0f);
-        
+        m_balloonBodies[^1].transform.position = (pointA + pointB)/ 2.0f;
         Vector2 size = new Vector2(
-            math.abs(pointA.x - pointB.x) + (isUp ? m_size : 0.0f),
+            math.abs(pointA.x - pointB.x) + m_size,
             math.abs(pointA.y - pointB.y) + m_size
         );
         m_balloonBodies[^1].size = size;
-        m_balloonBodies[^1].transform.GetChild(0).localScale = size;
+
+        Vector2 colSize = new Vector2(size.x - (isUp ? 0.0f : m_size), size.y);
+
+        m_balloonBodies[^1].transform.GetChild(0).localScale = colSize;
+        
+        m_balloonBodies[^1].transform.GetChild(0).localPosition = 
+            isUp ? Vector2.zero : new Vector2(-m_size / 2.0f, 0.0f);
     }
 
     public void Inflate(float _value = 1.0f)
@@ -158,7 +182,6 @@ public class Balloon : MonoBehaviour
             if (GameManager.IsCactus(hit.collider.gameObject.layer))
             {
                 Explode();
-                return 0.0f;
             }
             else
             {
@@ -177,7 +200,7 @@ public class Balloon : MonoBehaviour
 
     private void ActiveCollider(bool _active, int _nb = 3)
     {
-        gameObject.SetActive(_active);
+        m_head.gameObject.SetActive(_active);
         
         for (int i = m_balloonBodies.Count - 1; i >= m_balloonBodies.Count - _nb && i >= 0; --i)
         {
@@ -246,12 +269,11 @@ public class Balloon : MonoBehaviour
     private void Explode()
     {
         Debug.Log("Explode");
-        ActiveCollider(false, 1000);
         m_explode = true;
         
         if (m_resetAtExplode)
         {
-            GameManager.instance.Reset();
+            //GameManager.instance.Reset();
         }
     }
 

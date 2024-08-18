@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Balloon/Balloon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Balloon/Balloon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Kick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Kick.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +13,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/54724222b7684530a2810ae1eac94ec7176000/2c/1958c87b/LayerMask.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/54724222b7684530a2810ae1eac94ec7176000/af/6d5c10bf/LineRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Balloon/DetectCheckpoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Character.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Locomotion/Kick.cs" root0="FORCE_HIGHLIGHTING" />
@@ -81,7 +81,7 @@
       <workItem from="1723834598142" duration="12996000" />
       <workItem from="1723878340252" duration="9007000" />
       <workItem from="1723891699494" duration="37280000" />
-      <workItem from="1723965416197" duration="32612000" />
+      <workItem from="1723965416197" duration="35674000" />
     </task>
     <servers />
   </component>
