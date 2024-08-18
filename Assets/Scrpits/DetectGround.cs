@@ -8,7 +8,7 @@ public class DetectGround : MonoBehaviour
     [SerializeField] private List<Collider2D> m_contacts;
 
     private Character m_character;
-    public bool OnGround(){return m_contacts != null && m_contacts.Count > 0 && m_character.velocity.y < 1.0f;}
+    public bool isOnGround => m_contacts != null && m_contacts.Count > 0 && m_character.velocity.y < 1.0f;
 
     void Awake()
     {

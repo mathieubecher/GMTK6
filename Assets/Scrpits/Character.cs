@@ -18,7 +18,7 @@ public class Character : MonoBehaviour
     private Animator m_locomotion;
     
     #region getter and setter
-    public bool onGround => m_detectGround.OnGround();
+    public bool isOnGround => m_detectGround.isOnGround;
     public float elbowDropHeight => m_locomotion.GetFloat("elbowDropHeight");
 
     public float gravityScale
@@ -43,6 +43,7 @@ public class Character : MonoBehaviour
     {
         Controller.OnJumpPress += JumpPress;
         Controller.OnElbowDropPress += ElbowDropPress;
+        Controller.OnElbowDropRelease += ElbowDropRelease;
         Controller.OnKickPress += KickPress;
     }
 
@@ -50,6 +51,7 @@ public class Character : MonoBehaviour
     {
         Controller.OnJumpPress -= JumpPress;
         Controller.OnElbowDropPress -= ElbowDropPress;
+        Controller.OnElbowDropRelease += ElbowDropRelease;
         Controller.OnKickPress -= KickPress;
         
     }
@@ -62,7 +64,7 @@ public class Character : MonoBehaviour
     void FixedUpdate()
     {
         m_locomotion.SetFloat("tilt", Controller.instance.tilt);
-        m_locomotion.SetBool("inAir", !onGround);
+        m_locomotion.SetBool("inAir", !isOnGround);
     }
 
     private void JumpPress()
@@ -73,7 +75,16 @@ public class Character : MonoBehaviour
 
     private void ElbowDropPress()
     {
-        StartCoroutine(TryPlayAction("ElbowDrop", m_jelbowDropBuffer));
+        if(!m_detectGround.isOnGround)
+            StartCoroutine(TryPlayAction("ElbowDrop", m_jelbowDropBuffer));
+        gameObject.layer = LayerMask.NameToLayer("CharacterDown");
+        m_detectGround.gameObject.layer = LayerMask.NameToLayer("CharacterDown");
+    }
+    
+    private void ElbowDropRelease()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Character");
+        m_detectGround.gameObject.layer = LayerMask.NameToLayer("Character");
     }
     
     private void KickPress()
