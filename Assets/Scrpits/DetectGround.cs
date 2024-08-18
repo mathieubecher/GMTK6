@@ -12,8 +12,12 @@ public class DetectGround : MonoBehaviour
 
     void Awake()
     {
-        m_character = transform.parent.GetComponent<Character>();
         m_contacts = new List<Collider2D>();
+    }
+
+    public void SetCharacter(Character _character)
+    {
+        m_character = _character;
     }
 
     void OnTriggerEnter2D(Collider2D other)

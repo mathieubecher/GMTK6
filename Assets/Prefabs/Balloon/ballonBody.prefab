@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2631304217153933980}
   - component: {fileID: 136101836324673317}
   m_Layer: 10
-  m_Name: Col
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 5792978984849525883}
   - component: {fileID: 8237907026305281148}
   m_Layer: 3
-  m_Name: BalloonCall
+  m_Name: BalloonCol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

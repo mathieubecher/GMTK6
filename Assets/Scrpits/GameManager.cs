@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        m_currentCheckpoint.Activate();
+        m_currentCheckpoint.Activate(false);
     }
     
     public void Reset()

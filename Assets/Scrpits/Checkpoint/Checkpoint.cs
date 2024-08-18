@@ -15,14 +15,14 @@ public class Checkpoint : MonoBehaviour
         m_animator = GetComponent<Animator>();
     }
 
-    public void Activate()
+    public void Activate(bool _saveState = true)
     {
         if (m_activated) return;
 
         m_activated = true;
         m_animator.SetTrigger("Activate");
         GameManager.currentCheckpoint = this;
-        GameManager.mainBalloon.SaveState();
+        if(_saveState) GameManager.mainBalloon.SaveState();
     }
     
     public void Reset()

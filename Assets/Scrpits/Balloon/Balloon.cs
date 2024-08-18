@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class Balloon : MonoBehaviour
 {
+    const float TOLERANCE = 1e-6f;
+    
     [SerializeField] private Transform m_head;
     [SerializeField] private float m_size = 2.0f;
     [SerializeField] private Vector2 m_defaultDir;
@@ -16,7 +18,6 @@ public class Balloon : MonoBehaviour
     private LineRenderer m_line;
   
     private Vector2 m_currentInflateDir;
-    private Vector2 m_headObjectivePos;
     private List<SpriteRenderer> m_balloonBodies;
     private bool m_collided;
     private bool m_explode;
@@ -25,8 +26,13 @@ public class Balloon : MonoBehaviour
     private int m_saveLineId;
     private Vector2 m_saveDir;
     private Vector2 m_savePos;
+    private float m_previousLength = 0.0f;
+    private float m_currentLength = 0.0f;
     
-    private float m_pressure => (m_headObjectivePos - (Vector2)m_head.position).magnitude;
+    private float m_pressure = 0.0f;
+
+    public float length => m_previousLength + m_currentLength;
+    public float pressure => m_pressure;
     
     void Awake()
     {
@@ -34,6 +40,8 @@ public class Balloon : MonoBehaviour
     }
     public void Init()
     {
+        m_previousLength = 0.0f;
+        m_currentLength = 0.0f;
         m_saveLineId = 1;
         m_saveBodyId = 0;
         m_saveDir = m_defaultDir;
@@ -56,28 +64,31 @@ public class Balloon : MonoBehaviour
         m_explode = false;
         m_currentInflateDir = m_saveDir;
         m_line.positionCount = m_saveLineId;
-        
+        m_pressure = 0.0f; 
         for (int i = m_balloonBodies.Count; i > m_saveBodyId; --i)
         {
             Destroy(m_balloonBodies[i - 1].gameObject);
             m_balloonBodies.RemoveAt(i - 1);
         }
         
-        m_headObjectivePos = m_savePos;
-        m_head.position = m_headObjectivePos;
+        m_head.position = m_savePos;
         m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
         
-        UpdateDirection(m_currentInflateDir, m_headObjectivePos);
+        UpdateDirection(m_currentInflateDir, m_head.position);
         ActiveCollider(true, 1000);
     }
     
     void FixedUpdate()
     {
-        if (m_explode) return;
+        if (m_explode || m_pressure < TOLERANCE) return;
         
-        Vector2 delta = (m_headObjectivePos - (Vector2)m_head.position) * GameManager.inflateBlendForce;
-        Vector2 desiredPos = CheckCollision(m_head.position, delta);
-        m_head.position = desiredPos;
+        float delta = m_pressure * GameManager.inflateBlendForce;
+        Vector2 currentDir = m_currentInflateDir;
+        delta = math.max(0.0f, CheckCollision(m_head.position, currentDir, delta));
+        m_head.position += (Vector3)currentDir * delta;
+        Debug.Log(m_currentInflateDir + " pressure : " + m_pressure + " - force " + GameManager.inflateBlendForce + " - result " + delta);
+        m_pressure -= delta;
+        m_currentLength += delta;
         
         m_line.SetPosition(m_line.positionCount - 1, m_head.position);
         UpdateBodyPosition();
@@ -97,16 +108,18 @@ public class Balloon : MonoBehaviour
         Vector2 pointB = m_line.GetPosition(m_line.positionCount - 1);
         Vector2 pointA = m_line.GetPosition(m_line.positionCount - 2);
         m_balloonBodies[^1].transform.position = (pointA + pointB)/ 2.0f - (isUp ? Vector2.zero : m_currentInflateDir * m_size / 2.0f);
-        m_balloonBodies[^1].size = new Vector2(
+        
+        Vector2 size = new Vector2(
             math.abs(pointA.x - pointB.x) + (isUp ? m_size : 0.0f),
             math.abs(pointA.y - pointB.y) + m_size
-            );
-        m_balloonBodies[^1].transform.GetChild(0).localScale = m_balloonBodies[^1].size;
+        );
+        m_balloonBodies[^1].size = size;
+        m_balloonBodies[^1].transform.GetChild(0).localScale = size;
     }
 
     public void Inflate(float _value = 1.0f)
     {
-        m_headObjectivePos += m_currentInflateDir * (m_collided ? math.min(_value, GameManager.maxPressure - m_pressure) : _value);
+        m_pressure = math.min(GameManager.maxPressure, m_pressure + _value);
     }
     
     public void Hit(Vector2 _dir)
@@ -117,44 +130,41 @@ public class Balloon : MonoBehaviour
         }
     }
     
-    private Vector2 CheckCollision(Vector2 _currentPos, Vector2 _delta)
+    private float CheckCollision(Vector2 _currentPos, Vector2 _dir, float _delta)
     {
         //Disable current actor to ignore it
         ActiveCollider(false, 2);
         
         RaycastHit2D hit = Physics2D.Raycast(
             m_head.position, 
-                _delta.normalized, 
-                m_size/2.0f + _delta.magnitude,
+            _dir, 
+                m_size/2.0f + _delta,
             GameManager.obstacleLayermask
             );
 
-        Vector2 desiredPosition = _currentPos;
+        float delta = _delta;
         
         if (hit.collider != null)
         {
             if (GameManager.IsCactus(hit.collider.gameObject.layer))
             {
                 Explode();
-                return m_head.position;
+                return 0.0f;
             }
             else
             {
-                desiredPosition += _delta.normalized * (Vector2.Dot(_delta.normalized, hit.point - _currentPos) - m_size / 2.0f);
+                Debug.Log("Collide : " + hit.collider.gameObject + " dist : " + (hit.point - _currentPos));
+                delta = (hit.distance - m_size / 2.0f);
                 m_collided = true;
             
-                CheckPossiblePath(desiredPosition);
+                CheckPossiblePath(_currentPos + _dir * delta);
             }
-        }
-        else
-        {
-            desiredPosition += _delta;
         }
     
         // Enable current actor at the end of raycast
         ActiveCollider(true, 3);
         
-        return desiredPosition;
+        return delta;
     }
 
     private void ActiveCollider(bool _active, int _nb = 3)
@@ -212,6 +222,7 @@ public class Balloon : MonoBehaviour
 
     private void UpdateDirection(Vector2 _dir, Vector2 _currentPos)
     {
+        Debug.LogWarning("Update direction");
         m_line.SetPosition(m_line.positionCount - 1, _currentPos);
         if(m_line.positionCount > 1 && m_balloonBodies.Count > 0) UpdateBodyPosition();
         
@@ -221,7 +232,6 @@ public class Balloon : MonoBehaviour
         AddBody();
         UpdateBodyPosition();
         
-        m_headObjectivePos = _currentPos + m_currentInflateDir * (m_headObjectivePos - _currentPos).magnitude;
         m_collided = false;
         m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
     }
@@ -244,6 +254,10 @@ public class Balloon : MonoBehaviour
         m_saveLineId = m_line.positionCount;
         m_saveDir = m_currentInflateDir;
         m_savePos = m_head.position;
+        
+        m_previousLength = m_currentLength;
+        m_currentLength = 0.0f;
+        
         UpdateDirection(m_currentInflateDir, m_head.position);
 
     }

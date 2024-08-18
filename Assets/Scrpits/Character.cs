@@ -37,6 +37,7 @@ public class Character : MonoBehaviour
     {
         m_locomotion = GetComponent<Animator>();
         m_rigidbody = GetComponent<Rigidbody2D>();
+        m_detectGround.SetCharacter(this);
     }
     void OnEnable()
     {
