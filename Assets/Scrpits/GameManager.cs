@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     }
 
     public static List<Vector2> possibleInflateDir => instance.m_possibleInflateDir;
+    public static Vector2 downInflateDir => instance.m_downInflateDir;
     public static GameObject balloonBody => instance.m_ballonBody;
     public static float inflateBlendForce => instance.m_inflateBlendForce;
     public static float maxPressure => instance.m_maxPressure;
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
     
     [Header("Balloon")]
     [SerializeField] private List<Vector2> m_possibleInflateDir;
+    [SerializeField] private Vector2 m_downInflateDir;
     [SerializeField] private float m_inflateBlendForce = 0.1f;
     [SerializeField] private float m_maxPressure = 3.0f;
     [SerializeField] private GameObject m_ballonBody;

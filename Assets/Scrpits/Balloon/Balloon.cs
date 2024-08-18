@@ -120,7 +120,7 @@ public class Balloon : MonoBehaviour
     private Vector2 CheckCollision(Vector2 _currentPos, Vector2 _delta)
     {
         //Disable current actor to ignore it
-        ActiveCollider(false, 3);
+        ActiveCollider(false, 2);
         
         RaycastHit2D hit = Physics2D.Raycast(
             m_head.position, 
@@ -152,7 +152,7 @@ public class Balloon : MonoBehaviour
         }
     
         // Enable current actor at the end of raycast
-        ActiveCollider(true, 4);
+        ActiveCollider(true, 3);
         
         return desiredPosition;
     }
@@ -193,6 +193,20 @@ public class Balloon : MonoBehaviour
         if (nbPathFound == 1 || bestPathFound.y > 0.0f)
         {
             UpdateDirection(bestPathFound, _currentPos);
+        }
+        else if(nbPathFound == 0 && m_currentInflateDir.y == 0.0f)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(
+                _currentPos,
+                GameManager.downInflateDir, 
+                m_size / 2.0f + 0.5f,
+                GameManager.obstacleLayermask
+            );
+            
+            if (hit.collider == null)
+            {
+                UpdateDirection(GameManager.downInflateDir, _currentPos);
+            }
         }
     }
 
