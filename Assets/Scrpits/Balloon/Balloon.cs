@@ -31,8 +31,8 @@ public class Balloon : MonoBehaviour
     
     private float m_pressure = 0.0f;
 
-    public float length => m_previousLength + m_currentLength;
-    public float pressure => m_pressure;
+    [SerializeField] public float length => m_previousLength + m_currentLength;
+    [SerializeField] public float pressure => m_pressure;
     
     void Awake()
     {
@@ -53,7 +53,6 @@ public class Balloon : MonoBehaviour
         m_line.SetPosition(0, transform.position);
         
         m_head.localScale = Vector3.one * m_size;
-        m_head.GetChild(0).GetComponent<SpriteRenderer>().color = m_color;
         
         Reset();
     }
@@ -86,7 +85,6 @@ public class Balloon : MonoBehaviour
         Vector2 currentDir = m_currentInflateDir;
         delta = math.max(0.0f, CheckCollision(m_head.position, currentDir, delta));
         m_head.position += (Vector3)currentDir * delta;
-        Debug.Log(m_currentInflateDir + " pressure : " + m_pressure + " - force " + GameManager.inflateBlendForce + " - result " + delta);
         m_pressure -= delta;
         m_currentLength += delta;
         
@@ -153,7 +151,6 @@ public class Balloon : MonoBehaviour
             }
             else
             {
-                Debug.Log("Collide : " + hit.collider.gameObject + " dist : " + (hit.point - _currentPos));
                 delta = (hit.distance - m_size / 2.0f);
                 m_collided = true;
             

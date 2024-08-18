@@ -3,12 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="11ea1a11-314d-4c72-b2c0-f25a7677f266" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Balloon/ballonBody.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Balloon/ballonBody.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Balloon_Main_Afraid.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Balloon_Main_Afraid.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Balloon_Main_Angry.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Balloon_Main_Angry.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Balloon_Main_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Balloon_Main_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Balloon_Main_Stuck.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Balloon_Main_Stuck.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Balloon_Snake_Blue.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Balloon_Snake_Blue.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Balloon_Snake_Purple.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Balloon_Snake_Purple.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Balloon_Snake_Red.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Balloon_Snake_Red.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Balloon/Balloon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Balloon/Balloon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Balloon/MainBalloon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Balloon/MainBalloon.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Balloon/Balloon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Balloon/Balloon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Checkpoint/Checkpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Checkpoint/Checkpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/DetectGround.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/DetectGround.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +88,7 @@
       <workItem from="1723834598142" duration="12996000" />
       <workItem from="1723878340252" duration="9007000" />
       <workItem from="1723891699494" duration="37280000" />
-      <workItem from="1723965416197" duration="25869000" />
+      <workItem from="1723965416197" duration="26653000" />
     </task>
     <servers />
   </component>
