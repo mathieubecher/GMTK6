@@ -8,7 +8,7 @@ public class DetectGround : MonoBehaviour
     [SerializeField] private List<Collider2D> m_contacts;
 
     private Character m_character;
-    public bool OnGround(){return (m_contacts != null && m_contacts.Count > 0);}
+    public bool OnGround(){return m_contacts != null && m_contacts.Count > 0 && m_character.velocity.y < 1.0f;}
 
     void Awake()
     {
@@ -22,7 +22,7 @@ public class DetectGround : MonoBehaviour
         
         m_contacts.Add(other);
         
-        if(!GameManager.IsBalloon(other.gameObject.layer))
+        if(GameManager.IsMovablePlatform(other.gameObject.layer))
         {
             transform.parent.parent = other.transform;
         }

@@ -62,7 +62,6 @@ public class Character : MonoBehaviour
     {
         m_locomotion.SetFloat("tilt", Controller.instance.tilt);
         m_locomotion.SetBool("inAir", !onGround);
-
     }
 
     private void JumpPress()
@@ -92,13 +91,12 @@ public class Character : MonoBehaviour
     {
         foreach (var contact in _collision.contacts)
         {
-            if (Vector2.Dot(contact.normal, Vector2.up) < 0.0f)
+            if (!contact.collider.usedByEffector && Vector2.Dot(contact.normal, Vector2.up) < 0.0f)
             {
                 StartCoroutine(TryPlayAction("CeilBump", 0.033f));
                 break;
             }
         }
-        //col.contacts[0].normal
     }
 
     public void Reset(Vector2 _checkpoint)

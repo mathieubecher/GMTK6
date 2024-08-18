@@ -17,38 +17,55 @@ public class Balloon : MonoBehaviour
   
     private Vector2 m_currentInflateDir;
     private Vector2 m_headObjectivePos;
-    private List<Transform> m_balloonBodies;
+    private List<SpriteRenderer> m_balloonBodies;
     private bool m_collided;
+    
+    private int m_saveBodyId;
+    private int m_saveLineId;
+    private Vector2 m_saveDir;
+    private Vector2 m_savePos;
     
     private float m_pressure => (m_headObjectivePos - (Vector2)m_head.position).magnitude;
     
     void Awake()
     {
-        m_balloonBodies = new List<Transform>();
+        Init();
+    }
+    public void Init()
+    {
+        m_saveLineId = 1;
+        m_saveBodyId = 0;
+        m_saveDir = m_defaultDir;
+        m_savePos = transform.position + new Vector3(0.0f, m_size / 2.0f, 0.0f);
+        
+        m_balloonBodies = new List<SpriteRenderer>();
         m_line = GetComponent<LineRenderer>();
+        m_line.positionCount = m_saveLineId;
+        m_line.SetPosition(0, transform.position);
+        
+        m_head.localScale = Vector3.one * m_size;
+        m_head.GetChild(0).GetComponent<SpriteRenderer>().color = m_color;
+        
         Reset();
     }
     
     public void Reset()
     {
-        m_currentInflateDir = m_defaultDir;
         m_collided = false;
+        m_currentInflateDir = m_saveDir;
+        m_line.positionCount = m_saveLineId;
         
-        m_head.localScale = Vector3.one * m_size;
-        m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
-        m_head.GetChild(0).GetComponent<SpriteRenderer>().color = m_color;
+        for (int i = m_balloonBodies.Count; i > m_saveBodyId; --i)
+        {
+            Destroy(m_balloonBodies[i - 1].gameObject);
+            m_balloonBodies.RemoveAt(i - 1);
+        }
         
-        m_headObjectivePos = transform.position + new Vector3(0.0f, m_size / 2.0f, 0.0f);
+        m_headObjectivePos = m_savePos;
         m_head.position = m_headObjectivePos;
+        m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
         
-        m_line.positionCount = 2;
-        m_line.SetPositions(new Vector3[]{m_headObjectivePos, m_headObjectivePos });
-        
-        foreach (Transform body in m_balloonBodies) Destroy(body.gameObject);
-        m_balloonBodies = new List<Transform>();
-        AddBody();
-        UpdateBodyPosition();
-
+        UpdateDirection(m_currentInflateDir, m_headObjectivePos);
     }
     
     void FixedUpdate()
@@ -64,19 +81,22 @@ public class Balloon : MonoBehaviour
     private void AddBody()
     {
         GameObject instance = Instantiate(GameManager.balloonBody, Vector3.zero, Quaternion.identity);
-        instance.GetComponent<SpriteRenderer>().color = m_color;
-        m_balloonBodies.Add(instance.transform);
+        var spriteRenderer = instance.GetComponent<SpriteRenderer>();
+        spriteRenderer.color = m_color;
+        m_balloonBodies.Add(spriteRenderer);
+        instance.SetActive(false);
     }
     private void UpdateBodyPosition()
     {
         bool isUp = (math.abs(m_currentInflateDir.y) > 0.0f);
         Vector2 pointB = m_line.GetPosition(m_line.positionCount - 1);
         Vector2 pointA = m_line.GetPosition(m_line.positionCount - 2);
-        m_balloonBodies[^1].position = (pointA + pointB)/ 2.0f - (isUp ? Vector2.zero : m_currentInflateDir * m_size / 2.0f);
-        m_balloonBodies[^1].localScale = new Vector2(
+        m_balloonBodies[^1].transform.position = (pointA + pointB)/ 2.0f - (isUp ? Vector2.zero : m_currentInflateDir * m_size / 2.0f);
+        m_balloonBodies[^1].size = new Vector2(
             math.abs(pointA.x - pointB.x) + (isUp ? m_size : 0.0f),
             math.abs(pointA.y - pointB.y) + m_size
             );
+        m_balloonBodies[^1].transform.GetChild(0).localScale = m_balloonBodies[^1].size;
     }
 
     public void Inflate(float _value = 1.0f)
@@ -174,7 +194,7 @@ public class Balloon : MonoBehaviour
     private void UpdateDirection(Vector2 _dir, Vector2 _currentPos)
     {
         m_line.SetPosition(m_line.positionCount - 1, _currentPos);
-        UpdateBodyPosition();
+        if(m_line.positionCount > 1 && m_balloonBodies.Count > 0) UpdateBodyPosition();
         
         m_currentInflateDir = _dir;
         ++m_line.positionCount;
@@ -193,5 +213,15 @@ public class Balloon : MonoBehaviour
         {
             GameManager.instance.Reset();
         }
+    }
+
+    public void SaveState()
+    {
+        m_saveBodyId = m_balloonBodies.Count;
+        m_saveLineId = m_line.positionCount;
+        m_saveDir = m_currentInflateDir;
+        m_savePos = m_head.position;
+        UpdateDirection(m_currentInflateDir, m_head.position);
+
     }
 }
