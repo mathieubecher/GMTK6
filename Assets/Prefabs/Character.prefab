@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb438177bfc90a943ae20dc22e0c172f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_coyoteeTime: 0.033
   m_contacts: []
 --- !u!50 &719305689962436911
 Rigidbody2D:
@@ -72,7 +73,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 7
 --- !u!61 &5245933863601384422
 BoxCollider2D:
