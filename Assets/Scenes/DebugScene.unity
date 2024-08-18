@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Balloon1
       objectReference: {fileID: 0}
+    - target: {fileID: 682864428671836676, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3070142923229321924, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -222,6 +226,10 @@ PrefabInstance:
     - target: {fileID: 4981315005379570037, guid: 180755b7b1402db49aaf7c4971bbe1f8, type: 3}
       propertyPath: m_Name
       value: Pump1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981315005379570037, guid: 180755b7b1402db49aaf7c4971bbe1f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5804778449736800210, guid: 180755b7b1402db49aaf7c4971bbe1f8, type: 3}
       propertyPath: m_connectedBalloon
@@ -390,6 +398,10 @@ PrefabInstance:
     - target: {fileID: 4981315005379570037, guid: 180755b7b1402db49aaf7c4971bbe1f8, type: 3}
       propertyPath: m_Name
       value: Pump1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981315005379570037, guid: 180755b7b1402db49aaf7c4971bbe1f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5804778449736800210, guid: 180755b7b1402db49aaf7c4971bbe1f8, type: 3}
       propertyPath: m_connectedBalloon
@@ -811,6 +823,10 @@ PrefabInstance:
     - target: {fileID: 682864428671836676, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
       propertyPath: m_Name
       value: Balloon1
+      objectReference: {fileID: 0}
+    - target: {fileID: 682864428671836676, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3070142923229321924, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
       propertyPath: m_LocalPosition.x

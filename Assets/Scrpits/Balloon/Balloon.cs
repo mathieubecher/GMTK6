@@ -19,6 +19,7 @@ public class Balloon : MonoBehaviour
     private Vector2 m_headObjectivePos;
     private List<SpriteRenderer> m_balloonBodies;
     private bool m_collided;
+    private bool m_explode;
     
     private int m_saveBodyId;
     private int m_saveLineId;
@@ -52,6 +53,7 @@ public class Balloon : MonoBehaviour
     public void Reset()
     {
         m_collided = false;
+        m_explode = false;
         m_currentInflateDir = m_saveDir;
         m_line.positionCount = m_saveLineId;
         
@@ -66,10 +68,13 @@ public class Balloon : MonoBehaviour
         m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
         
         UpdateDirection(m_currentInflateDir, m_headObjectivePos);
+        ActiveCollider(true, 1000);
     }
     
     void FixedUpdate()
     {
+        if (m_explode) return;
+        
         Vector2 delta = (m_headObjectivePos - (Vector2)m_head.position) * GameManager.inflateBlendForce;
         Vector2 desiredPos = CheckCollision(m_head.position, delta);
         m_head.position = desiredPos;
@@ -131,7 +136,7 @@ public class Balloon : MonoBehaviour
             if (GameManager.IsCactus(hit.collider.gameObject.layer))
             {
                 Explode();
-                desiredPosition = m_head.position;
+                return m_head.position;
             }
             else
             {
@@ -155,6 +160,7 @@ public class Balloon : MonoBehaviour
     private void ActiveCollider(bool _active, int _nb = 3)
     {
         gameObject.SetActive(_active);
+        
         for (int i = m_balloonBodies.Count - 1; i >= m_balloonBodies.Count - _nb && i >= 0; --i)
         {
             m_balloonBodies[i].gameObject.SetActive(_active);
@@ -209,6 +215,10 @@ public class Balloon : MonoBehaviour
 
     private void Explode()
     {
+        Debug.Log("Explode");
+        ActiveCollider(false, 1000);
+        m_explode = true;
+        
         if (m_resetAtExplode)
         {
             GameManager.instance.Reset();
