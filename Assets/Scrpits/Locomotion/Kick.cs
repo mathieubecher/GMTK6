@@ -38,26 +38,33 @@ public class Kick : StateMachineBehaviour
                 m_character.animation.transform.localScale = new Vector3(math.sign(Controller.instance.tilt), 1.0f, 1.0f);
             
             float orientation = m_character.animation.transform.localScale.x;
+            Vector2 origin = (Vector2)animator.transform.position + new Vector2(m_kickOffset.x * math.sign(orientation), m_kickOffset.y);
             Vector2 dir = m_character.animation.transform.localScale.x > 0.0f ? Vector2.right : Vector2.left;
             RaycastHit2D hit = Physics2D.CircleCast(
-                (Vector2)animator.transform.position + m_kickOffset * math.sign(orientation),
+                origin,
                 m_castRadius,
                 dir, 
                 m_kickDist,
                 m_layermask
             );
-
+            
+            //Color color = Color.red;
             if (hit.collider != null)
             {
-
-                if (GameManager.IsBalloonHead(hit.collider.gameObject.layer))
+                if (GameManager.IsBalloonHead(hit.collider.gameObject.layer) 
+                    && Vector2.Dot(dir,hit.collider.transform.position - m_character.transform.position) > 0.0f)
                 {
+                    //color = Color.green;
                     if (hit.collider.transform.parent.TryGetComponent(out Balloon ballon))
                     {
                         ballon.Hit(dir);
                     }
                 }
             }
+            
+            //Debug.DrawLine(Vector2.up * m_castRadius + origin, Vector2.up * m_castRadius + origin + dir * m_kickDist, color, 1.0f);
+            //Debug.DrawLine(Vector2.down * m_castRadius + origin, Vector2.down * m_castRadius + origin + dir * m_kickDist, color, 1.0f);
+            //Debug.DrawLine(origin - dir * m_castRadius, origin + dir * (m_kickDist + m_castRadius), color, 1.0f);
         }
         m_timer += Time.deltaTime;
     }

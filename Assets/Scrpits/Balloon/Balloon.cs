@@ -80,8 +80,18 @@ public class Balloon : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (m_explode || m_pressure < TOLERANCE) return;
+        if(m_explode) UpdateExplode();
+        else UpdateInflate();
+    }
+
+    private void UpdateExplode()
+    {
         
+    }
+
+    private void UpdateInflate()
+    {
+        if (m_pressure < TOLERANCE) return;
         float delta = m_pressure * GameManager.inflateBlendForce;
         Vector2 currentDir = m_currentInflateDir;
         delta = math.max(0.0f, CheckCollision(m_head.position, currentDir, delta));

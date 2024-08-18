@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Vector2> m_possibleInflateDir;
     [SerializeField] private Vector2 m_downInflateDir;
     [SerializeField] private float m_inflateBlendForce = 0.1f;
+    [SerializeField] private float m_explodeSpeed = 30f;
     [SerializeField] private float m_maxPressure = 3.0f;
     [SerializeField] private GameObject m_ballonBody;
 
