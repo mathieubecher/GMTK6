@@ -14,8 +14,10 @@ public class Character : MonoBehaviour
     [Header("System")]
     [SerializeField] private DetectGround m_detectGround;
     [SerializeField] public Animator animation;
+    
     private Rigidbody2D m_rigidbody;
     private Animator m_locomotion;
+    private Vector3 m_originalScale;
     
     #region getter and setter
     public bool isOnGround => m_detectGround.isOnGround;
@@ -35,6 +37,7 @@ public class Character : MonoBehaviour
 
     void Awake()
     {
+        m_originalScale = transform.lossyScale;
         m_locomotion = GetComponent<Animator>();
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_detectGround.SetCharacter(this);
@@ -62,6 +65,10 @@ public class Character : MonoBehaviour
 
     void Update()
     {
+        Transform parent = transform.parent;
+        if(transform.parent) 
+            transform.localScale = new Vector3(m_originalScale.x/parent.lossyScale.x, m_originalScale.y/parent.lossyScale.y, 1.0f);
+        
         if(math.abs(velocity.x) > 0.01f)
             animation.transform.localScale = new Vector3(math.sign(velocity.x), 1.0f, 1.0f);
     }

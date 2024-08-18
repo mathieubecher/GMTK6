@@ -69,8 +69,7 @@ public class Balloon : Interactive
         m_currentLength = 0.0f;
         for (int i = m_balloonBodies.Count; i > m_saveBodyId; --i)
         {
-            Destroy(m_balloonBodies[i - 1].gameObject);
-            m_balloonBodies.RemoveAt(i - 1);
+            DestroyBalloon(m_balloonBodies[i - 1]);
         }
         
         m_head.position = m_savePos;
@@ -79,7 +78,7 @@ public class Balloon : Interactive
         UpdateDirection(m_currentInflateDir, m_head.position);
         ActiveCollider(true, 1000);
     }
-    
+
     void FixedUpdate()
     {
         if(m_explode) UpdateExplode();
@@ -98,8 +97,7 @@ public class Balloon : Interactive
         if (Vector3.Distance(m_head.position, m_line.GetPosition(m_line.positionCount - 2)) < delta)
         {
             --m_line.positionCount;
-            Destroy(m_balloonBodies[^1].gameObject);
-            m_balloonBodies.RemoveAt(m_balloonBodies.Count - 1);
+            DestroyBalloon(m_balloonBodies[^1]);
 
             if (m_line.positionCount <= 1) return; 
             
@@ -289,6 +287,14 @@ public class Balloon : Interactive
             GameManager.instance.Reset();
         }
     }
+    
+    private void DestroyBalloon(SpriteRenderer _balloon)
+    {
+        var character = _balloon.gameObject.GetComponentInChildren<Character>();
+        if (character) character.transform.parent = null;
+        m_balloonBodies.Remove(_balloon);
+        Destroy(_balloon.gameObject);
+    }
 
     public void SaveState()
     {
@@ -301,6 +307,5 @@ public class Balloon : Interactive
         m_currentLength = 0.0f;
         
         UpdateDirection(m_currentInflateDir, m_head.position);
-
     }
 }

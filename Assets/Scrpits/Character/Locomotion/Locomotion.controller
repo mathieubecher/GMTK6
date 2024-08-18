@@ -37,7 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b51d8fce115ce44a5ffa679b1acc92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_castRadius: 4
+  m_castRadius: 2.5
   m_castOffset: {x: 0, y: 1.5}
   m_inflateSpeed: 1
   m_layermask:
