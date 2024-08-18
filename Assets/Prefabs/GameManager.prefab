@@ -384,7 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_obstacleLayermask:
     serializedVersion: 2
-    m_Bits: 649
+    m_Bits: 8841
   m_deadLayermask:
     serializedVersion: 2
     m_Bits: 128
@@ -394,6 +394,9 @@ MonoBehaviour:
   m_movableLayermask:
     serializedVersion: 2
     m_Bits: 256
+  m_breakableLayermask:
+    serializedVersion: 2
+    m_Bits: 8192
   m_pumpLayermask:
     serializedVersion: 2
     m_Bits: 256
@@ -405,7 +408,9 @@ MonoBehaviour:
   - {x: 0, y: -1}
   - {x: -1, y: 0}
   - {x: 1, y: 0}
+  m_downInflateDir: {x: 0, y: 0}
   m_inflateBlendForce: 0.1
+  m_explodeSpeed: 30
   m_maxPressure: 3
   m_ballonBody: {fileID: 4905541296505704561, guid: adae2ea4cb0f39947b0b5c57cd3cb561, type: 3}
   m_elbowForceToPressure:

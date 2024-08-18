@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class Balloon : MonoBehaviour
+public class Balloon : Interactive
 {
     const float TOLERANCE = 1e-6f;
     
@@ -21,6 +21,7 @@ public class Balloon : MonoBehaviour
     private List<SpriteRenderer> m_balloonBodies;
     private bool m_collided;
     private bool m_explode;
+    private Breakable m_blockByBreakable;
     
     private int m_saveBodyId;
     private int m_saveLineId;
@@ -57,9 +58,10 @@ public class Balloon : MonoBehaviour
         Reset();
     }
     
-    public void Reset()
+    public override void Reset()
     {
         m_collided = false;
+        m_blockByBreakable = null;
         m_explode = false;
         m_currentInflateDir = m_saveDir;
         m_line.positionCount = m_saveLineId;
@@ -153,6 +155,13 @@ public class Balloon : MonoBehaviour
 
     public void Inflate(float _value = 1.0f)
     {
+        if (m_blockByBreakable)
+        {
+            if (!m_blockByBreakable.TryToBreak(m_currentInflateDir, _value))
+            {
+                return;
+            }
+        }
         m_pressure = math.min(GameManager.maxPressure, m_pressure + _value);
     }
     
@@ -183,6 +192,11 @@ public class Balloon : MonoBehaviour
             if (GameManager.IsCactus(hit.collider.gameObject.layer))
             {
                 Explode();
+            }
+            else if(GameManager.IsBreakable(hit.collider.gameObject.layer) && hit.collider.TryGetComponent(out Breakable breakable))
+            {
+                delta = 0.0f;
+                m_blockByBreakable = breakable;
             }
             else
             {
@@ -225,7 +239,7 @@ public class Balloon : MonoBehaviour
                 m_size / 2.0f + 0.5f,
                 GameManager.obstacleLayermask
             );
-            if (hit.collider == null)
+            if (hit.collider == null || GameManager.IsBreakable(hit.collider.gameObject.layer))
             {
                 ++nbPathFound;
                 bestPathFound = bestPathFound.y > 0.0f? bestPathFound : path;

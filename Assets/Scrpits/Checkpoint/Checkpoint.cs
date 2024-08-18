@@ -5,7 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     [SerializeField] private Transform m_spawnPoint;
-    [SerializeField] private List<Balloon> m_balloons;
+    [SerializeField] private List<Interactive> m_interactives;
     private Animator m_animator;
     private bool m_activated;
     public Vector2 spawnPos => m_spawnPoint.position;
@@ -27,9 +27,9 @@ public class Checkpoint : MonoBehaviour
     
     public void Reset()
     {
-        foreach (Balloon balloon in m_balloons)
+        foreach (Interactive interactive in m_interactives)
         {
-            balloon.Reset();
+            interactive.Reset();
         }
     }
 }
