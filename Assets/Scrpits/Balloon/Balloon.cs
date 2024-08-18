@@ -102,6 +102,7 @@ public class Balloon : MonoBehaviour
             if (m_line.positionCount <= 1) return; 
             
             m_currentInflateDir = (m_line.GetPosition(m_line.positionCount - 1) - m_line.GetPosition(m_line.positionCount - 2)).normalized;
+            m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
         }
         
         m_line.SetPosition(m_line.positionCount - 1, m_head.position);
@@ -273,7 +274,7 @@ public class Balloon : MonoBehaviour
         
         if (m_resetAtExplode)
         {
-            //GameManager.instance.Reset();
+            GameManager.instance.Reset();
         }
     }
 

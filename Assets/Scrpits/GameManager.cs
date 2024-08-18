@@ -99,6 +99,12 @@ public class GameManager : MonoBehaviour
     
     public void Reset()
     {
+        StartCoroutine(ResetWithDelay());
+    }
+
+    public IEnumerator ResetWithDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
         m_currentCheckpoint.Reset();
         m_character.Reset(m_currentCheckpoint.spawnPos);
         m_mainBalloon.Reset();

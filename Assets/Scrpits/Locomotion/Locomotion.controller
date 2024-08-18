@@ -576,10 +576,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7477bbf9b355dad44befb3feac84f68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_kickOffset: {x: 1, y: 0.75}
+  m_kickOffset: {x: 0.8, y: 1}
   m_kickDist: 0.1
   m_kickTime: 0.1
-  m_castRadius: 0.5
+  m_castRadius: 0.8
   m_layermask:
     serializedVersion: 2
     m_Bits: 512
