@@ -102,4 +102,20 @@ public class Character : MonoBehaviour
         }
         //col.contacts[0].normal
     }
+
+    public void Reset(Vector2 _checkpoint)
+    {
+        transform.position = _checkpoint;
+        m_locomotion.Play("Ground");
+        
+        m_locomotion.ResetTrigger("Jump");
+        m_locomotion.ResetTrigger("ElbowDrop");
+        m_locomotion.ResetTrigger("Kick");
+        m_locomotion.ResetTrigger("CeilBump");
+        m_locomotion.SetBool("inAir", false);
+        m_locomotion.SetBool("dead", false);
+        m_locomotion.SetFloat("ElbowDropHeight", 0.0f);
+        
+        animation.Play("Idle");
+    }
 }

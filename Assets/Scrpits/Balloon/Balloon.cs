@@ -25,10 +25,10 @@ public class Balloon : MonoBehaviour
     {
         m_balloonBodies = new List<Transform>();
         m_line = GetComponent<LineRenderer>();
-        ResetBalloon();
+        Reset();
     }
     
-    private void ResetBalloon()
+    public void Reset()
     {
         m_currentInflateDir = m_defaultDir;
         m_collided = false;
@@ -78,11 +78,6 @@ public class Balloon : MonoBehaviour
             );
     }
 
-    private void Explode()
-    {
-        ResetBalloon();
-    }
-    
     public void Inflate(float _value = 1.0f)
     {
         m_headObjectivePos += m_currentInflateDir * (m_collided ? math.min(_value, GameManager.maxPressure - m_pressure) : _value);
@@ -190,4 +185,13 @@ public class Balloon : MonoBehaviour
         m_collided = false;
         m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
     }
+
+    private void Explode()
+    {
+        if (m_resetAtExplode)
+        {
+            GameManager.instance.Reset();
+        }
+    }
+
 }

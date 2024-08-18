@@ -31,11 +31,15 @@ public class GameManager : MonoBehaviour
     public static AnimationCurve pumpReleaseOverTime => instance.m_releaseOverTime;
     public static AnimationCurve pressureToOffsetValue => instance.m_pressureToOffsetValue;
     public static AnimationCurve offsetValueToPressDuration => instance.m_offsetValueToPressDuration;
+    public static Checkpoint currentCheckpoint => instance.m_currentCheckpoint;
+    public static Character character => instance.m_character;
+    public static Balloon mainBalloon => instance.m_mainBalloon;
     public static bool IsBalloonHead(int _layer){ return balloonHeadLayermask == (balloonHeadLayermask | (1 << _layer));}
     public static bool IsCactus(int _layer){ return deadLayermask == (deadLayermask | (1 << _layer));}
     public static bool IsPump(int _layer){ return pumpLayermask == (pumpLayermask | (1 << _layer));}
     public static bool IsBalloon(int _layer){ return balloonLayermask == (balloonLayermask | (1 << _layer));}
     public static float elbowForceToPressure(float elbowDropHeight) { return instance.m_elbowForceToPressure.Evaluate(elbowDropHeight); }
+
     
     #endregion
     
@@ -58,6 +62,28 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AnimationCurve m_releaseOverTime;
     [SerializeField] private AnimationCurve m_pressureToOffsetValue;
     [SerializeField] private AnimationCurve m_offsetValueToPressDuration;
+
+    [Header("Runtime")]
+    [SerializeField] private Checkpoint m_currentCheckpoint;
+    [SerializeField] private Character m_character;
+    [SerializeField] private Balloon m_mainBalloon;
+    
+    public void OnEnable()
+    {
+        Controller.OnReset += Reset;
+    }
+
+    public void OnDisable()
+    {
+        Controller.OnReset -= Reset;
+    }
+
+    public void Reset()
+    {
+        m_currentCheckpoint.Reset();
+        m_character.Reset(m_currentCheckpoint.spawnPos);
+        m_mainBalloon.Reset();
+    }
     
     public static float TimeFromValue(AnimationCurve c, float value, float precision = 1e-6f)
     {
@@ -79,20 +105,5 @@ public class GameManager : MonoBehaviour
             it++;
         }
         return best;
-    }
-
-    public void OnEnable()
-    {
-        Controller.OnReset += Reset;
-    }
-
-    public void OnDisable()
-    {
-        Controller.OnReset -= Reset;
-    }
-
-    private void Reset()
-    {
-        
     }
 }
