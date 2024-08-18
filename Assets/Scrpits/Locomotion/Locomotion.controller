@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290f0aeeddf283242b8af263f673b72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_accel: 50
+  m_accel: 30
   m_maxSpeed: 8
   m_jumpPositionOverTime:
     serializedVersion: 2
@@ -306,7 +306,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0.2
+  m_ExitTime: 0.25
   m_HasExitTime: 1
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -576,12 +576,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7477bbf9b355dad44befb3feac84f68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_kickOffset: {x: 0, y: 1.25}
-  m_kickDist: 2
+  m_kickOffset: {x: 1, y: 0.75}
+  m_kickDist: 0.1
   m_kickTime: 0.1
+  m_castRadius: 0.5
   m_layermask:
     serializedVersion: 2
-    m_Bits: 641
+    m_Bits: 512
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -803,7 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b456bc3643f9b3e4a9633c18bad690f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_accel: 50
+  m_accel: 30
   m_maxSpeed: 8
 --- !u!1101 &5021152199651153209
 AnimatorStateTransition:

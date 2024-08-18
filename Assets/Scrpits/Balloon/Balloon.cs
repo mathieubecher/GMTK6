@@ -63,7 +63,8 @@ public class Balloon : MonoBehaviour
         m_explode = false;
         m_currentInflateDir = m_saveDir;
         m_line.positionCount = m_saveLineId;
-        m_pressure = 0.0f; 
+        m_pressure = 0.0f;
+        m_currentLength = 0.0f;
         for (int i = m_balloonBodies.Count; i > m_saveBodyId; --i)
         {
             Destroy(m_balloonBodies[i - 1].gameObject);

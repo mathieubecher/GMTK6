@@ -8,6 +8,7 @@ public class Kick : StateMachineBehaviour
     [SerializeField] private Vector2 m_kickOffset;
     [SerializeField] private float m_kickDist = 1.5f;
     [SerializeField] private float m_kickTime = 0.3f;
+    [SerializeField] private float m_castRadius = 0.5f;
     [SerializeField] private LayerMask m_layermask;
     
     private Character m_character;
@@ -33,9 +34,14 @@ public class Kick : StateMachineBehaviour
     {
         if (m_kickTime - m_timer > 0.0f && m_kickTime - m_timer <= Time.deltaTime)
         {
+            if(math.abs(Controller.instance.tilt) > 0.01f)
+                m_character.animation.transform.localScale = new Vector3(math.sign(Controller.instance.tilt), 1.0f, 1.0f);
+            
+            float orientation = m_character.animation.transform.localScale.x;
             Vector2 dir = m_character.animation.transform.localScale.x > 0.0f ? Vector2.right : Vector2.left;
-            RaycastHit2D hit = Physics2D.Raycast(
-                (Vector2)animator.transform.position + m_kickOffset, 
+            RaycastHit2D hit = Physics2D.CircleCast(
+                (Vector2)animator.transform.position + m_kickOffset * math.sign(orientation),
+                m_castRadius,
                 dir, 
                 m_kickDist,
                 m_layermask
@@ -43,6 +49,7 @@ public class Kick : StateMachineBehaviour
 
             if (hit.collider != null)
             {
+
                 if (GameManager.IsBalloonHead(hit.collider.gameObject.layer))
                 {
                     if (hit.collider.transform.parent.TryGetComponent(out Balloon ballon))
