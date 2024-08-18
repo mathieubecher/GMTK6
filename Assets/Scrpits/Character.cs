@@ -92,10 +92,8 @@ public class Character : MonoBehaviour
     {
         foreach (var contact in _collision.contacts)
         {
-            Debug.Log(contact.normal);
             if (Vector2.Dot(contact.normal, Vector2.up) < 0.0f)
             {
-                Debug.Log("Ceil");
                 StartCoroutine(TryPlayAction("CeilBump", 0.033f));
                 break;
             }
@@ -114,7 +112,7 @@ public class Character : MonoBehaviour
         m_locomotion.ResetTrigger("CeilBump");
         m_locomotion.SetBool("inAir", false);
         m_locomotion.SetBool("dead", false);
-        m_locomotion.SetFloat("ElbowDropHeight", 0.0f);
+        m_locomotion.SetFloat("elbowDropHeight", 0.0f);
         
         animation.Play("Idle");
     }
