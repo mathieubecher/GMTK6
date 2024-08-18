@@ -68,16 +68,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Character m_character;
     [SerializeField] private Balloon m_mainBalloon;
     
-    public void OnEnable()
+    void OnEnable()
     {
         Controller.OnReset += Reset;
     }
 
-    public void OnDisable()
+    void OnDisable()
     {
         Controller.OnReset -= Reset;
     }
 
+    void Start()
+    {
+        m_currentCheckpoint.Activate();
+    }
+    
     public void Reset()
     {
         m_currentCheckpoint.Reset();
