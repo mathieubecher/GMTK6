@@ -177,7 +177,6 @@ public class Balloon : MonoBehaviour
         {
             if (Vector2.Dot(m_currentInflateDir, path) < 0.0f) continue;
             
-            gameObject.SetActive(false);
             RaycastHit2D hit = Physics2D.Raycast(
                 _currentPos,
                 path, 
