@@ -147,7 +147,7 @@ public class Balloon : MonoBehaviour
         m_balloonBodies[^1].transform.GetChild(0).localScale = colSize;
         
         m_balloonBodies[^1].transform.GetChild(0).localPosition = 
-            isUp ? Vector2.zero : new Vector2(-m_size / 2.0f, 0.0f);
+            isUp ? Vector2.zero : new Vector2(-math.sign(m_currentInflateDir.x) * m_size / 2.0f, 0.0f);
     }
 
     public void Inflate(float _value = 1.0f)
