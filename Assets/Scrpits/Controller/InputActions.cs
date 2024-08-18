@@ -71,6 +71,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Piment"",
+                    ""type"": ""Button"",
+                    ""id"": ""121c33e1-8c92-4e21-9c71-b59da6089c6c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -205,6 +214,28 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf98ebe7-0597-4be8-ae44-3de64594b7e6"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Piment"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b224cd2c-6920-42c6-a4c7-a24a60651044"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Piment"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -246,6 +277,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Default_ElbowDrop = m_Default.FindAction("ElbowDrop", throwIfNotFound: true);
         m_Default_Kick = m_Default.FindAction("Kick", throwIfNotFound: true);
         m_Default_Reset = m_Default.FindAction("Reset", throwIfNotFound: true);
+        m_Default_Piment = m_Default.FindAction("Piment", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -312,6 +344,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_ElbowDrop;
     private readonly InputAction m_Default_Kick;
     private readonly InputAction m_Default_Reset;
+    private readonly InputAction m_Default_Piment;
     public struct DefaultActions
     {
         private @InputActions m_Wrapper;
@@ -321,6 +354,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @ElbowDrop => m_Wrapper.m_Default_ElbowDrop;
         public InputAction @Kick => m_Wrapper.m_Default_Kick;
         public InputAction @Reset => m_Wrapper.m_Default_Reset;
+        public InputAction @Piment => m_Wrapper.m_Default_Piment;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -345,6 +379,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Reset.started += instance.OnReset;
             @Reset.performed += instance.OnReset;
             @Reset.canceled += instance.OnReset;
+            @Piment.started += instance.OnPiment;
+            @Piment.performed += instance.OnPiment;
+            @Piment.canceled += instance.OnPiment;
         }
 
         private void UnregisterCallbacks(IDefaultActions instance)
@@ -364,6 +401,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Reset.started -= instance.OnReset;
             @Reset.performed -= instance.OnReset;
             @Reset.canceled -= instance.OnReset;
+            @Piment.started -= instance.OnPiment;
+            @Piment.performed -= instance.OnPiment;
+            @Piment.canceled -= instance.OnPiment;
         }
 
         public void RemoveCallbacks(IDefaultActions instance)
@@ -406,5 +446,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnElbowDrop(InputAction.CallbackContext context);
         void OnKick(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
+        void OnPiment(InputAction.CallbackContext context);
     }
 }

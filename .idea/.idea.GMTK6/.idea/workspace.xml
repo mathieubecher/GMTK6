@@ -3,36 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="11ea1a11-314d-4c72-b2c0-f25a7677f266" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Anims/Character/Character.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Anims/Character/Character.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DebugScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DebugScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Balloon/Balloon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Balloon/Balloon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Checkpoint/Checkpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Checkpoint/Checkpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/DetectGround.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/DetectGround.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Air.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Air.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Character.physicsMaterial2D" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Character.physicsMaterial2D.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Dead.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Dead.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/ElbowDrop.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/ElbowDrop.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/ElbowDropHitGround.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/ElbowDropHitGround.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Ground.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Ground.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Jump.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Jump.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Kick.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Kick.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Locomotion.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Locomotion/Locomotion.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Locomotion.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Locomotion.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Controller/Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Controller/Controller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Controller/InputActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Controller/InputActions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Controller/InputActions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Controller/InputActions.inputactions" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +21,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/54724222b7684530a2810ae1eac94ec7176000/2c/1958c87b/LayerMask.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/54724222b7684530a2810ae1eac94ec7176000/af/6d5c10bf/LineRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Balloon/DetectCheckpoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Piment.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Interactive.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Pump/Pump.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
@@ -109,7 +88,7 @@
       <workItem from="1723834598142" duration="12996000" />
       <workItem from="1723878340252" duration="9007000" />
       <workItem from="1723891699494" duration="37280000" />
-      <workItem from="1723965416197" duration="40323000" />
+      <workItem from="1723965416197" duration="43413000" />
     </task>
     <servers />
   </component>

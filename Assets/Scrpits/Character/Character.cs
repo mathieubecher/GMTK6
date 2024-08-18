@@ -44,6 +44,8 @@ public class Character : MonoBehaviour
         Controller.OnJumpPress += JumpPress;
         Controller.OnElbowDropPress += ElbowDropPress;
         Controller.OnElbowDropRelease += ElbowDropRelease;
+        Controller.OnPimentPress += PimentPress;
+        Controller.OnPimentRelease += PimentRelease;
         Controller.OnKickPress += KickPress;
     }
 
@@ -52,6 +54,8 @@ public class Character : MonoBehaviour
         Controller.OnJumpPress -= JumpPress;
         Controller.OnElbowDropPress -= ElbowDropPress;
         Controller.OnElbowDropRelease += ElbowDropRelease;
+        Controller.OnPimentPress -= PimentPress;
+        Controller.OnPimentRelease += PimentRelease;
         Controller.OnKickPress -= KickPress;
         
     }
@@ -85,6 +89,16 @@ public class Character : MonoBehaviour
     {
         gameObject.layer = LayerMask.NameToLayer("Character");
         m_detectGround.gameObject.layer = LayerMask.NameToLayer("Character");
+    }
+
+    private void PimentPress()
+    {
+        m_locomotion.SetBool("piment", true);
+    }
+    
+    private void PimentRelease()
+    {
+        m_locomotion.SetBool("piment", false);
     }
     
     private void KickPress()
@@ -120,6 +134,7 @@ public class Character : MonoBehaviour
         m_locomotion.ResetTrigger("ElbowDrop");
         m_locomotion.ResetTrigger("Kick");
         m_locomotion.ResetTrigger("CeilBump");
+        m_locomotion.SetBool("piment", false);
         m_locomotion.SetBool("inAir", false);
         m_locomotion.SetBool("dead", false);
         m_locomotion.SetFloat("elbowDropHeight", 0.0f);

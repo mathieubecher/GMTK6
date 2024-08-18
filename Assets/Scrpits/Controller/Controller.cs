@@ -34,6 +34,9 @@ public class Controller : MonoBehaviour
     public static event SimpleEvent OnKickPress;
     public static event SimpleEvent OnKickRelease;
     
+    public static event SimpleEvent OnPimentPress;
+    public static event SimpleEvent OnPimentRelease;
+    
     public static event SimpleEvent OnReset;
     
     public void ReadMoveInput(InputAction.CallbackContext _context)
@@ -75,6 +78,18 @@ public class Controller : MonoBehaviour
         else if (_context.canceled)
         {
             OnKickRelease?.Invoke();
+        }
+    }
+    
+    public void ReadPimentInput(InputAction.CallbackContext _context)
+    {
+        if (_context.performed)
+        {
+            OnPimentPress?.Invoke(); 
+        }
+        else if (_context.canceled)
+        {
+            OnPimentRelease?.Invoke();
         }
     }
 

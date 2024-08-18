@@ -127,11 +127,11 @@ public class Balloon : Interactive
 
     private void AddBody()
     {
-        GameObject instance = Instantiate(GameManager.balloonBody, Vector3.zero, Quaternion.identity);
+        GameObject instance = Instantiate(GameManager.balloonBody, transform);
         var spriteRenderer = instance.GetComponent<SpriteRenderer>();
         spriteRenderer.color = m_color;
         m_balloonBodies.Add(spriteRenderer);
-        instance.SetActive(false);
+        ActiveCollider(false, 1);
     }
     private void UpdateBodyPosition()
     {
@@ -155,14 +155,10 @@ public class Balloon : Interactive
 
     public void Inflate(float _value = 1.0f)
     {
-        if (m_blockByBreakable)
-        {
-            if (!m_blockByBreakable.TryToBreak(m_currentInflateDir, _value))
-            {
-                return;
-            }
-        }
-        m_pressure = math.min(GameManager.maxPressure, m_pressure + _value);
+        if (m_blockByBreakable && m_blockByBreakable.TryToBreak(m_currentInflateDir, _value))  
+            m_pressure = _value;
+        else
+            m_pressure = math.min(GameManager.maxPressure, m_pressure + _value);
     }
     
     public void Hit(Vector2 _dir)
@@ -215,11 +211,12 @@ public class Balloon : Interactive
 
     private void ActiveCollider(bool _active, int _nb = 3)
     {
-        m_head.gameObject.SetActive(_active);
+        m_head.GetComponentInChildren<BoxCollider2D>().enabled = _active;
         
         for (int i = m_balloonBodies.Count - 1; i >= m_balloonBodies.Count - _nb && i >= 0; --i)
         {
-            m_balloonBodies[i].gameObject.SetActive(_active);
+            var collider = m_balloonBodies[i].GetComponentInChildren<BoxCollider2D>();
+            if(collider) collider.enabled = _active;
         }
     }
 
@@ -250,6 +247,7 @@ public class Balloon : Interactive
         {
             UpdateDirection(bestPathFound, _currentPos);
         }
+        /*
         else if(nbPathFound == 0 && m_currentInflateDir.y == 0.0f)
         {
             RaycastHit2D hit = Physics2D.Raycast(
@@ -263,7 +261,7 @@ public class Balloon : Interactive
             {
                 UpdateDirection(GameManager.downInflateDir, _currentPos);
             }
-        }
+        }*/
     }
 
     private void UpdateDirection(Vector2 _dir, Vector2 _currentPos)
