@@ -22,23 +22,32 @@ public class GameManager : MonoBehaviour
     public static GameObject balloonBody => instance.m_ballonBody;
     public static float inflateBlendForce => instance.m_inflateBlendForce;
     public static float maxPressure => instance.m_maxPressure;
+    public static AnimationCurve pumpPressOverTime => instance.m_pressOverTime;
+    public static AnimationCurve pumpReleaseOverTime => instance.m_releaseOverTime;
+    public static AnimationCurve pressureToOffsetValue => instance.m_pressureToOffsetValue;
+    public static AnimationCurve offsetValueToPressDuration => instance.m_offsetValueToPressDuration;
+    public static float elbowForceToPressure(float elbowDropHeight) { return instance.m_elbowForceToPressure.Evaluate(elbowDropHeight); }
+    public static Checkpoint currentCheckpoint
+    {
+        get => instance.m_currentCheckpoint;
+        set => instance.m_currentCheckpoint = value;
+    }
+    
+    public static Character character => instance.m_character;
+    public static Balloon mainBalloon => instance.m_mainBalloon;
+    
     public static LayerMask obstacleLayermask => instance.m_obstacleLayermask;
     public static LayerMask deadLayermask => instance.m_deadLayermask;
     public static LayerMask balloonHeadLayermask => instance.m_balloonHeadLayermask;
     public static LayerMask balloonLayermask => instance.m_balloonLayermask;
     public static LayerMask pumpLayermask => instance.m_pumpLayermask;
-    public static AnimationCurve pumpPressOverTime => instance.m_pressOverTime;
-    public static AnimationCurve pumpReleaseOverTime => instance.m_releaseOverTime;
-    public static AnimationCurve pressureToOffsetValue => instance.m_pressureToOffsetValue;
-    public static AnimationCurve offsetValueToPressDuration => instance.m_offsetValueToPressDuration;
-    public static Checkpoint currentCheckpoint => instance.m_currentCheckpoint;
-    public static Character character => instance.m_character;
-    public static Balloon mainBalloon => instance.m_mainBalloon;
+    public static LayerMask checkpointLayermask => instance.m_checkpointLayermask;
     public static bool IsBalloonHead(int _layer){ return balloonHeadLayermask == (balloonHeadLayermask | (1 << _layer));}
     public static bool IsCactus(int _layer){ return deadLayermask == (deadLayermask | (1 << _layer));}
     public static bool IsPump(int _layer){ return pumpLayermask == (pumpLayermask | (1 << _layer));}
     public static bool IsBalloon(int _layer){ return balloonLayermask == (balloonLayermask | (1 << _layer));}
-    public static float elbowForceToPressure(float elbowDropHeight) { return instance.m_elbowForceToPressure.Evaluate(elbowDropHeight); }
+    public static bool IsCheckpoint(int _layer){ return checkpointLayermask == (checkpointLayermask | (1 << _layer));}
+    
 
     
     #endregion
@@ -49,6 +58,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LayerMask m_balloonHeadLayermask;
     [SerializeField] private LayerMask m_balloonLayermask;
     [SerializeField] private LayerMask m_pumpLayermask;
+    [SerializeField] private LayerMask m_checkpointLayermask;
     
     [Header("Balloon")]
     [SerializeField] private List<Vector2> m_possibleInflateDir;

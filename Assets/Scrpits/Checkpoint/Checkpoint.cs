@@ -17,6 +17,7 @@ public class Checkpoint : MonoBehaviour
     public void Activate()
     {
         m_animator.SetTrigger("Activate");
+        GameManager.currentCheckpoint = this;
     }
     
     public void Reset()

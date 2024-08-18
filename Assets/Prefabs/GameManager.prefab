@@ -397,6 +397,9 @@ MonoBehaviour:
   m_pumpLayermask:
     serializedVersion: 2
     m_Bits: 256
+  m_checkpointLayermask:
+    serializedVersion: 2
+    m_Bits: 2048
   m_possibleInflateDir:
   - {x: 0, y: 1}
   - {x: -1, y: 0}
@@ -429,24 +432,15 @@ MonoBehaviour:
       time: 3.2
       value: 3
       inSlope: 0.9090909
-      outSlope: 1.0714285
+      outSlope: 1.0294118
       tangentMode: 69
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 6
-      value: 6
-      inSlope: 1.0714285
-      outSlope: 1
-      tangentMode: 69
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
       time: 10
       value: 10
-      inSlope: 1
+      inSlope: 1.0294118
       outSlope: Infinity
       tangentMode: 69
       weightedMode: 0
