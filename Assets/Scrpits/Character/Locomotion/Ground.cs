@@ -23,7 +23,7 @@ namespace Locomotion
             animator.SetFloat("currentTimer", 0.0f);
             
             m_character.gravityScale = 1.0f;
-            float desiredSpeed = m_runSpeed * Controller.instance.tilt;
+            float desiredSpeed = m_runSpeed * animator.GetFloat("tilt");
             m_character.velocity = new Vector2(desiredSpeed, m_character.velocity.y);
             
             m_character.animation.SetFloat("speed", desiredSpeed);
@@ -34,7 +34,7 @@ namespace Locomotion
         override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             float currentSpeed = m_character.velocity.x;
-            float desiredSpeed = m_runSpeed * Controller.instance.tilt;
+            float desiredSpeed = m_runSpeed * animator.GetFloat("tilt");
             float speed = currentSpeed;
 
             if (math.abs(desiredSpeed) > 0.01f && math.abs(math.sign(currentSpeed) - math.sign(desiredSpeed)) > TOLERANCE)

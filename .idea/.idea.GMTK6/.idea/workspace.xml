@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="11ea1a11-314d-4c72-b2c0-f25a7677f266" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/DebugScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DebugScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Balloon/Balloon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Balloon/Balloon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Air.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Air.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Ground.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Ground.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Jump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Jump.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +21,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/54724222b7684530a2810ae1eac94ec7176000/2c/1958c87b/LayerMask.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/54724222b7684530a2810ae1eac94ec7176000/af/6d5c10bf/LineRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Balloon/DetectCheckpoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Character/Bot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Piment.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Cinematic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Interactive.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Pump/Pump.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
@@ -84,7 +90,7 @@
       <workItem from="1723834598142" duration="12996000" />
       <workItem from="1723878340252" duration="9007000" />
       <workItem from="1723891699494" duration="37280000" />
-      <workItem from="1723965416197" duration="52153000" />
+      <workItem from="1723965416197" duration="56919000" />
     </task>
     <servers />
   </component>

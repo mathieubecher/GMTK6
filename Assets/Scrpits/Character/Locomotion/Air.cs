@@ -33,7 +33,7 @@ namespace Locomotion
             animator.SetFloat("currentTimer", m_timer);
             
             Vector2 currentSpeed = m_character.velocity;
-            float desiredSpeed = m_maxSpeed * Controller.instance.tilt;
+            float desiredSpeed = m_maxSpeed * animator.GetFloat("tilt");
             float horizontalSpeed = ComputeAirControl(m_accel, currentSpeed.x, desiredSpeed);
             
             m_character.velocity = new Vector2(horizontalSpeed, currentSpeed.y);

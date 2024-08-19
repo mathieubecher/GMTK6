@@ -236,6 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7172915374838570602}
   - component: {fileID: 7928048108720750772}
+  - component: {fileID: 4073984935838991707}
   - component: {fileID: 3113224343374019977}
   - component: {fileID: 7682743771760147590}
   - component: {fileID: 8625604756085740419}
@@ -280,6 +281,19 @@ MonoBehaviour:
   m_jelbowDropBuffer: 0.2
   m_detectGround: {fileID: 661632960903842071}
   animation: {fileID: 3873913011968986043}
+--- !u!114 &4073984935838991707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524201267185995972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6ee49e93024ee4d9650f659bee9b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_tolerance: 0.3
 --- !u!95 &3113224343374019977
 Animator:
   serializedVersion: 5

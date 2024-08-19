@@ -17,11 +17,16 @@ public class Character : MonoBehaviour
     
     private Rigidbody2D m_rigidbody;
     private Animator m_locomotion;
+    private Bot m_bot;
     private Vector3 m_originalScale;
+    private bool m_hasControl;
     
     #region getter and setter
     public bool isOnGround => m_detectGround.isOnGround;
     public float elbowDropHeight => m_locomotion.GetFloat("elbowDropHeight");
+
+    public Bot bot => m_bot;
+    public Animator locomotion => m_locomotion;
 
     public float gravityScale
     {
@@ -34,6 +39,12 @@ public class Character : MonoBehaviour
         set => m_rigidbody.velocity = value;
     }
     public Rigidbody2D rigidbody => m_rigidbody;
+
+    public bool hasControl
+    {
+        get => m_hasControl;
+        set => m_hasControl = value;
+    }
     
     #endregion
 
@@ -42,6 +53,7 @@ public class Character : MonoBehaviour
         m_originalScale = transform.lossyScale;
         m_locomotion = GetComponent<Animator>();
         m_rigidbody = GetComponent<Rigidbody2D>();
+        m_bot = GetComponent<Bot>();
         m_detectGround.SetCharacter(this);
     }
     void OnEnable()
@@ -78,19 +90,19 @@ public class Character : MonoBehaviour
     }
     void FixedUpdate()
     {
-        m_locomotion.SetFloat("tilt", Controller.instance.tilt);
+        if(m_hasControl) m_locomotion.SetFloat("tilt", Controller.instance.tilt);
         m_locomotion.SetBool("inAir", !isOnGround);
     }
 
     private void JumpPress()
     {
         StartCoroutine(TryPlayAction("Jump", m_jumpBuffer));
-        m_locomotion.SetBool("holdJump", true);
+        if(m_hasControl) m_locomotion.SetBool("holdJump", true);
     }
 
     private void JumpRelease()
     {
-        m_locomotion.SetBool("holdJump", false);
+        if(m_hasControl) m_locomotion.SetBool("holdJump", false);
     }
 
     private void ElbowDropPress()
@@ -124,9 +136,9 @@ public class Character : MonoBehaviour
     
     private IEnumerator TryPlayAction(string _name, float _buffer)
     {
-        m_locomotion.SetTrigger(_name);
+        if(m_hasControl) m_locomotion.SetTrigger(_name);
         yield return new WaitForSeconds(_buffer);
-        m_locomotion.ResetTrigger(_name);
+        if(m_hasControl) m_locomotion.ResetTrigger(_name);
     }
 
     private void OnCollisionEnter2D(Collision2D _collision)

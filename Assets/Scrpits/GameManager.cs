@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     [Header("UI")] 
+    [SerializeField] private Cinematic m_intro;
     [SerializeField] private Animator m_gameFlow;
     [SerializeField] private float m_defeatCooldown = 1.0f;
     
@@ -101,7 +102,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        m_currentCheckpoint.Activate(false);
+        if (m_intro) m_intro.Play();
+        else GiveControl();
     }
     
     public void Reset()
@@ -116,6 +118,16 @@ public class GameManager : MonoBehaviour
         m_currentCheckpoint.Reset();
         m_character.Reset(m_currentCheckpoint.spawnPos);
         m_mainBalloon.Reset();
+    }
+
+    public void GiveControl()
+    {
+        m_character.hasControl = true;
+    }
+
+    public void TakeControl()
+    {
+        m_character.hasControl = false;
     }
     
     public static float TimeFromValue(AnimationCurve c, float value, float precision = 1e-6f)

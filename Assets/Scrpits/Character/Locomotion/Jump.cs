@@ -38,7 +38,7 @@ namespace Locomotion
             
             float jumpForce = CalculateJumpForce(Physics2D.gravity.magnitude, m_jumpHeight);
             m_character.rigidbody.AddForce(Vector2.up * jumpForce * m_character.rigidbody.mass, ForceMode2D.Impulse);
-            m_character.velocity = new Vector2(m_maxSpeed * Controller.instance.tilt, m_character.velocity.y);
+            m_character.velocity = new Vector2(m_maxSpeed * animator.GetFloat("tilt"), m_character.velocity.y);
             
             m_character.animation.SetTrigger("Jump");
             m_character.animation.SetBool("inAir", true);
@@ -54,7 +54,7 @@ namespace Locomotion
             
             Vector2 currentSpeed = m_character.velocity;
             
-            float desiredSpeed = m_maxSpeed * Controller.instance.tilt;
+            float desiredSpeed = m_maxSpeed * animator.GetFloat("tilt");
             float horizontalSpeed = ComputeAirControl(m_accel, currentSpeed.x, desiredSpeed);
             
             
