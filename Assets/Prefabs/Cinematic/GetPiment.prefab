@@ -47,4 +47,4 @@ MonoBehaviour:
   m_UI: {fileID: 0}
   m_cameras: []
   m_sequence:
-  - CameraRes=Gameplay|GameFlowTrigger=Piment]
+  - CameraRes=Gameplay|GameFlowTrigger=Piment|StopPlayer=]

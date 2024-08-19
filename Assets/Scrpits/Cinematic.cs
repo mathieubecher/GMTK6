@@ -29,6 +29,8 @@ public class Cinematic : MonoBehaviour
         m_active = false;
         GameManager.currentCheckpoint.Activate(false);
         GameManager.instance.GiveControl();
+        GameManager.character.locomotion.enabled = true;
+        GameManager.character.gravityScale = 1.0f;
         foreach (var camera in m_cameras)
         {
             camera.Priority = 0;
@@ -109,6 +111,9 @@ public class Cinematic : MonoBehaviour
                     ++m_request;
                     GameManager.gameFlow.SendTrigger(splitAction[1], EndRequest);
                     break;
+                case "StopPlayer":
+                    StopPlayer();
+                    break;
             }
         }
 
@@ -164,6 +169,16 @@ public class Cinematic : MonoBehaviour
         GameManager.character.bot.Reach(_pos, EndRequest);
     }
     
+    private void StopPlayer()
+    {
+        ++m_request;
+        Debug.Log(m_request + "-> Stop player");
+        GameManager.character.locomotion.enabled = false;
+        GameManager.character.gravityScale = 0.0f;
+        GameManager.character.rigidbody.velocity = Vector2.zero;
+        EndRequest();
+    }
+
     private IEnumerator Wait(float _duration)
     {
         ++m_request;
