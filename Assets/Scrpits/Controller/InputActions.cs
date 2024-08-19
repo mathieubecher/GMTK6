@@ -80,6 +80,24 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""38b7035b-ddcc-4562-9b4a-62fe65ebc3e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Continue"",
+                    ""type"": ""Button"",
+                    ""id"": ""1767258e-5b7b-4c03-aadb-09da593082c9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -236,6 +254,72 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Piment"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c55c6a8-6789-43e4-bc91-aa3aa37dbc06"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43e9d5af-317d-4802-8ae4-66b9b46973f9"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f121528f-570d-4c86-819e-0959c4fba707"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e711b33b-2d60-4fa8-b649-2424bb28a338"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""118ca19b-e378-4871-a628-b336e8d42e3c"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89ab56b9-23f4-49a9-8b32-db14cb988c07"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -278,6 +362,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Default_Kick = m_Default.FindAction("Kick", throwIfNotFound: true);
         m_Default_Reset = m_Default.FindAction("Reset", throwIfNotFound: true);
         m_Default_Piment = m_Default.FindAction("Piment", throwIfNotFound: true);
+        m_Default_Pause = m_Default.FindAction("Pause", throwIfNotFound: true);
+        m_Default_Continue = m_Default.FindAction("Continue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -345,6 +431,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_Kick;
     private readonly InputAction m_Default_Reset;
     private readonly InputAction m_Default_Piment;
+    private readonly InputAction m_Default_Pause;
+    private readonly InputAction m_Default_Continue;
     public struct DefaultActions
     {
         private @InputActions m_Wrapper;
@@ -355,6 +443,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Kick => m_Wrapper.m_Default_Kick;
         public InputAction @Reset => m_Wrapper.m_Default_Reset;
         public InputAction @Piment => m_Wrapper.m_Default_Piment;
+        public InputAction @Pause => m_Wrapper.m_Default_Pause;
+        public InputAction @Continue => m_Wrapper.m_Default_Continue;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -382,6 +472,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Piment.started += instance.OnPiment;
             @Piment.performed += instance.OnPiment;
             @Piment.canceled += instance.OnPiment;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+            @Continue.started += instance.OnContinue;
+            @Continue.performed += instance.OnContinue;
+            @Continue.canceled += instance.OnContinue;
         }
 
         private void UnregisterCallbacks(IDefaultActions instance)
@@ -404,6 +500,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Piment.started -= instance.OnPiment;
             @Piment.performed -= instance.OnPiment;
             @Piment.canceled -= instance.OnPiment;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+            @Continue.started -= instance.OnContinue;
+            @Continue.performed -= instance.OnContinue;
+            @Continue.canceled -= instance.OnContinue;
         }
 
         public void RemoveCallbacks(IDefaultActions instance)
@@ -447,5 +549,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnKick(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
         void OnPiment(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnContinue(InputAction.CallbackContext context);
     }
 }

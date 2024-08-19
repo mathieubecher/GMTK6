@@ -851,6 +851,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 121c33e1-8c92-4e21-9c71-b59da6089c6c
     m_ActionName: Default/Piment[/XInputControllerWindows/buttonEast,/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8173852285411618277}
+        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+        m_MethodName: ReadPauseInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 38b7035b-ddcc-4562-9b4a-62fe65ebc3e1
+    m_ActionName: Default/Pause[/Keyboard/escape,/Keyboard/p,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8173852285411618277}
+        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+        m_MethodName: ReadContinueInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1767258e-5b7b-4c03-aadb-09da593082c9
+    m_ActionName: Default/Continue[/Keyboard/anyKey,/Mouse/leftButton,/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Mouse and Keyboard
   m_DefaultActionMap: Default

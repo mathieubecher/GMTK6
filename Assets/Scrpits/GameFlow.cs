@@ -22,12 +22,12 @@ public class GameFlow : MonoBehaviour
 
     private void OnEnable()
     {
-        Controller.OnJumpPress += CancelDialog;
+        Controller.OnContinuePress += CancelDialog;
     }
 
     private void OnDisable()
     {
-        Controller.OnJumpPress -= CancelDialog;
+        Controller.OnContinuePress -= CancelDialog;
     }
 
     private void CancelDialog()
