@@ -904,6 +904,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4087160923547756443, guid: 3de07d3999d6c474ab39ed3b3f5de4a4, type: 3}
+      propertyPath: m_zeroInflateDialogs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4087160923547756443, guid: 3de07d3999d6c474ab39ed3b3f5de4a4, type: 3}
+      propertyPath: m_successfulInflateFirstTimeDialog
+      value: 'Yes! It works! Continue like that.
+
+        I already feel the warmth
+        of the sun a little more.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4087160923547756443, guid: 3de07d3999d6c474ab39ed3b3f5de4a4, type: 3}
+      propertyPath: m_zeroInflateDialogs.Array.data[0]
+      value: 'No no no, it''s not enough...
+
+        Try again, a litle higher.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4087160923547756443, guid: 3de07d3999d6c474ab39ed3b3f5de4a4, type: 3}
+      propertyPath: m_zeroInflateDialogs.Array.data[1]
+      value: 'I don''t feel anything.
+
+        Try again please, we will get there!'
+      objectReference: {fileID: 0}
     - target: {fileID: 4169382952818336602, guid: 3de07d3999d6c474ab39ed3b3f5de4a4, type: 3}
       propertyPath: m_Name
       value: MainBalloon

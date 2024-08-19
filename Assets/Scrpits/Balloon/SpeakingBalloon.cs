@@ -13,13 +13,38 @@ public class SpeakingBalloon : MonoBehaviour
     [SerializeField] private Sprite m_stressHead;
     [SerializeField] private Sprite m_inflatedHead;
 
+    [Header("Dialog")]
+    [SerializeField, TextArea] private String m_successfulInflateFirstTimeDialog;
+    [SerializeField, TextArea] private List<String> m_zeroInflateDialogs;
+    [SerializeField] private Cinematic m_tutoElbowDrop;
+
     private Dialog m_currentDialog;
     
     private bool m_canTalk = true;
-    
+
+    private int m_nbZeroInflate = 0;
+    private bool m_hasSuccessfulInflate = false;
+    private bool m_tutoElbowDropPlayed = false;
     public void OnInflate(float _value)
     {
-        Talk("Hummm, yeeeeees, mooooooore. \n I feel it growing inside.");
+        if (_value > 0.0f)
+        {
+            if(!m_hasSuccessfulInflate)
+                Talk(m_successfulInflateFirstTimeDialog, true);
+            m_hasSuccessfulInflate = true;
+        }
+        else if (!m_hasSuccessfulInflate && !m_tutoElbowDropPlayed)
+        {
+            if (m_nbZeroInflate >= m_zeroInflateDialogs.Count)
+            {
+                m_tutoElbowDropPlayed = true;
+                m_tutoElbowDrop.Play();
+                return;
+            }
+            Talk(m_zeroInflateDialogs[m_nbZeroInflate], true);
+            ++m_nbZeroInflate;
+        }
+        
     }
 
     public void OnStuck()

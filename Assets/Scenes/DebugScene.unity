@@ -477,6 +477,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8155608736166822405, guid: 180755b7b1402db49aaf7c4971bbe1f8, type: 3}
   m_PrefabInstance: {fileID: 1343416956}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &656224995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 656224997}
+  - component: {fileID: 656224996}
+  m_Layer: 0
+  m_Name: TutoElbowDrop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &656224996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656224995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28594215215feb44f9820d3dda223236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UI: {fileID: 0}
+  m_cameras: []
+  m_sequence:
+  - CameraRes=Cinema|Wait=0.2]
+  - '[DiegoTalk=NOOOOO!]'
+  - '[DiegoTalk=It doesn''t work... you are not strong enough to press that pump.]'
+  - '[DiegoTalk=It''s over... I''ll never see the sun.]'
+  - '[PedroTalk=Wait! I have an idea.]'
+  - '[PedroTalk=If I put in just a little bit more effort, I''m sure I can do it.]'
+  - '[PedroTalk=If do an <b>Elbow Drop</b> in air, it will work!]'
+--- !u!4 &656224997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656224995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &899616158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8155608736166822405, guid: 180755b7b1402db49aaf7c4971bbe1f8, type: 3}
@@ -7325,6 +7379,10 @@ PrefabInstance:
       propertyPath: m_InflateRequest.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2762778586522183078, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_tutoElbowDrop
+      value: 
+      objectReference: {fileID: 656224996}
     - target: {fileID: 4240717034267669985, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8
@@ -7827,3 +7885,4 @@ SceneRoots:
   - {fileID: 416688152}
   - {fileID: 9141951283269988440}
   - {fileID: 6238474209400606096}
+  - {fileID: 656224997}
