@@ -53,7 +53,7 @@ public class DetectGround : MonoBehaviour
             _pump.Release();
         }
         
-        if(transform.parent.parent == other.transform )
+        if(transform.parent != null && transform.parent.parent != null && transform.parent.parent == other.transform )
         {
             transform.parent.parent = null;
         }

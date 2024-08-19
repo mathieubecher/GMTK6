@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_intro: {fileID: 0}
-  m_gameFlow: {fileID: 8384598767904192991}
+  m_gameFlow: {fileID: 4331190556419751843}
   m_defeatCooldown: 1
   m_characterLayermask:
     serializedVersion: 2
@@ -1105,8 +1105,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7119794279834316887, guid: 70d5b54217a9c65488530ba4fe4b08c4, type: 3}
   m_PrefabInstance: {fileID: 6107852453443082600}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &8384598767904192991 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2350711149489709239, guid: 70d5b54217a9c65488530ba4fe4b08c4, type: 3}
+--- !u!114 &4331190556419751843 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7554799022575576779, guid: 70d5b54217a9c65488530ba4fe4b08c4, type: 3}
   m_PrefabInstance: {fileID: 6107852453443082600}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fafbbb1a64beeb84c821510765c7c88d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

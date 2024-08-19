@@ -30,6 +30,7 @@ public class Cinematic : MonoBehaviour
         {
             camera.Priority = 0;
         }
+        GameManager.gameFlow.SetCameraRes("");
     }
 
     private void Update()
@@ -74,6 +75,9 @@ public class Cinematic : MonoBehaviour
                     if (int.TryParse(splitAction[1], out cameraId)) 
                         ActivateCamera(cameraId);
                     break;
+                case "CameraRes":
+                        ActivateCameraRes(splitAction[1]);
+                    break;
                 case "WaitIsOnGround":
                     WaitIsOnGround();
                     break;
@@ -90,11 +94,24 @@ public class Cinematic : MonoBehaviour
                     if (float.TryParse(splitAction[1], NumberStyles.Any, CultureInfo.InvariantCulture, out duration)) 
                         StartCoroutine(Wait(duration));
                     break;
+                case "PedroTalk":
+                    ++request;
+                    GameManager.gameFlow.DrawDialogPedro(splitAction[1], EndRequest);
+                    break;
+                case "DiegoTalk":
+                    ++request;
+                    GameManager.gameFlow.DrawDialogDiego(splitAction[1], EndRequest);
+                    break;
             }
         }
 
     }
-    
+
+    private void ActivateCameraRes(string _res)
+    {
+        GameManager.gameFlow.SetCameraRes(_res);
+    }
+
     private Vector2 ReadPosition(string _position)
     {
         String[] coordonate = _position.Split(':');

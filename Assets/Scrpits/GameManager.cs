@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     
     public static Character character => instance.m_character;
     public static Balloon mainBalloon => instance.m_mainBalloon;
+    public static GameFlow gameFlow => instance.m_gameFlow;
     
     public static LayerMask characterLayermask =>  !instance ? 0 : instance.m_characterLayermask;
     public static LayerMask obstacleLayermask => !instance ? 0 : instance.m_obstacleLayermask;
@@ -60,7 +61,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")] 
     [SerializeField] private Cinematic m_intro;
-    [SerializeField] private Animator m_gameFlow;
+    [SerializeField] private GameFlow m_gameFlow;
     [SerializeField] private float m_defeatCooldown = 1.0f;
     
     [Header("Layer")]
@@ -112,7 +113,7 @@ public class GameManager : MonoBehaviour
     public void Reset()
     {
         StartCoroutine(ResetWithDelay());
-        m_gameFlow.SetTrigger("Defeat");
+        m_gameFlow.Reset();
     }
 
     public IEnumerator ResetWithDelay()
