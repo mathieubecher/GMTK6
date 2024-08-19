@@ -14,6 +14,7 @@ namespace Locomotion
         [Header("Jump dynamic")]
         [SerializeField] private float m_jumpHeight = 10.0f;
         [SerializeField] private Vector2 m_counterJumpForce;
+        [SerializeField] private float m_minHeldDuration = 0.1f;
         bool jumpKeyHeld = false;
         
         private Character m_character;
@@ -57,7 +58,7 @@ namespace Locomotion
             float horizontalSpeed = ComputeAirControl(m_accel, currentSpeed.x, desiredSpeed);
             
             
-            if(!jumpKeyHeld && currentSpeed.y > 0)
+            if(!jumpKeyHeld && currentSpeed.y > 0 && m_timer > m_minHeldDuration)
             {
                 m_character.rigidbody.AddForce(m_counterJumpForce * m_character.rigidbody.mass);
             }

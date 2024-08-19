@@ -75,11 +75,6 @@ public class Character : MonoBehaviour
         
         if(math.abs(velocity.x) > 0.01f)
             animation.transform.localScale = new Vector3(math.sign(velocity.x), 1.0f, 1.0f);
-
-        if (m_locomotion.GetBool("holdJump"))
-        {
-            m_locomotion.SetFloat("holdJumpTime", m_locomotion.GetFloat("holdJumpTime") + Time.deltaTime);
-        }
     }
     void FixedUpdate()
     {
@@ -91,7 +86,6 @@ public class Character : MonoBehaviour
     {
         StartCoroutine(TryPlayAction("Jump", m_jumpBuffer));
         m_locomotion.SetBool("holdJump", true);
-        m_locomotion.SetFloat("holdJumpTime", 0.0f);
     }
 
     private void JumpRelease()

@@ -92,7 +92,10 @@ public class Balloon : Interactive
         Vector2 currentDir = -m_currentInflateDir;
         float delta = GameManager.explodeSpeed * Time.deltaTime;
         
+        var character = m_head.gameObject.GetComponentInChildren<Character>();
+        if (character) character.transform.parent = null;
         m_head.gameObject.SetActive(false);
+        
         m_head.position += (Vector3)currentDir * delta;
         if (Vector3.Distance(m_head.position, m_line.GetPosition(m_line.positionCount - 2)) < delta)
         {
@@ -279,7 +282,6 @@ public class Balloon : Interactive
 
     private void Explode()
     {
-        Debug.Log("Explode");
         m_explode = true;
         
         if (m_resetAtExplode)
