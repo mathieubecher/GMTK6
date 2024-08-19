@@ -11,11 +11,13 @@ public class Cinematic : MonoBehaviour
     [SerializeField] private List<CinemachineVirtualCamera> m_cameras;
     [SerializeField] private List<String> m_sequence;
 
-    private int request = 0;
+    private bool m_active = false;
+    private int m_request = 0;
     private int m_currentAction = 0;
     
     public void Play()
     {
+        m_active = true;
         GameManager.instance.TakeControl();
         
         ReadAction(m_sequence[m_currentAction]);
@@ -24,6 +26,7 @@ public class Cinematic : MonoBehaviour
 
     public void End()
     {
+        m_active = false;
         GameManager.currentCheckpoint.Activate(false);
         GameManager.instance.GiveControl();
         foreach (var camera in m_cameras)
@@ -35,20 +38,20 @@ public class Cinematic : MonoBehaviour
 
     private void Update()
     {
-        if (m_currentAction < m_sequence.Count) ReadNextAction();
+        if (m_active && m_currentAction < m_sequence.Count) ReadNextAction();
     }
 
     private void EndRequest()
     {
-        --request;
-        Debug.Log("End request " + request);
+        --m_request;
+        Debug.Log("End request " + m_request);
     }
     private void ReadNextAction()
     {
-        if (request > 0) return;
+        if (m_request > 0) return;
         
         ++m_currentAction;
-        request = 0;
+        m_request = 0;
         if (m_currentAction < m_sequence.Count) ReadAction(m_sequence[m_currentAction]);
         else End();
     }
@@ -95,11 +98,11 @@ public class Cinematic : MonoBehaviour
                         StartCoroutine(Wait(duration));
                     break;
                 case "PedroTalk":
-                    ++request;
+                    ++m_request;
                     GameManager.gameFlow.DrawDialogPedro(splitAction[1], EndRequest);
                     break;
                 case "DiegoTalk":
-                    ++request;
+                    ++m_request;
                     GameManager.gameFlow.DrawDialogDiego(splitAction[1], EndRequest);
                     break;
             }
@@ -130,37 +133,37 @@ public class Cinematic : MonoBehaviour
     
     public void ActivateCamera(int _i)
     {
-        ++request;
+        ++m_request;
         m_cameras[_i].Priority = 100;
         EndRequest();
     }
 
     public void WaitIsOnGround()
     {
-        ++request;
-        Debug.Log(request + "-> Wait is on ground");
+        ++m_request;
+        Debug.Log(m_request + "-> Wait is on ground");
         GameManager.character.bot.WaitIsOnGround(EndRequest);
     }
     
     private void TeleportPlayer(Vector2 _pos)
     {
-        ++request;
-        Debug.Log(request + "-> Teleport " + _pos);
+        ++m_request;
+        Debug.Log(m_request + "-> Teleport " + _pos);
         GameManager.character.transform.position = _pos;
         EndRequest();
     }
 
     private void ReachPlayer(Vector2 _pos)
     {
-        ++request;
-        Debug.Log(request + "-> Reach pos " + _pos);
+        ++m_request;
+        Debug.Log(m_request + "-> Reach pos " + _pos);
         GameManager.character.bot.Reach(_pos, EndRequest);
     }
     
     private IEnumerator Wait(float _duration)
     {
-        ++request;
-        Debug.Log(request + "-> Wait for " + _duration);
+        ++m_request;
+        Debug.Log(m_request + "-> Wait for " + _duration);
         yield return new WaitForSeconds(_duration);
         EndRequest();
     }

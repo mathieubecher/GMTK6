@@ -5,6 +5,10 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class InflateEvent : UnityEvent<float> { }
 
 public class Balloon : Interactive
 {
@@ -15,11 +19,16 @@ public class Balloon : Interactive
     [SerializeField] private Vector2 m_defaultDir;
     [SerializeField] private bool m_resetAtExplode;
     [SerializeField] private Color m_color;
+    
+    [SerializeField] private UnityEvent<float> m_InflateRequestEvent;
+    [SerializeField] private UnityEvent m_ExplodeEvent;
+    [SerializeField] private UnityEvent m_StuckEvent;
+    
     private LineRenderer m_line;
   
     private Vector2 m_currentInflateDir;
     private List<SpriteRenderer> m_balloonBodies;
-    private bool m_collided;
+    [SerializeField] private bool m_collided;
     private bool m_explode;
     private Breakable m_blockByBreakable;
     
@@ -158,6 +167,7 @@ public class Balloon : Interactive
 
     public void Inflate(float _value = 1.0f)
     {
+        m_InflateRequestEvent?.Invoke(_value);
         if (m_blockByBreakable && m_blockByBreakable.TryToBreak(m_currentInflateDir, _value))  
             m_pressure = _value;
         else
@@ -199,9 +209,8 @@ public class Balloon : Interactive
             }
             else
             {
-                Debug.Log("Collide with " + hit.collider.gameObject);
+                //Debug.Log("Collide with " + hit.collider.gameObject);
                 delta = (hit.distance - m_size / 2.0f);
-                m_collided = true;
             
                 CheckPossiblePath(_currentPos + _dir * delta);
             }
@@ -227,8 +236,7 @@ public class Balloon : Interactive
             }
         }
     }
-
-
+    
     private void CheckPossiblePath(Vector2 _currentPos)
     {
         Vector2 bestPathFound = Vector2.zero;
@@ -255,21 +263,11 @@ public class Balloon : Interactive
         {
             UpdateDirection(bestPathFound, _currentPos);
         }
-        /*
-        else if(nbPathFound == 0 && m_currentInflateDir.y == 0.0f)
+        else if(!m_collided)
         {
-            RaycastHit2D hit = Physics2D.Raycast(
-                _currentPos,
-                GameManager.downInflateDir, 
-                m_size / 2.0f + 0.5f,
-                GameManager.obstacleLayermask
-            );
-            
-            if (hit.collider == null)
-            {
-                UpdateDirection(GameManager.downInflateDir, _currentPos);
-            }
-        }*/
+            m_collided = true;
+            m_StuckEvent?.Invoke();
+        }
     }
 
     private void UpdateDirection(Vector2 _dir, Vector2 _currentPos)
@@ -290,6 +288,7 @@ public class Balloon : Interactive
     private void Explode()
     {
         m_explode = true;
+        m_ExplodeEvent?.Invoke();
         
         if (m_resetAtExplode)
         {

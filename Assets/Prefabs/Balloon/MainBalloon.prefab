@@ -76,10 +76,89 @@ PrefabInstance:
       propertyPath: m_resetAtExplode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_StuckEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_InflateRequest.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_InflateRequestEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_StuckEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_StuckEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4087160923547756443}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_StuckEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_InflateRequest.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4087160923547756443}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_StuckEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnStuck
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_InflateRequest.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_InflateRequest.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnInflate
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_InflateRequestEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4087160923547756443}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_InflateRequestEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_InflateRequestEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnInflate
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_StuckEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpeakingBalloon, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_InflateRequest.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpeakingBalloon, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_InflateRequestEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpeakingBalloon, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_StuckEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_InflateRequest.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_InflateRequestEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 682864428671836676, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 4087160923547756443}
     - targetCorrespondingSourceObject: {fileID: 8308543925821341971, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
       insertIndex: 1
       addedObject: {fileID: 113283147139376146}
@@ -87,6 +166,23 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8495985050381131232}
   m_SourcePrefab: {fileID: 100100000, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+--- !u!1 &4169382952818336602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 682864428671836676, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+  m_PrefabInstance: {fileID: 3505658826478207326}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4087160923547756443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4169382952818336602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a1688cbdba3dc48b6dbb8b5aa130af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4894140174343979085 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8308543925821341971, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
