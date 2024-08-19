@@ -7,8 +7,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
-[System.Serializable]
-public class InflateEvent : UnityEvent<float> { }
 
 public class Balloon : Interactive
 {
@@ -21,6 +19,7 @@ public class Balloon : Interactive
     [SerializeField] private Color m_color;
     
     [SerializeField] private UnityEvent<float> m_InflateRequestEvent;
+    [SerializeField] private UnityEvent<Vector2> m_changeDirectionEvent;
     [SerializeField] private UnityEvent m_ExplodeEvent;
     [SerializeField] private UnityEvent m_StuckEvent;
     
@@ -276,6 +275,7 @@ public class Balloon : Interactive
 
     private void UpdateDirection(Vector2 _dir, Vector2 _currentPos)
     {
+        m_changeDirectionEvent?.Invoke(_dir);
         m_line.SetPosition(m_line.positionCount - 1, _currentPos);
         if(m_line.positionCount > 1 && m_balloonBodies.Count > 0) UpdateBodyPosition();
         

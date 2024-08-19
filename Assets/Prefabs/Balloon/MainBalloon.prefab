@@ -93,6 +93,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_changeDirectionEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
       propertyPath: m_StuckEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4087160923547756443}
@@ -117,7 +121,15 @@ PrefabInstance:
       value: OnInflate
       objectReference: {fileID: 0}
     - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_changeDirectionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
       propertyPath: m_InflateRequestEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4087160923547756443}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_changeDirectionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4087160923547756443}
     - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
@@ -127,6 +139,14 @@ PrefabInstance:
     - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
       propertyPath: m_InflateRequestEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnInflate
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_changeDirectionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_changeDirectionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnChangedDirection
       objectReference: {fileID: 0}
     - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
       propertyPath: m_StuckEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -141,6 +161,10 @@ PrefabInstance:
       value: SpeakingBalloon, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_changeDirectionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpeakingBalloon, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
       propertyPath: m_StuckEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -150,6 +174,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
       propertyPath: m_InflateRequestEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840642965176655042, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+      propertyPath: m_changeDirectionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -183,6 +211,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a1688cbdba3dc48b6dbb8b5aa130af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_dialogPrefab: {fileID: 6654253746371843498, guid: eb5120b71cd703549bf817ab899d3827, type: 3}
+  m_head: {fileID: 7693842584937585529}
+  m_normalHead: {fileID: 21300000, guid: bc0d98d792f96c7478e496a679d79300, type: 3}
+  m_angryHead: {fileID: 21300000, guid: 837f4387ffed2644eb02dc2dd10f592a, type: 3}
+  m_stressHead: {fileID: 21300000, guid: 8ffbd1600d3f4ed44959af99b2f9ce2c, type: 3}
+  m_inflatedHead: {fileID: 21300000, guid: 8446ac616fca2bc4fbacefb36984f8bb, type: 3}
 --- !u!1 &4894140174343979085 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8308543925821341971, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
@@ -227,3 +261,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!4 &7693842584937585529 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6512380097319148071, guid: 3112c03d2cd00034b89cb3e21e200360, type: 3}
+  m_PrefabInstance: {fileID: 3505658826478207326}
+  m_PrefabAsset: {fileID: 0}
