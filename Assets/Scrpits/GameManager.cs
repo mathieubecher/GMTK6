@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public static Character character => instance.m_character;
     public static Balloon mainBalloon => instance.m_mainBalloon;
     
+    public static LayerMask characterLayermask => instance.m_characterLayermask;
     public static LayerMask obstacleLayermask => instance.m_obstacleLayermask;
     public static LayerMask deadLayermask => instance.m_deadLayermask;
     public static LayerMask breakableLayermask => instance.m_breakableLayermask;
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
     public static LayerMask movableLayermask => instance.m_movableLayermask;
     public static LayerMask pumpLayermask => instance.m_pumpLayermask;
     public static LayerMask checkpointLayermask => instance.m_checkpointLayermask;
+    public static bool IsCharacter(int _layer){ return characterLayermask == (characterLayermask | (1 << _layer));}
     public static bool IsBalloonHead(int _layer){ return balloonHeadLayermask == (balloonHeadLayermask | (1 << _layer));}
     public static bool IsCactus(int _layer){ return deadLayermask == (deadLayermask | (1 << _layer));}
     public static bool IsBreakable(int _layer){ return breakableLayermask == (breakableLayermask | (1 << _layer));}
@@ -62,6 +64,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float m_defeatCooldown = 1.0f;
     
     [Header("Layer")]
+    [SerializeField] private LayerMask m_characterLayermask;
     [SerializeField] private LayerMask m_obstacleLayermask;
     [SerializeField] private LayerMask m_deadLayermask;
     [SerializeField] private LayerMask m_balloonHeadLayermask;

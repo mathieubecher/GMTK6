@@ -199,6 +199,7 @@ public class Balloon : Interactive
             }
             else
             {
+                Debug.Log("Collide with " + hit.collider.gameObject);
                 delta = (hit.distance - m_size / 2.0f);
                 m_collided = true;
             
@@ -218,8 +219,12 @@ public class Balloon : Interactive
         
         for (int i = m_balloonBodies.Count - 1; i >= m_balloonBodies.Count - _nb && i >= 0; --i)
         {
-            var collider = m_balloonBodies[i].GetComponentInChildren<BoxCollider2D>();
-            if(collider) collider.enabled = _active;
+            var colliders = m_balloonBodies[i].GetComponentsInChildren<BoxCollider2D>();
+            foreach(var collider in colliders)
+            {
+                if (collider && !GameManager.IsCharacter(collider.gameObject.layer)) 
+                    collider.enabled = _active;
+            }
         }
     }
 
