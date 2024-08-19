@@ -171,7 +171,10 @@ public class Balloon : Interactive
         if (m_blockByBreakable && m_blockByBreakable.TryToBreak(m_currentInflateDir, _value))  
             m_pressure = _value;
         else
-            m_pressure = math.min(GameManager.maxPressure, m_pressure + _value);
+        {
+            m_pressure += _value;
+            if (m_collided) m_pressure = math.min(GameManager.maxPressure, m_pressure);
+        }
     }
     
     public void Hit(Vector2 _dir)
@@ -266,6 +269,7 @@ public class Balloon : Interactive
         else if(!m_collided)
         {
             m_collided = true;
+            m_pressure = math.min(GameManager.maxPressure, m_pressure);
             m_StuckEvent?.Invoke();
         }
     }

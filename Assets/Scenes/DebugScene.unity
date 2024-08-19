@@ -7340,6 +7340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1773803449}
+  - component: {fileID: 1773803450}
   - component: {fileID: 1773803448}
   m_Layer: 0
   m_Name: Dialog
@@ -7416,6 +7417,19 @@ Transform:
   - {fileID: 854032825}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1773803450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773803447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc76a00c4d8c1314594aa1ccd09d32e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_text: 
 --- !u!114 &1791010308 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8400528319801391184, guid: 018ee253d88dba349acaba2113f7b50b, type: 3}
