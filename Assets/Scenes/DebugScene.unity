@@ -7299,9 +7299,9 @@ MonoBehaviour:
   m_cameras:
   - {fileID: 558398076}
   m_sequence:
-  - '[TeleportPlayer=-15:20,WaitIsOnGround=]'
-  - '[ActivateCamera=0,Wait=0.3]'
-  - '[ReachPlayer=-10:-7]'
+  - '[TeleportPlayer=-15:20|WaitIsOnGround=]'
+  - '[Wait=0.6]'
+  - '[ActivateCamera=0|ReachPlayer=-10:-7]'
   - '[Wait=1.0]'
 --- !u!4 &1791010309
 Transform:

@@ -55,7 +55,7 @@ public class Cinematic : MonoBehaviour
     void ReadAction(String _action)
     {
         Debug.Log(_action);
-        String[] splitActions = _action.Split(new char[]{'[',']',','}, StringSplitOptions.RemoveEmptyEntries );
+        String[] splitActions = _action.Split(new char[]{'[',']','|'}, StringSplitOptions.RemoveEmptyEntries );
         foreach (String action in splitActions)
         {
             String[] splitAction = action.Split('=');
