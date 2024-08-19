@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     public static LayerMask movableLayermask => !instance ? 0 : instance.m_movableLayermask;
     public static LayerMask pumpLayermask => !instance ? 0 : instance.m_pumpLayermask;
     public static LayerMask checkpointLayermask => !instance ? 0 : instance.m_checkpointLayermask;
+    public static LayerMask pimentLayermask => !instance ? 0 : instance.m_pimentLayermask;
     public static bool IsCharacter(int _layer){ return characterLayermask == (characterLayermask | (1 << _layer));}
     public static bool IsBalloonHead(int _layer){ return balloonHeadLayermask == (balloonHeadLayermask | (1 << _layer));}
     public static bool IsCactus(int _layer){ return deadLayermask == (deadLayermask | (1 << _layer));}
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
     public static bool IsPump(int _layer){ return pumpLayermask == (pumpLayermask | (1 << _layer));}
     public static bool IsMovablePlatform(int _layer){ return movableLayermask == (movableLayermask | (1 << _layer));}
     public static bool IsCheckpoint(int _layer){ return checkpointLayermask == (checkpointLayermask | (1 << _layer));}
+    public static bool IsPiment(int _layer){ return pimentLayermask == (pimentLayermask | (1 << _layer));}
     
 
     
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LayerMask m_breakableLayermask;
     [SerializeField] private LayerMask m_pumpLayermask;
     [SerializeField] private LayerMask m_checkpointLayermask;
+    [SerializeField] private LayerMask m_pimentLayermask;
     
     [Header("Balloon")]
     [SerializeField] private List<Vector2> m_possibleInflateDir;

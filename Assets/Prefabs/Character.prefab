@@ -281,6 +281,8 @@ MonoBehaviour:
   m_jelbowDropBuffer: 0.2
   m_detectGround: {fileID: 661632960903842071}
   animation: {fileID: 3873913011968986043}
+  m_gotPimentTuto: {fileID: 0}
+  m_hasPiment: 0
 --- !u!114 &4073984935838991707
 MonoBehaviour:
   m_ObjectHideFlags: 0

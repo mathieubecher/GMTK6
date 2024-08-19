@@ -74,6 +74,14 @@ public class GameFlow : MonoBehaviour
         m_dialogCallback = _callback;
     }
 
+    public void SendTrigger(String _trigger, SimpleCallback _callback)
+    {
+        m_animator.ResetTrigger("CancelDialog");
+        m_animator.SetTrigger(_trigger);
+        m_canCancelDialog = true;
+        m_dialogCallback = _callback;
+    }
+
     public void SetCameraRes(string _res)
     {
         m_animator.SetBool("cinema", _res == "Cinema");

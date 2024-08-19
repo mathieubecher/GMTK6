@@ -14,6 +14,11 @@ public class Character : MonoBehaviour
     [Header("System")]
     [SerializeField] private DetectGround m_detectGround;
     [SerializeField] public Animator animation;
+
+    [Header("Piment")]
+    [SerializeField] private Cinematic m_gotPimentTuto;
+    [SerializeField] private bool m_hasPiment;
+    
     
     private Rigidbody2D m_rigidbody;
     private Animator m_locomotion;
@@ -121,7 +126,7 @@ public class Character : MonoBehaviour
 
     private void PimentPress()
     {
-        m_locomotion.SetBool("piment", true);
+        m_locomotion.SetBool("piment", m_hasPiment);
     }
     
     private void PimentRelease()
@@ -139,6 +144,16 @@ public class Character : MonoBehaviour
         if(m_hasControl) m_locomotion.SetTrigger(_name);
         yield return new WaitForSeconds(_buffer);
         if(m_hasControl) m_locomotion.ResetTrigger(_name);
+    }
+
+    private void OnTriggerEnter2D(Collider2D _collider)
+    {
+        if (GameManager.IsPiment(_collider.gameObject.layer))
+        {
+            Destroy(_collider.gameObject);
+            m_gotPimentTuto.Play();
+            m_hasPiment = true;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D _collision)

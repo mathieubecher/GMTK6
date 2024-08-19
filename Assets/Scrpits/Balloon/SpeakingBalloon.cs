@@ -25,6 +25,7 @@ public class SpeakingBalloon : MonoBehaviour
     private int m_nbZeroInflate = 0;
     private bool m_hasSuccessfulInflate = false;
     private bool m_tutoElbowDropPlayed = false;
+    
     public void OnInflate(float _value)
     {
         if (_value > 0.0f)

@@ -105,6 +105,10 @@ public class Cinematic : MonoBehaviour
                     ++m_request;
                     GameManager.gameFlow.DrawDialogDiego(splitAction[1], EndRequest);
                     break;
+                case "GameFlowTrigger":
+                    ++m_request;
+                    GameManager.gameFlow.SendTrigger(splitAction[1], EndRequest);
+                    break;
             }
         }
 
