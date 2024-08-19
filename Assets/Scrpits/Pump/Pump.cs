@@ -6,7 +6,10 @@ using UnityEngine;
 public class Pump : MonoBehaviour
 {
     [SerializeField] private Balloon m_connectedBalloon;
+    [SerializeField] private Transform m_pressureSensor;
     [SerializeField] private float m_maxPression = 10.0f;
+    [SerializeField] private float m_minPressureAngle = -70.0f;
+    [SerializeField] private float m_maxPressureAngle = 70.0f;
     private float m_offsetValue = 0.0f;
     private float m_starPos;
     private bool m_pressed;
@@ -20,6 +23,9 @@ public class Pump : MonoBehaviour
 
     private void Update()
     {
+        float pressureRatio = m_maxPression > 0.0f? (m_connectedBalloon.length + m_connectedBalloon.pressure) / m_maxPression : 1.0f;
+        m_pressureSensor.localRotation = Quaternion.Euler(0.0f,0.0f,m_minPressureAngle + (m_maxPressureAngle - m_minPressureAngle) * pressureRatio);
+        
         Vector3 pos = transform.position;
         float pressDuration = GameManager.offsetValueToPressDuration.Evaluate(m_offsetValue);
         
