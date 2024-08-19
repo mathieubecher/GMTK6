@@ -76,6 +76,8 @@ public class Balloon : Interactive
         m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
         
         UpdateDirection(m_currentInflateDir, m_head.position);
+        
+        m_head.gameObject.SetActive(true);
         ActiveCollider(true, 1000);
     }
 

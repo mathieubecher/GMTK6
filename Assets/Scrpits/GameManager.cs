@@ -55,6 +55,10 @@ public class GameManager : MonoBehaviour
 
     
     #endregion
+
+    [Header("UI")] 
+    [SerializeField] private Animator m_gameFlow;
+    [SerializeField] private float m_defeatCooldown = 1.0f;
     
     [Header("Layer")]
     [SerializeField] private LayerMask m_obstacleLayermask;
@@ -103,11 +107,12 @@ public class GameManager : MonoBehaviour
     public void Reset()
     {
         StartCoroutine(ResetWithDelay());
+        m_gameFlow.SetTrigger("Defeat");
     }
 
     public IEnumerator ResetWithDelay()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(m_defeatCooldown);
         m_currentCheckpoint.Reset();
         m_character.Reset(m_currentCheckpoint.spawnPos);
         m_mainBalloon.Reset();
