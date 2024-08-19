@@ -12,12 +12,20 @@ namespace Locomotion
         [SerializeField] private float m_maxSpeed = 8.0f;
         
         [Header("Jump dynamic")]
-        [SerializeField] private AnimationCurve m_jumpPositionOverTime;
         [SerializeField] private float m_jumpHeight = 10.0f;
+        [SerializeField] private Vector2 m_counterJumpForce;
+        bool jumpKeyHeld = false;
         
         private Character m_character;
         private float m_timer;
-        private float m_lastPos;
+        
+        public static float CalculateJumpForce(float gravityStrength, float jumpHeight)
+        {
+            //h = v^2/2g
+            //2gh = v^2
+            //sqrt(2gh) = v
+            return math.sqrt(2 * gravityStrength * jumpHeight);
+        }
 
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -25,12 +33,11 @@ namespace Locomotion
             m_character = animator.GetComponent<Character>();
             m_timer = 0.0f;
             animator.SetFloat("currentTimer", 0.0f);
-
-            m_character.gravityScale = 0.0f;
-            m_lastPos = 0.0f;
+            jumpKeyHeld = animator.GetBool("holdJump");
             
-            Vector2 currentSpeed = m_character.velocity;
-            m_character.velocity = new Vector2(m_maxSpeed * Controller.instance.tilt, currentSpeed.y);
+            float jumpForce = CalculateJumpForce(Physics2D.gravity.magnitude, m_jumpHeight);
+            m_character.rigidbody.AddForce(Vector2.up * jumpForce * m_character.rigidbody.mass, ForceMode2D.Impulse);
+            m_character.velocity = new Vector2(m_maxSpeed * Controller.instance.tilt, m_character.velocity.y);
             
             m_character.animation.SetTrigger("Jump");
             m_character.animation.SetBool("inAir", true);
@@ -41,17 +48,20 @@ namespace Locomotion
         {
             m_timer += Time.deltaTime;
             animator.SetFloat("currentTimer", m_timer);
+            jumpKeyHeld &= animator.GetBool("holdJump");
+
             
             Vector2 currentSpeed = m_character.velocity;
-            float desiredPos = m_jumpPositionOverTime.Evaluate(m_timer) * m_jumpHeight;
-
-            float verticalSpeed = Time.deltaTime > 0.0f? (desiredPos - m_lastPos) / Time.deltaTime : 0.0f;
-            m_lastPos = desiredPos;
             
             float desiredSpeed = m_maxSpeed * Controller.instance.tilt;
             float horizontalSpeed = ComputeAirControl(m_accel, currentSpeed.x, desiredSpeed);
             
-            m_character.velocity = new Vector2(horizontalSpeed, verticalSpeed);
+            
+            if(!jumpKeyHeld && currentSpeed.y > 0)
+            {
+                m_character.rigidbody.AddForce(m_counterJumpForce * m_character.rigidbody.mass);
+            }
+            m_character.velocity = new Vector2(horizontalSpeed, m_character.velocity.y);
         }
 
         private float ComputeAirControl(float _accel, float _currentSpeed, float _desiredSpeed)

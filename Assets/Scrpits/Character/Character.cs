@@ -25,7 +25,7 @@ public class Character : MonoBehaviour
 
     public float gravityScale
     {
-        set => m_rigidbody.gravityScale = value * 5.0f;
+        set => m_rigidbody.gravityScale = value;
     }
     
     public Vector2 velocity
@@ -33,6 +33,8 @@ public class Character : MonoBehaviour
         get => m_rigidbody.velocity;
         set => m_rigidbody.velocity = value;
     }
+    public Rigidbody2D rigidbody => m_rigidbody;
+    
     #endregion
 
     void Awake()
@@ -45,6 +47,7 @@ public class Character : MonoBehaviour
     void OnEnable()
     {
         Controller.OnJumpPress += JumpPress;
+        Controller.OnJumpRelease += JumpRelease;
         Controller.OnElbowDropPress += ElbowDropPress;
         Controller.OnElbowDropRelease += ElbowDropRelease;
         Controller.OnPimentPress += PimentPress;
@@ -55,6 +58,7 @@ public class Character : MonoBehaviour
     void OnDisable()
     {
         Controller.OnJumpPress -= JumpPress;
+        Controller.OnJumpRelease -= JumpRelease;
         Controller.OnElbowDropPress -= ElbowDropPress;
         Controller.OnElbowDropRelease += ElbowDropRelease;
         Controller.OnPimentPress -= PimentPress;
@@ -71,6 +75,11 @@ public class Character : MonoBehaviour
         
         if(math.abs(velocity.x) > 0.01f)
             animation.transform.localScale = new Vector3(math.sign(velocity.x), 1.0f, 1.0f);
+
+        if (m_locomotion.GetBool("holdJump"))
+        {
+            m_locomotion.SetFloat("holdJumpTime", m_locomotion.GetFloat("holdJumpTime") + Time.deltaTime);
+        }
     }
     void FixedUpdate()
     {
@@ -81,7 +90,13 @@ public class Character : MonoBehaviour
     private void JumpPress()
     {
         StartCoroutine(TryPlayAction("Jump", m_jumpBuffer));
+        m_locomotion.SetBool("holdJump", true);
+        m_locomotion.SetFloat("holdJumpTime", 0.0f);
+    }
 
+    private void JumpRelease()
+    {
+        m_locomotion.SetBool("holdJump", false);
     }
 
     private void ElbowDropPress()
