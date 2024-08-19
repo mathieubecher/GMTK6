@@ -8,6 +8,7 @@ public class Pump : MonoBehaviour
     [SerializeField] private Balloon m_connectedBalloon;
     [SerializeField] private Transform m_pressureSensor;
     [SerializeField] private float m_maxPression = 10.0f;
+    [SerializeField] private float m_minPression = 0.0f;
     [SerializeField] private float m_minPressureAngle = -70.0f;
     [SerializeField] private float m_maxPressureAngle = 70.0f;
     private float m_offsetValue = 0.0f;
@@ -23,7 +24,8 @@ public class Pump : MonoBehaviour
 
     private void Update()
     {
-        float pressureRatio = m_maxPression > 0.0f? (m_connectedBalloon.length + m_connectedBalloon.pressure) / m_maxPression : 1.0f;
+        float pression = m_maxPression - m_minPression;
+        float pressureRatio = pression > 0.0f? (m_connectedBalloon.length + m_connectedBalloon.pressure - m_minPression) / pression : 1.0f;
         m_pressureSensor.localRotation = Quaternion.Euler(0.0f,0.0f,m_minPressureAngle + (m_maxPressureAngle - m_minPressureAngle) * pressureRatio);
         
         Vector3 pos = transform.position;

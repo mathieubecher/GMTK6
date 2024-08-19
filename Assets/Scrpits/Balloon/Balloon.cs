@@ -118,7 +118,7 @@ public class Balloon : Interactive
             m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
         }
         
-        m_line.SetPosition(m_line.positionCount - 1, m_head.position);
+        if(m_line.positionCount > 1) m_line.SetPosition(m_line.positionCount - 1, m_head.position);
         UpdateBodyPosition();
     }
 
@@ -132,7 +132,7 @@ public class Balloon : Interactive
         m_pressure -= delta;
         m_currentLength += delta;
         
-        m_line.SetPosition(m_line.positionCount - 1, m_head.position);
+        if(m_line.positionCount > 1) m_line.SetPosition(m_line.positionCount - 1, m_head.position);
         UpdateBodyPosition();
     }
 
@@ -276,12 +276,12 @@ public class Balloon : Interactive
     private void UpdateDirection(Vector2 _dir, Vector2 _currentPos)
     {
         m_changeDirectionEvent?.Invoke(_dir);
-        m_line.SetPosition(m_line.positionCount - 1, _currentPos);
+        if(m_line.positionCount > 1)  m_line.SetPosition(m_line.positionCount - 1, _currentPos);
         if(m_line.positionCount > 1 && m_balloonBodies.Count > 0) UpdateBodyPosition();
         
         m_currentInflateDir = _dir;
         ++m_line.positionCount;
-        m_line.SetPosition(m_line.positionCount - 1, _currentPos);
+        if(m_line.positionCount > 1) m_line.SetPosition(m_line.positionCount - 1, _currentPos);
         AddBody();
         UpdateBodyPosition();
         

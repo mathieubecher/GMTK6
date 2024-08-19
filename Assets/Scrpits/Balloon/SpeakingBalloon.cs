@@ -93,6 +93,6 @@ public class SpeakingBalloon : MonoBehaviour
             m_currentDialog = null;
             m_canTalk = true;
         }
-        Destroy(_current.gameObject);
+        if(_current != null) Destroy(_current.gameObject);
     }
 }
