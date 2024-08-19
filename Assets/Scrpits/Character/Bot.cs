@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -11,8 +12,9 @@ public class Bot : MonoBehaviour
     private bool m_hasObjective;
     private Vector2 m_objective;
 
-    public delegate void ReachCallback();
-    private ReachCallback m_reachFunction;		
+    public delegate void SimpleCallback();
+    private SimpleCallback m_reachFunction;		
+    private SimpleCallback m_groundFunction;		
     void Awake()
     {
         m_character = GetComponent<Character>();
@@ -36,12 +38,23 @@ public class Bot : MonoBehaviour
                 m_character.locomotion.SetFloat("tilt", math.sign(Vector2.Dot(Vector2.right, m_objective - (Vector2)transform.position)));
             }
         }
+        if (m_groundFunction != null && !m_character.locomotion.GetBool("inAir"))
+        {
+            m_groundFunction();
+            m_groundFunction = null;
+        }
     }
 
-    public void Reach(Vector2 _pos, ReachCallback _func)
+    public void Reach(Vector2 _pos, SimpleCallback _func)
     {
         m_reachFunction = _func;
         m_hasObjective = true;
         m_objective = _pos;
+    }
+
+    public void WaitIsOnGround(SimpleCallback _func)
+    {
+        m_groundFunction = _func;
+
     }
 }

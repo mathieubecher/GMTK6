@@ -8,30 +8,46 @@ using UnityEngine;
 public class Cinematic : MonoBehaviour
 {
     [SerializeField] private Animator m_UI;
-    [SerializeField] private CinemachineVirtualCamera m_camera;
+    [SerializeField] private List<CinemachineVirtualCamera> m_cameras;
     [SerializeField] private List<String> m_sequence;
 
+    private int request = 0;
     private int m_currentAction = 0;
     
     public void Play()
     {
         GameManager.instance.TakeControl();
-        m_camera.Priority = 100;
         
         ReadAction(m_sequence[m_currentAction]);
         
     }
-    
+
     public void End()
     {
         GameManager.currentCheckpoint.Activate(false);
         GameManager.instance.GiveControl();
-        m_camera.Priority = 0;
+        foreach (var camera in m_cameras)
+        {
+            camera.Priority = 0;
+        }
     }
-    
+
+    private void Update()
+    {
+        if (m_currentAction < m_sequence.Count) ReadNextAction();
+    }
+
+    private void EndRequest()
+    {
+        --request;
+        Debug.Log("End request " + request);
+    }
     private void ReadNextAction()
     {
+        if (request > 0) return;
+        
         ++m_currentAction;
+        request = 0;
         if (m_currentAction < m_sequence.Count) ReadAction(m_sequence[m_currentAction]);
         else End();
     }
@@ -50,8 +66,17 @@ public class Cinematic : MonoBehaviour
             }
             
             string type = splitAction[0];
+            Debug.Log(action);
             switch (type)
             {
+                case "ActivateCamera":
+                    int cameraId;
+                    if (int.TryParse(splitAction[1], out cameraId)) 
+                        ActivateCamera(cameraId);
+                    break;
+                case "WaitIsOnGround":
+                    WaitIsOnGround();
+                    break;
                 case "TeleportPlayer":
                     Vector2 teleportPos = ReadPosition(splitAction[1]);
                     TeleportPlayer(teleportPos);
@@ -62,40 +87,16 @@ public class Cinematic : MonoBehaviour
                     break;
                 case "Wait":
                     float duration;
-                    Debug.Log("Wait for " + splitAction[1]);
                     if (float.TryParse(splitAction[1], NumberStyles.Any, CultureInfo.InvariantCulture, out duration)) 
                         StartCoroutine(Wait(duration));
                     break;
             }
         }
-    }
 
-
-    private void TeleportPlayer(Vector2 _pos)
-    {
-        GameManager.character.transform.position = _pos;
-        ReadNextAction();
-    }
-
-    private void ReachPlayer(Vector2 _pos)
-    {
-        GameManager.character.bot.Reach(_pos, ReachCallBack);
     }
     
-    void ReachCallBack()
-    {
-        ReadNextAction();
-    }
-
-    private IEnumerator Wait(float _duration)
-    {
-        yield return new WaitForSeconds(_duration);
-        ReadNextAction();
-    }
-
     private Vector2 ReadPosition(string _position)
     {
-        Debug.Log("Try to read coord : "+ _position);
         String[] coordonate = _position.Split(':');
         float x,y;
 
@@ -109,4 +110,42 @@ public class Cinematic : MonoBehaviour
             
         return Vector2.zero;
     }
+    
+    public void ActivateCamera(int _i)
+    {
+        ++request;
+        m_cameras[_i].Priority = 100;
+        EndRequest();
+    }
+
+    public void WaitIsOnGround()
+    {
+        ++request;
+        Debug.Log(request + "-> Wait is on ground");
+        GameManager.character.bot.WaitIsOnGround(EndRequest);
+    }
+    
+    private void TeleportPlayer(Vector2 _pos)
+    {
+        ++request;
+        Debug.Log(request + "-> Teleport " + _pos);
+        GameManager.character.transform.position = _pos;
+        EndRequest();
+    }
+
+    private void ReachPlayer(Vector2 _pos)
+    {
+        ++request;
+        Debug.Log(request + "-> Reach pos " + _pos);
+        GameManager.character.bot.Reach(_pos, EndRequest);
+    }
+    
+    private IEnumerator Wait(float _duration)
+    {
+        ++request;
+        Debug.Log(request + "-> Wait for " + _duration);
+        yield return new WaitForSeconds(_duration);
+        EndRequest();
+    }
+
 }
