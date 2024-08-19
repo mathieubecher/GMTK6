@@ -491,7 +491,6 @@ MonoBehaviour:
     m_Bits: 2048
   m_possibleInflateDir:
   - {x: 0, y: 1}
-  - {x: 0, y: -1}
   - {x: -1, y: 0}
   - {x: 1, y: 0}
   m_downInflateDir: {x: 0, y: 0}
