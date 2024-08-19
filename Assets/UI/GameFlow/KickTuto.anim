@@ -70,12 +70,12 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.3
         value: 263
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        inSlope: 1590.862
+        outSlope: 1590.862
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.24701302
       - serializedVersion: 3
         time: 0.73333335
         value: 530
@@ -149,7 +149,7 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 21300000, guid: 8446ac616fca2bc4fbacefb36984f8bb, type: 3}
-    - time: 0.3
+    - time: 0.31666666
       value: {fileID: 21300000, guid: bc0d98d792f96c7478e496a679d79300, type: 3}
     attribute: m_Sprite
     path: KickTuto/Diego
@@ -372,12 +372,12 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.3
         value: 263
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        inSlope: 1590.862
+        outSlope: 1590.862
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.24701302
       - serializedVersion: 3
         time: 0.73333335
         value: 530
