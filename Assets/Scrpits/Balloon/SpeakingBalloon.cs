@@ -17,6 +17,7 @@ public class SpeakingBalloon : MonoBehaviour
     [SerializeField, TextArea] private String m_successfulInflateFirstTimeDialog;
     [SerializeField, TextArea] private List<String> m_zeroInflateDialogs;
     [SerializeField] private Cinematic m_tutoElbowDrop;
+    [SerializeField] private Cinematic m_tutoKick;
 
     private Dialog m_currentDialog;
     
@@ -48,10 +49,15 @@ public class SpeakingBalloon : MonoBehaviour
         
     }
 
+    private bool m_tutoKickPlayed = false;
     public void OnStuck()
     {
         m_head.GetComponentInChildren<SpriteRenderer>().sprite = m_inflatedHead;
-        Talk("Stepbro! I'm stuck!", true);
+        if(!m_tutoKickPlayed)
+        {
+            m_tutoKickPlayed = true;
+            m_tutoKick.Play();
+        }
     }
 
     public void OnChangedDirection()
@@ -73,20 +79,20 @@ public class SpeakingBalloon : MonoBehaviour
         GameObject instance = Instantiate(m_dialogPrefab, m_head);
         m_currentDialog = instance.GetComponent<Dialog>();
         m_currentDialog.Init(m_head.position, _text);
-        StartCoroutine(DestroyAtTime(3.0f));
+        StartCoroutine(DestroyAtTime(m_currentDialog,3.0f));
         return true;
         
     }
 
-    private IEnumerator DestroyAtTime(float _duration)
+    private IEnumerator DestroyAtTime(Dialog _current, float _duration)
     {
         yield return new WaitForSeconds(_duration);
         
-        if (m_currentDialog)
+        if (m_currentDialog == _current)
         {
-            Destroy(m_currentDialog.gameObject);
             m_currentDialog = null;
             m_canTalk = true;
         }
+        Destroy(_current.gameObject);
     }
 }
