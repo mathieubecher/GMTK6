@@ -551,6 +551,7 @@ MonoBehaviour:
   - '[EnablePlatform=|Wait=3]'
   - '[CameraRes=Cinema|PedroTalk=...]'
   - '[PedroTalk=Goodbye, my friend...]'
+  - '[GameFlowTrigger=End]'
   - '[EndLevel=]'
 --- !u!1001 &5822482374564103074
 PrefabInstance:
