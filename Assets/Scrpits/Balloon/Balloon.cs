@@ -49,6 +49,7 @@ public class Balloon : Interactive
     public void StartDeflate()
     {
         m_deflate = true;
+        GameManager.effects.ScreenShake(5.0f, 0.1f, 0.1f);
     }
     
     void Awake()

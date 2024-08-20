@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public static Character character => instance.m_character;
     public static Balloon mainBalloon => instance.m_mainBalloon;
     public static GameFlow gameFlow => instance.m_gameFlow;
+    public static Effects effects => instance.m_effects;
     
     public static LayerMask characterLayermask =>  !instance ? 0 : instance.m_characterLayermask;
     public static LayerMask obstacleLayermask => !instance ? 0 : instance.m_obstacleLayermask;
@@ -65,6 +66,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Cinematic m_intro;
     [SerializeField] private GameFlow m_gameFlow;
     [SerializeField] private float m_defeatCooldown = 1.0f;
+
+    [Header("Effect")] [SerializeField] private Effects m_effects;
     
     [Header("Layer")]
     [SerializeField] private LayerMask m_characterLayermask;

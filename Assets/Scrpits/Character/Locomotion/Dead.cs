@@ -11,6 +11,7 @@ namespace Locomotion
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            GameManager.effects.ScreenShake(5.0f, 0.1f, 0.1f);
             m_character = animator.GetComponent<Character>();
             animator.SetFloat("currentTimer", 0.0f);
             m_character.animation.SetBool("dead", true);
