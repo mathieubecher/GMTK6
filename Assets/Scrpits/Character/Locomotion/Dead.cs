@@ -13,6 +13,7 @@ namespace Locomotion
         {
             m_character = animator.GetComponent<Character>();
             animator.SetFloat("currentTimer", 0.0f);
+            m_character.animation.SetBool("dead", true);
             
             m_character.gravityScale = 0.0f;
             m_character.velocity = Vector2.zero;
@@ -27,7 +28,7 @@ namespace Locomotion
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            
+            m_character.animation.SetBool("dead", false);
         }
     }
 }
