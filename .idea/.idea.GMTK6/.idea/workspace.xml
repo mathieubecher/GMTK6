@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11ea1a11-314d-4c72-b2c0-f25a7677f266" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Anims/Balloon/Balloon.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Anims/Balloon/Balloon.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Balloon/Balloon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Balloon/Balloon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Dead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Dead.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/ElbowDropHitGround.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/ElbowDropHitGround.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +88,7 @@
       <workItem from="1723891699494" duration="37280000" />
       <workItem from="1723965416197" duration="56919000" />
       <workItem from="1724051977065" duration="13037000" />
-      <workItem from="1724075835138" duration="28494000" />
+      <workItem from="1724075835138" duration="28775000" />
     </task>
     <servers />
   </component>

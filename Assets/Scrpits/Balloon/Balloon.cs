@@ -204,6 +204,7 @@ public class Balloon : Interactive
     
     public void Hit(Vector2 _dir)
     {
+        m_animator.SetTrigger("Hit");
         if (m_collided)
         {
             UpdateDirection(_dir, m_head.position);
