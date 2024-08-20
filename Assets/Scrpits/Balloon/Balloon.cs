@@ -233,7 +233,7 @@ public class Balloon : Interactive
             }
             else if(GameManager.IsBreakable(hit.collider.gameObject.layer) && hit.collider.TryGetComponent(out Breakable breakable))
             {
-                delta = 0.0f;
+                delta = (hit.distance - m_size / 2.0f);
                 m_blockByBreakable = breakable;
             }
             else
@@ -273,7 +273,7 @@ public class Balloon : Interactive
         
         foreach (var path in GameManager.possibleInflateDir)
         {
-            if (Vector2.Dot(m_currentInflateDir, path) < 0.0f) continue;
+            if (Vector2.Dot(m_currentInflateDir, path) < -0.5f) continue;
             
             RaycastHit2D hit = Physics2D.Raycast(
                 _currentPos,
@@ -287,7 +287,7 @@ public class Balloon : Interactive
                 bestPathFound = bestPathFound.y > 0.0f? bestPathFound : path;
             }
         }
-
+        
         if (nbPathFound == 1 || bestPathFound.y > 0.0f)
         {
             UpdateDirection(bestPathFound, _currentPos);
