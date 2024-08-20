@@ -362,7 +362,7 @@ Transform:
   m_GameObject: {fileID: 7043057799379969856}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.5, z: -10}
+  m_LocalPosition: {x: -31, y: -91, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -434,7 +434,7 @@ Transform:
   m_GameObject: {fileID: 8011600362328596395}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.5, z: -10}
+  m_LocalPosition: {x: -31, y: -87, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -538,7 +538,7 @@ MonoBehaviour:
   - '[DiegoTalk=I feel it! The sun, it is so close.]'
   - '[ActivateCamera=1|Wait=1.5]'
   - '[DiegoTalk=Come on! Let''s take a closer look.]'
-  - '[CameraRes=Gameplay|TeleportPlayer=27.5:95|ActivateCamera=0|Wait=0.8]'
+  - '[CameraRes=Gameplay|TeleportPlayer=25.5:95|ActivateCamera=0|Wait=0.8]'
   - '[CameraTransitionSpeed=10|Wait=0.1]'
   - '[ActivateCamera=2]'
   - '[ActivatePiment=|Wait=15]'
