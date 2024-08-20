@@ -18,6 +18,7 @@ public class SpeakingBalloon : MonoBehaviour
     [SerializeField, TextArea] private List<String> m_zeroInflateDialogs;
     [SerializeField] private Cinematic m_tutoElbowDrop;
     [SerializeField] private Cinematic m_tutoKick;
+    [SerializeField] private Cinematic m_tutoBox;
 
     private Dialog m_currentDialog;
     
@@ -59,6 +60,25 @@ public class SpeakingBalloon : MonoBehaviour
             m_tutoKick.Play();
         }
     }
+
+    private bool m_tutoBoxPlayed = false;
+
+    public void OnStuckByBreakable()
+    {
+        m_head.GetComponentInChildren<SpriteRenderer>().sprite = m_angryHead;
+        if(!m_tutoBoxPlayed)
+        {
+            m_tutoBoxPlayed = true;
+            m_tutoBox.Play();
+        }
+    }
+
+    public void OnBreakBreakable()
+    {
+        m_head.GetComponentInChildren<SpriteRenderer>().sprite = m_normalHead;
+        m_tutoBoxPlayed = true;
+    }
+    
 
     public void OnChangedDirection()
     {

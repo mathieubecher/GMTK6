@@ -22,6 +22,8 @@ public class Balloon : Interactive
     [SerializeField] private UnityEvent<Vector2> m_changeDirectionEvent;
     [SerializeField] private UnityEvent m_ExplodeEvent;
     [SerializeField] private UnityEvent m_StuckEvent;
+    [SerializeField] private UnityEvent m_StuckByBreakableEvent;
+    [SerializeField] private UnityEvent m_BreakBreakableEvent;
     
     private LineRenderer m_line;
     private Animator m_animator;
@@ -192,8 +194,11 @@ public class Balloon : Interactive
     public void Inflate(float _value = 1.0f)
     {
         m_InflateRequestEvent?.Invoke(_value);
-        if (m_blockByBreakable && m_blockByBreakable.TryToBreak(m_currentInflateDir, _value))  
+        if (m_blockByBreakable && m_blockByBreakable.TryToBreak(m_currentInflateDir, _value))
+        {
+            m_BreakBreakableEvent?.Invoke();
             m_pressure = _value;
+        }
         else
         {
             m_pressure += _value;
@@ -233,6 +238,7 @@ public class Balloon : Interactive
             }
             else if(GameManager.IsBreakable(hit.collider.gameObject.layer) && hit.collider.TryGetComponent(out Breakable breakable))
             {
+                m_StuckByBreakableEvent?.Invoke();
                 delta = (hit.distance - m_size / 2.0f);
                 m_blockByBreakable = breakable;
             }
