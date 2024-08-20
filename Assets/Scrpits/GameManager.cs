@@ -133,11 +133,13 @@ public class GameManager : MonoBehaviour
     public void GiveControl()
     {
         m_character.hasControl = true;
+        m_character.ForceFinishCharacterDown();
     }
 
     public void TakeControl()
     {
         m_character.hasControl = false;
+        m_character.ForceFinishCharacterDown();
     }
     
     public static float TimeFromValue(AnimationCurve c, float value, float precision = 1e-6f)

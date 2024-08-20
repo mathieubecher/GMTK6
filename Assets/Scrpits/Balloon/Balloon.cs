@@ -324,12 +324,13 @@ public class Balloon : Interactive
         m_exploseHead.localRotation = spriteHeadRotation;
     }
 
-    private void Explode()
+    public void Explode(bool _reset = true)
     {
         m_explode = true;
         m_ExplodeEvent?.Invoke();
+        GameManager.character.ResetParent();
         
-        if (m_resetAtExplode)
+        if (m_resetAtExplode && _reset)
         {
             GameManager.instance.Reset();
         }

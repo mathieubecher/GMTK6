@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Cinematic : MonoBehaviour
 {
@@ -60,7 +61,7 @@ public class Cinematic : MonoBehaviour
 
     void ReadAction(String _action)
     {
-        //Debug.Log(_action);
+        Debug.Log(_action);
         String[] splitActions = _action.Split(new char[]{'[',']','|'}, StringSplitOptions.RemoveEmptyEntries );
         foreach (String action in splitActions)
         {
@@ -72,7 +73,7 @@ public class Cinematic : MonoBehaviour
             }
             
             string type = splitAction[0];
-            //Debug.Log(action);
+            Debug.Log(action);
             switch (type)
             {
                 case "ActivateCamera":
@@ -113,6 +114,31 @@ public class Cinematic : MonoBehaviour
                 case "StopPlayer":
                     StopPlayer();
                     break;
+                case "RestartPlayer":
+                    RestartPlayer();
+                    break;
+                case "DisablePlatform":
+                    DisablePlatform();
+                    break;
+                case "EnablePlatform":
+                    EnablePlatform();
+                    break;
+                case "ActivatePiment":
+                    EnablePiment();
+                    break;
+                case "DeactivatePiment":
+                    DisablePiment();
+                    break;
+                case "CameraTransitionSpeed":
+                    if (float.TryParse(splitAction[1], NumberStyles.Any, CultureInfo.InvariantCulture, out float blendDuration))
+                        Camera.main.GetComponent<CinemachineBrain>().m_DefaultBlend.m_Time = blendDuration;
+                    break;
+                case "ExplodeBalloon":
+                    GameManager.mainBalloon.Explode(false);
+                    break;
+                case "EndLevel":
+                    SceneManager.LoadScene(2);
+                    break;
             }
         }
 
@@ -140,6 +166,10 @@ public class Cinematic : MonoBehaviour
     
     public void ActivateCamera(int _i)
     {
+        foreach (var camera in m_cameras)
+        {
+            camera.Priority = 0;
+        }
         ++m_request;
         m_cameras[_i].Priority = 100;
         EndRequest();
@@ -175,6 +205,41 @@ public class Cinematic : MonoBehaviour
         GameManager.character.gravityScale = 0.0f;
         GameManager.character.rigidbody.velocity = Vector2.zero;
         EndRequest();
+    }
+    
+    private void RestartPlayer()
+    {
+        ++m_request;
+        //Debug.Log(m_request + "-> Stop player");
+        GameManager.character.locomotion.enabled = true;
+        GameManager.character.gravityScale = 1.0f;
+        EndRequest();
+    }
+
+    private void DisablePlatform()
+    {
+        GameManager.character.RequestCharacterDown();
+    }
+
+
+    private void EnablePlatform()
+    {
+        GameManager.character.FinishCharacterDown();
+    }
+
+    private void EnablePiment()
+    {
+        ++m_request;
+        GameManager.character.locomotion.SetBool("piment", true);
+        EndRequest();
+        
+    }
+    private void DisablePiment()
+    {
+        ++m_request;
+        GameManager.character.locomotion.SetBool("piment", false);
+        EndRequest();
+
     }
 
     private IEnumerator Wait(float _duration)
