@@ -97,6 +97,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6200453004366346863}
+  - component: {fileID: 8198502740539762528}
   - component: {fileID: 749163899591679202}
   - component: {fileID: 4968984021968382807}
   - component: {fileID: 163218239886381305}
@@ -123,6 +124,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5236268846978333153}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8198502740539762528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2435042934171203136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afbc459d92b336a44819390a1d4293a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 5933960868528803021}
 --- !u!20 &749163899591679202
 Camera:
   m_ObjectHideFlags: 0
@@ -1458,6 +1472,18 @@ PrefabInstance:
     - target: {fileID: 2552126417809306718, guid: 70d5b54217a9c65488530ba4fe4b08c4, type: 3}
       propertyPath: m_Name
       value: GameFlow
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028250119836135586, guid: 70d5b54217a9c65488530ba4fe4b08c4, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028250119836135586, guid: 70d5b54217a9c65488530ba4fe4b08c4, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028250119836135586, guid: 70d5b54217a9c65488530ba4fe4b08c4, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 7119794279834316887, guid: 70d5b54217a9c65488530ba4fe4b08c4, type: 3}
       propertyPath: m_Pivot.x

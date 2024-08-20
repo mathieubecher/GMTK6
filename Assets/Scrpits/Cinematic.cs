@@ -60,7 +60,7 @@ public class Cinematic : MonoBehaviour
 
     void ReadAction(String _action)
     {
-        Debug.Log(_action);
+        //Debug.Log(_action);
         String[] splitActions = _action.Split(new char[]{'[',']','|'}, StringSplitOptions.RemoveEmptyEntries );
         foreach (String action in splitActions)
         {
@@ -72,7 +72,7 @@ public class Cinematic : MonoBehaviour
             }
             
             string type = splitAction[0];
-            Debug.Log(action);
+            //Debug.Log(action);
             switch (type)
             {
                 case "ActivateCamera":
@@ -95,8 +95,7 @@ public class Cinematic : MonoBehaviour
                     ReachPlayer(reachPos);
                     break;
                 case "Wait":
-                    float duration;
-                    if (float.TryParse(splitAction[1], NumberStyles.Any, CultureInfo.InvariantCulture, out duration)) 
+                    if (float.TryParse(splitAction[1], NumberStyles.Any, CultureInfo.InvariantCulture, out float duration)) 
                         StartCoroutine(Wait(duration));
                     break;
                 case "PedroTalk":
@@ -127,10 +126,9 @@ public class Cinematic : MonoBehaviour
     private Vector2 ReadPosition(string _position)
     {
         String[] coordonate = _position.Split(':');
-        float x,y;
 
-        if (coordonate.Length == 2 && float.TryParse(coordonate[0], NumberStyles.Any, CultureInfo.InvariantCulture, out x) 
-                                   && float.TryParse(coordonate[1], NumberStyles.Any, CultureInfo.InvariantCulture, out y))
+        if (coordonate.Length == 2 && float.TryParse(coordonate[0], NumberStyles.Any, CultureInfo.InvariantCulture, out float x) 
+                                   && float.TryParse(coordonate[1], NumberStyles.Any, CultureInfo.InvariantCulture, out float y))
         {
             return new Vector2(x, y);
         }
@@ -150,14 +148,14 @@ public class Cinematic : MonoBehaviour
     public void WaitIsOnGround()
     {
         ++m_request;
-        Debug.Log(m_request + "-> Wait is on ground");
+        //Debug.Log(m_request + "-> Wait is on ground");
         GameManager.character.bot.WaitIsOnGround(EndRequest);
     }
     
     private void TeleportPlayer(Vector2 _pos)
     {
         ++m_request;
-        Debug.Log(m_request + "-> Teleport " + _pos);
+        //Debug.Log(m_request + "-> Teleport " + _pos);
         GameManager.character.transform.position = _pos;
         EndRequest();
     }
@@ -165,14 +163,14 @@ public class Cinematic : MonoBehaviour
     private void ReachPlayer(Vector2 _pos)
     {
         ++m_request;
-        Debug.Log(m_request + "-> Reach pos " + _pos);
+        //Debug.Log(m_request + "-> Reach pos " + _pos);
         GameManager.character.bot.Reach(_pos, EndRequest);
     }
     
     private void StopPlayer()
     {
         ++m_request;
-        Debug.Log(m_request + "-> Stop player");
+        //Debug.Log(m_request + "-> Stop player");
         GameManager.character.locomotion.enabled = false;
         GameManager.character.gravityScale = 0.0f;
         GameManager.character.rigidbody.velocity = Vector2.zero;
@@ -182,7 +180,7 @@ public class Cinematic : MonoBehaviour
     private IEnumerator Wait(float _duration)
     {
         ++m_request;
-        Debug.Log(m_request + "-> Wait for " + _duration);
+        //Debug.Log(m_request + "-> Wait for " + _duration);
         yield return new WaitForSeconds(_duration);
         EndRequest();
     }
