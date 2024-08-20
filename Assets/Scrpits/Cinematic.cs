@@ -46,7 +46,7 @@ public class Cinematic : MonoBehaviour
     private void EndRequest()
     {
         --m_request;
-        Debug.Log("End request " + m_request);
+        //Debug.Log("End request " + m_request);
     }
     private void ReadNextAction()
     {

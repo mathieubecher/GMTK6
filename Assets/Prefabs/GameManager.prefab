@@ -517,7 +517,7 @@ MonoBehaviour:
   - {x: 1, y: 0}
   m_downInflateDir: {x: 0, y: 0}
   m_inflateBlendForce: 0.1
-  m_explodeSpeed: 30
+  m_explodeSpeed: 15
   m_maxPressure: 3
   m_ballonBody: {fileID: 4905541296505704561, guid: adae2ea4cb0f39947b0b5c57cd3cb561, type: 3}
   m_elbowForceToPressure:

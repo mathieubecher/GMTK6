@@ -135,6 +135,7 @@ MonoBehaviour:
   m_connectedBalloon: {fileID: 0}
   m_pressureSensor: {fileID: 952310067356673730}
   m_maxPression: 10
+  m_minPression: 0
   m_minPressureAngle: 85
   m_maxPressureAngle: -85
 --- !u!212 &3557741574882265285
@@ -175,9 +176,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2067618579
+  m_SortingLayerID: 1630871915
   m_SortingLayer: -2
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8e4dbbd833655de45a5fff0657a6aca4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

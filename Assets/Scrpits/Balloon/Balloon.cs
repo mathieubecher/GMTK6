@@ -13,6 +13,7 @@ public class Balloon : Interactive
     const float TOLERANCE = 1e-6f;
     
     [SerializeField] private Transform m_head;
+    [SerializeField] private Transform m_exploseHead;
     [SerializeField] private float m_size = 2.0f;
     [SerializeField] private Vector2 m_defaultDir;
     [SerializeField] private bool m_resetAtExplode;
@@ -24,11 +25,13 @@ public class Balloon : Interactive
     [SerializeField] private UnityEvent m_StuckEvent;
     
     private LineRenderer m_line;
+    private Animator m_animator;
   
     private Vector2 m_currentInflateDir;
     private List<SpriteRenderer> m_balloonBodies;
     [SerializeField] private bool m_collided;
     private bool m_explode;
+    private bool m_deflate;
     private Breakable m_blockByBreakable;
     
     private int m_saveBodyId;
@@ -40,8 +43,13 @@ public class Balloon : Interactive
     
     private float m_pressure = 0.0f;
 
-    [SerializeField] public float length => m_previousLength + m_currentLength;
-    [SerializeField] public float pressure => m_pressure;
+    public float length => m_previousLength + m_currentLength;
+    public float pressure => m_pressure;
+
+    public void StartDeflate()
+    {
+        m_deflate = true;
+    }
     
     void Awake()
     {
@@ -61,8 +69,12 @@ public class Balloon : Interactive
         m_line.positionCount = m_saveLineId;
         m_line.SetPosition(0, transform.position);
         
-        m_head.localScale = Vector3.one * m_size;
+        m_animator = GetComponent<Animator>();
         
+        m_head.localScale = Vector3.one * m_size;
+        m_exploseHead.localScale = m_head.localScale;
+        m_exploseHead.GetComponent<SpriteRenderer>().color = m_color;
+
         Reset();
     }
     
@@ -71,6 +83,7 @@ public class Balloon : Interactive
         m_collided = false;
         m_blockByBreakable = null;
         m_explode = false;
+        m_deflate = false;
         m_currentInflateDir = m_saveDir;
         m_line.positionCount = m_saveLineId;
         m_pressure = 0.0f;
@@ -81,32 +94,42 @@ public class Balloon : Interactive
         }
         
         m_head.position = m_savePos;
-        m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
+        m_exploseHead.position = m_savePos;
+        Quaternion spriteHeadRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
+        m_head.GetChild(0).localRotation = spriteHeadRotation;
+        m_exploseHead.localRotation = spriteHeadRotation;
         
         UpdateDirection(m_currentInflateDir, m_head.position);
-        
-        m_head.gameObject.SetActive(true);
+
         ActiveCollider(true, 1000);
     }
 
     void FixedUpdate()
     {
+        m_animator.SetBool("explode", m_explode);
+        m_animator.SetBool("blocked", m_collided);
+        
         if(m_explode) UpdateExplode();
         else UpdateInflate();
     }
 
     private void UpdateExplode()
     {
-        if (m_line.positionCount <= m_saveLineId) return;
+        if (m_line.positionCount <= m_saveLineId || !m_deflate) return;
         
         Vector2 currentDir = -m_currentInflateDir;
         float delta = GameManager.explodeSpeed * Time.deltaTime;
+        Quaternion spriteHeadRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
+        m_head.GetChild(0).localRotation = spriteHeadRotation;
+        m_exploseHead.localRotation = spriteHeadRotation;
         
         var character = m_head.gameObject.GetComponentInChildren<Character>();
         if (character) character.transform.parent = null;
-        m_head.gameObject.SetActive(false);
         
         m_head.position += (Vector3)currentDir * delta;
+        m_exploseHead.position = m_head.position;
+        
+        
         if (Vector3.Distance(m_head.position, m_line.GetPosition(m_line.positionCount - 2)) < delta)
         {
             --m_line.positionCount;
@@ -129,6 +152,7 @@ public class Balloon : Interactive
         Vector2 currentDir = m_currentInflateDir;
         delta = math.max(0.0f, CheckCollision(m_head.position, currentDir, delta));
         m_head.position += (Vector3)currentDir * delta;
+        m_exploseHead.position = m_head.position;
         m_pressure -= delta;
         m_currentLength += delta;
         
@@ -174,6 +198,7 @@ public class Balloon : Interactive
             m_pressure += _value;
             if (m_collided) m_pressure = math.min(GameManager.maxPressure, m_pressure);
         }
+        if(_value > 0.0f) StartCoroutine(TryPlayAction("Inflate", 0.1f));
     }
     
     public void Hit(Vector2 _dir)
@@ -286,7 +311,9 @@ public class Balloon : Interactive
         UpdateBodyPosition();
         
         m_collided = false;
-        m_head.GetChild(0).localRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
+        Quaternion spriteHeadRotation = Quaternion.Euler(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, m_currentInflateDir));
+        m_head.GetChild(0).localRotation = spriteHeadRotation;
+        m_exploseHead.localRotation = spriteHeadRotation;
     }
 
     private void Explode()
@@ -319,5 +346,12 @@ public class Balloon : Interactive
         m_currentLength = 0.0f;
         
         UpdateDirection(m_currentInflateDir, m_head.position);
+    }
+    
+    private IEnumerator TryPlayAction(string _name, float _buffer)
+    {
+        m_animator.SetTrigger(_name);
+        yield return new WaitForSeconds(_buffer);
+        m_animator.ResetTrigger(_name);
     }
 }

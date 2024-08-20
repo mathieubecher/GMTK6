@@ -44,6 +44,9 @@ TagManager:
   - name: Balloon
     uniqueID: 2227348717
     locked: 0
+  - name: Interactible
+    uniqueID: 1630871915
+    locked: 0
   - name: Player
     uniqueID: 469808901
     locked: 0

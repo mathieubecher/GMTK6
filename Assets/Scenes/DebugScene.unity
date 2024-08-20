@@ -344,37 +344,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8155608736166822405, guid: 180755b7b1402db49aaf7c4971bbe1f8, type: 3}
   m_PrefabInstance: {fileID: 182962421}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &416688151
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 416688152}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &416688152
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416688151}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.5, y: 2, z: -0.09417658}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &574040690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7289,6 +7258,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
+      propertyPath: m_intro
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 228207640959550606, guid: 3addcaa7760e33d4f9b81837264e0820, type: 3}
       propertyPath: m_currentCheckpoint
       value: 
       objectReference: {fileID: 1495966271}
@@ -7609,5 +7582,4 @@ SceneRoots:
   - {fileID: 1495966269}
   - {fileID: 5884566966380806965}
   - {fileID: 574040690}
-  - {fileID: 416688152}
   - {fileID: 6238474209400606096}
