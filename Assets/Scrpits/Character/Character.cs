@@ -126,12 +126,12 @@ public class Character : MonoBehaviour
 
     private void PimentPress()
     {
-        m_locomotion.SetBool("piment", m_hasPiment);
+        if(m_hasControl) m_locomotion.SetBool("piment", m_hasPiment);
     }
     
     private void PimentRelease()
     {
-        m_locomotion.SetBool("piment", false);
+        if(m_hasControl) m_locomotion.SetBool("piment", false);
     }
     
     private void KickPress()
