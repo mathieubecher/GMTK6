@@ -134,12 +134,14 @@ public class GameManager : MonoBehaviour
     {
         m_character.hasControl = true;
         m_character.ForceFinishCharacterDown();
+        m_character.rigidbody.velocity = Vector2.zero;
     }
 
     public void TakeControl()
     {
         m_character.hasControl = false;
         m_character.ForceFinishCharacterDown();
+        m_character.rigidbody.velocity = Vector2.zero;
     }
     
     public static float TimeFromValue(AnimationCurve c, float value, float precision = 1e-6f)

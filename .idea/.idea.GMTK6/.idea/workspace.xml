@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11ea1a11-314d-4c72-b2c0-f25a7677f266" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cinematic/End.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cinematic/End.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Cinematic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Cinematic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/GameFlow/End.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/GameFlow/End.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/GameFlow/GameFlow.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/GameFlow/GameFlow.controller" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

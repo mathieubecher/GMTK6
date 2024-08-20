@@ -61,7 +61,7 @@ public class Cinematic : MonoBehaviour
 
     void ReadAction(String _action)
     {
-        Debug.Log(_action);
+        //Debug.Log(_action);
         String[] splitActions = _action.Split(new char[]{'[',']','|'}, StringSplitOptions.RemoveEmptyEntries );
         foreach (String action in splitActions)
         {
@@ -73,7 +73,7 @@ public class Cinematic : MonoBehaviour
             }
             
             string type = splitAction[0];
-            Debug.Log(action);
+            //Debug.Log(action);
             switch (type)
             {
                 case "ActivateCamera":
@@ -137,7 +137,7 @@ public class Cinematic : MonoBehaviour
                     GameManager.mainBalloon.Explode(false);
                     break;
                 case "EndLevel":
-                    SceneManager.LoadScene(2);
+                    SceneManager.LoadScene(0);
                     break;
             }
         }
