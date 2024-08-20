@@ -36,7 +36,7 @@ public class DetectGround : MonoBehaviour
         
         if(GameManager.IsMovablePlatform(other.gameObject.layer))
         {
-            transform.parent.parent = other.transform;
+            m_character.SetParent(other.transform);
         }
         if (GameManager.IsPump(other.gameObject.layer) && other.TryGetComponent(out Pump _pump))
         {
@@ -53,10 +53,8 @@ public class DetectGround : MonoBehaviour
             _pump.Release();
         }
         
-        if(transform.parent != null && transform.parent.parent != null &&  transform.parent.parent.gameObject.activeSelf && transform.parent.parent == other.transform )
-        {
-            transform.parent.parent = null;
-        }
+        m_character.ResetParent();
+        
         if (m_contacts.Count == 0)
             m_coyoteeTimer = 0.0f;
         

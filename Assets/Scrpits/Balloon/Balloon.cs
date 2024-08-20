@@ -125,7 +125,7 @@ public class Balloon : Interactive
         m_exploseHead.localRotation = spriteHeadRotation;
         
         var character = m_head.gameObject.GetComponentInChildren<Character>();
-        if (character) character.transform.parent = null;
+        if (character) character.ResetParent();
         
         m_head.position += (Vector3)currentDir * delta;
         m_exploseHead.position = m_head.position;
@@ -332,7 +332,7 @@ public class Balloon : Interactive
     private void DestroyBalloon(SpriteRenderer _balloon)
     {
         var character = _balloon.gameObject.GetComponentInChildren<Character>();
-        if (character) character.transform.parent = null;
+        if (character) character.ResetParent();
         m_balloonBodies.Remove(_balloon);
         Destroy(_balloon.gameObject);
     }

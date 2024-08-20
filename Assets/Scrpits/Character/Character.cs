@@ -189,4 +189,16 @@ public class Character : MonoBehaviour
         
         animation.Play("Idle");
     }
+
+    public void SetParent(Transform _parent)
+    {
+        if(_parent.gameObject.activeInHierarchy)
+            transform.SetParent(_parent);
+    }
+
+    public void ResetParent()
+    {
+        if(transform.parent != null && transform.parent.gameObject.activeInHierarchy) 
+            transform.SetParent(null);
+    }
 }
