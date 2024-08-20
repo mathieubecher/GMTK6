@@ -15,7 +15,6 @@ public class Balloon : Interactive
     [SerializeField] private Transform m_head;
     [SerializeField] private Transform m_exploseHead;
     [SerializeField] private float m_size = 2.0f;
-    [SerializeField] private Vector2 m_defaultDir;
     [SerializeField] private bool m_resetAtExplode;
     [SerializeField] private Color m_color;
     
@@ -62,8 +61,9 @@ public class Balloon : Interactive
         m_currentLength = 0.0f;
         m_saveLineId = 1;
         m_saveBodyId = 0;
-        m_saveDir = m_defaultDir;
-        m_savePos = transform.position + new Vector3(0.0f, m_size / 2.0f, 0.0f);
+        m_saveDir = transform.rotation * Vector2.up;
+        transform.rotation = quaternion.identity;
+        m_savePos = transform.position + (Vector3)m_saveDir * m_size / 2.0f;
         
         m_balloonBodies = new List<SpriteRenderer>();
         m_line = GetComponent<LineRenderer>();
