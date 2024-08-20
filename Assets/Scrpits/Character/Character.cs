@@ -114,15 +114,15 @@ public class Character : MonoBehaviour
     {
         if(!m_detectGround.isOnGround)
             StartCoroutine(TryPlayAction("ElbowDrop", m_jelbowDropBuffer));
-        gameObject.layer = LayerMask.NameToLayer("CharacterDown");
-        m_detectGround.gameObject.layer = LayerMask.NameToLayer("CharacterDown");
+
+        RequestCharacterDown();
     }
-    
+
     private void ElbowDropRelease()
     {
-        gameObject.layer = LayerMask.NameToLayer("Character");
-        m_detectGround.gameObject.layer = LayerMask.NameToLayer("Character");
+        FinishCharacterDown();
     }
+
 
     private void PimentPress()
     {
@@ -200,5 +200,22 @@ public class Character : MonoBehaviour
     {
         if(transform.parent != null && transform.parent.gameObject.activeInHierarchy) 
             transform.SetParent(null);
+    }
+
+    private int m_characterDownRequest;
+    public void RequestCharacterDown()
+    {
+        ++m_characterDownRequest;
+        
+        gameObject.layer = LayerMask.NameToLayer("CharacterDown");
+        m_detectGround.gameObject.layer = LayerMask.NameToLayer("CharacterDown");
+    }
+    public void FinishCharacterDown()
+    {
+        --m_characterDownRequest;
+        if (m_characterDownRequest > 0) return;
+        
+        gameObject.layer = LayerMask.NameToLayer("Character");
+        m_detectGround.gameObject.layer = LayerMask.NameToLayer("Character");
     }
 }

@@ -136,7 +136,7 @@ Transform:
   m_GameObject: {fileID: 2435042934171203136}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.5, y: 14.9, z: -10}
+  m_LocalPosition: {x: -23, y: -10.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -445,7 +445,7 @@ Transform:
   m_GameObject: {fileID: 7707637746735794511}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.5, y: 14.9, z: -10}
+  m_LocalPosition: {x: -23, y: -10.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1084,11 +1084,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4892594786105705373, guid: 018ee253d88dba349acaba2113f7b50b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.5
+      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 4892594786105705373, guid: 018ee253d88dba349acaba2113f7b50b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.9
+      value: -10.6
       objectReference: {fileID: 0}
     - target: {fileID: 4898671816438796946, guid: 018ee253d88dba349acaba2113f7b50b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1152,7 +1152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8400528319801391184, guid: 018ee253d88dba349acaba2113f7b50b, type: 3}
       propertyPath: m_sequence.Array.data[0]
-      value: '[TeleportPlayer=-17.5:12|WaitIsOnGround=|ActivateCamera=0]'
+      value: '[TeleportPlayer=-23:12|WaitIsOnGround=|ActivateCamera=0]'
       objectReference: {fileID: 0}
     - target: {fileID: 8400528319801391184, guid: 018ee253d88dba349acaba2113f7b50b, type: 3}
       propertyPath: m_sequence.Array.data[1]
@@ -1176,7 +1176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8400528319801391184, guid: 018ee253d88dba349acaba2113f7b50b, type: 3}
       propertyPath: m_sequence.Array.data[6]
-      value: '[ReachPlayer=-10.5:-12]'
+      value: '[ReachPlayer=-8:-12]'
       objectReference: {fileID: 0}
     - target: {fileID: 8400528319801391184, guid: 018ee253d88dba349acaba2113f7b50b, type: 3}
       propertyPath: m_sequence.Array.data[7]
@@ -1447,11 +1447,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7172915374838570602, guid: 94bb7994d3a344348b561130a49502df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.5
+      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 7172915374838570602, guid: 94bb7994d3a344348b561130a49502df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.5
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 7172915374838570602, guid: 94bb7994d3a344348b561130a49502df, type: 3}
       propertyPath: m_LocalPosition.z
