@@ -53,7 +53,7 @@ public class Pump : MonoBehaviour
         if (m_cooldown > 0.0f) return;
         float rawForce = GameManager.elbowForceToPressure(_elbowDropHeight);
         float force = math.min(m_maxPression - m_connectedBalloon.length, rawForce);
-        Debug.Log("Height : " + _elbowDropHeight + "Force : " + rawForce + ", Clamp force : " + force + " -> MaxPression : " + m_maxPression + ", Balloon length : " + m_connectedBalloon.length + ", Balloon pressure : " + m_connectedBalloon.pressure);
+        //Debug.Log("Height : " + _elbowDropHeight + "Force : " + rawForce + ", Clamp force : " + force + " -> MaxPression : " + m_maxPression + ", Balloon length : " + m_connectedBalloon.length + ", Balloon pressure : " + m_connectedBalloon.pressure);
         m_connectedBalloon.Inflate(force, m_maxPression);
         m_offsetValue = GameManager.pressureToOffsetValue.Evaluate(force);
         m_pressTimer = 0.0f;

@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="11ea1a11-314d-4c72-b2c0-f25a7677f266" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTK6/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Balloon/Balloon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Balloon/Balloon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character/DetectGround.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character/DetectGround.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/ElbowDropHitGround.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/ElbowDropHitGround.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Piment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Character/Locomotion/Piment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scrpits/Pump/Pump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scrpits/Pump/Pump.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SceneManagement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SceneManagement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Start.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Start.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +15,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/54724222b7684530a2810ae1eac94ec7176000/2c/1958c87b/LayerMask.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/54724222b7684530a2810ae1eac94ec7176000/af/6d5c10bf/LineRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DreamRogueLikePuzzleGame/Assets/Scripts/Utils/Effects.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SceneManagement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Balloon/DetectCheckpoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Balloon/Dialog.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scrpits/Balloon/SpeakingBalloon.cs" root0="FORCE_HIGHLIGHTING" />

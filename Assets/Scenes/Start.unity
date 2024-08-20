@@ -903,6 +903,7 @@ GameObject:
   - component: {fileID: 1856931619}
   - component: {fileID: 1856931618}
   - component: {fileID: 1856931617}
+  - component: {fileID: 1856931620}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -984,6 +985,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1856931620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856931616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &1909370116
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +1041,7 @@ GameObject:
   - component: {fileID: 1909370118}
   - component: {fileID: 1909370120}
   - component: {fileID: 1909370121}
+  - component: {fileID: 1909370122}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1075,6 +1121,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a195ea39a1b94d458109e1b2b4cc2e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1909370122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909370116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 600705cff3d91b945ad6e953bbeeb630, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 551a0b03-ba08-47f0-a55c-c5c6738af170
+    m_ActionName: Default/Move[/XInputControllerWindows/leftStick/x,/XInputControllerWindows/dpad/x,/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 17cdba99-e660-40f2-a11f-2fad366ab9d5
+    m_ActionName: Default/Jump[/XInputControllerWindows/buttonEast,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 117f5710-00d3-4c8f-ac25-d09aaa6c48a7
+    m_ActionName: Default/ElbowDrop[/Keyboard/s,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bd933c7a-e591-4ae2-8517-6e57e08a0ff4
+    m_ActionName: Default/Kick[/Mouse/leftButton,/XInputControllerWindows/buttonWest,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6580b0fb-f2ae-4c01-94cf-5bf7a5b65d79
+    m_ActionName: Default/Reset[/Keyboard/r,/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 121c33e1-8c92-4e21-9c71-b59da6089c6c
+    m_ActionName: Default/Piment[/XInputControllerWindows/dpad/up,/Mouse/rightButton,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 38b7035b-ddcc-4562-9b4a-62fe65ebc3e1
+    m_ActionName: Default/Pause[/Keyboard/escape,/Keyboard/p,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1909370121}
+        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1767258e-5b7b-4c03-aadb-09da593082c9
+    m_ActionName: Default/Continue[/Keyboard/anyKey,/Mouse/leftButton,/XInputControllerWindows/buttonWest,/XInputControllerWindows/buttonEast,/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonNorth]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Default
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1945203201
 GameObject:
   m_ObjectHideFlags: 0
