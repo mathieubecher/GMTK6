@@ -279,11 +279,11 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b287f284-33a2-4108-bd46-b0ac12fca88e"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""id"": ""49cb39e9-648a-49d8-88ad-5e104ebf5bdc"",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -317,6 +317,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
+                    ""action"": ""Piment"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37bfe041-d81d-45f0-a72a-6fc7a1679cb6"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Piment"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

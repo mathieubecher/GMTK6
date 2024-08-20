@@ -367,7 +367,7 @@ MonoBehaviour:
   - '[PedroTalk=Hola! What''s up?]'
   - '[DiegoTalk=Hi. I''m Diego, I need your help.]'
   - '[PedroTalk=What do you need?]'
-  - '[DiegoTalk=I know I''m a simple balloon, I''ve been stuck here for so long...]'
+  - '[DiegoTalk=I know I''m a simple balloon, but I''ve been stuck here for so long...]'
   - '[DiegoTalk=I wish to see the sun one time in my life.]'
   - '[DiegoTalk=Can you help me reach the top of this tower?]'
   - '[PedroTalk=Yes! Sure! How can I do that?]'
