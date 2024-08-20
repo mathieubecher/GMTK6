@@ -38,7 +38,7 @@ public class DetectGround : MonoBehaviour
         {
             m_character.SetParent(other.transform);
         }
-        if (GameManager.IsPump(other.gameObject.layer) && other.TryGetComponent(out Pump _pump))
+        if (GameManager.IsPump(other.gameObject.layer) && other.TryGetComponent(out Pump _pump) && m_character.velocity.y <= 0.0f)
         {
             _pump.Press(m_character.elbowDropHeight);
         }

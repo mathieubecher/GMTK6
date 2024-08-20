@@ -191,7 +191,7 @@ public class Balloon : Interactive
             isUp ? Vector2.zero : new Vector2(-math.sign(m_currentInflateDir.x) * m_size / 2.0f, 0.0f);
     }
 
-    public void Inflate(float _value = 1.0f)
+    public void Inflate(float _value, float _maxPressure)
     {
         m_InflateRequestEvent?.Invoke(_value);
         if (m_blockByBreakable && m_blockByBreakable.TryToBreak(m_currentInflateDir, _value))
@@ -202,8 +202,9 @@ public class Balloon : Interactive
         else
         {
             m_pressure += _value;
-            if (m_collided) m_pressure = math.min(GameManager.maxPressure, m_pressure);
+            m_pressure = math.min(m_pressure, _maxPressure - length);
         }
+        if (m_collided) m_pressure = math.min(GameManager.maxPressure, m_pressure);
         if(_value > 0.0f) StartCoroutine(TryPlayAction("Inflate", 0.1f));
     }
     
@@ -351,6 +352,7 @@ public class Balloon : Interactive
         m_saveDir = m_currentInflateDir;
         m_savePos = m_head.position;
         
+        Debug.Log(m_previousLength + " " + m_currentLength);
         m_previousLength = m_currentLength;
         m_currentLength = 0.0f;
         

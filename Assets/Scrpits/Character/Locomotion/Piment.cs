@@ -41,7 +41,7 @@ public class Piment : StateMachineBehaviour
         foreach (var hit in hits)
         {
             var balloon = hit.transform.GetComponentInParent<Balloon>();
-            balloon.Inflate(m_inflateSpeed * Time.deltaTime);
+            balloon.Inflate(m_inflateSpeed * Time.deltaTime, 1000000.0f);
         }
         
 

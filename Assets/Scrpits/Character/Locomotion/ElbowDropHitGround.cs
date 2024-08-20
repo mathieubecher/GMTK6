@@ -27,6 +27,7 @@ namespace Locomotion
         {
             m_timer += Time.deltaTime;
             animator.SetFloat("currentTimer", m_timer);
+            if(m_timer > 0.1f) animator.SetFloat("elbowDropHeight", 0.0f);
         }
 
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

@@ -16,6 +16,7 @@ public class Pump : MonoBehaviour
     private bool m_pressed;
     private float m_pressTimer;
     private float m_releaseTimer;
+    private float m_cooldown = 0.0f;
 
     private void Awake()
     {
@@ -43,17 +44,21 @@ public class Pump : MonoBehaviour
             pos.y = m_starPos - (1.0f - GameManager.pumpReleaseOverTime.Evaluate(m_releaseTimer / releaseDuration)) * m_offsetValue;
         }
         transform.position = pos;
+
+        m_cooldown -= Time.deltaTime;
     }
     
     public void Press(float _elbowDropHeight)
     {
+        if (m_cooldown > 0.0f) return;
         float rawForce = GameManager.elbowForceToPressure(_elbowDropHeight);
-        float force = math.min(m_maxPression - m_connectedBalloon.length - m_connectedBalloon.pressure, rawForce);
+        float force = math.min(m_maxPression - m_connectedBalloon.length, rawForce);
         Debug.Log("Height : " + _elbowDropHeight + "Force : " + rawForce + ", Clamp force : " + force + " -> MaxPression : " + m_maxPression + ", Balloon length : " + m_connectedBalloon.length + ", Balloon pressure : " + m_connectedBalloon.pressure);
-        m_connectedBalloon.Inflate(force);
+        m_connectedBalloon.Inflate(force, m_maxPression);
         m_offsetValue = GameManager.pressureToOffsetValue.Evaluate(force);
         m_pressTimer = 0.0f;
         m_pressed = true;
+        m_cooldown = 0.3f;
     }
 
     public void Release()
