@@ -6,6 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
     [SerializeField] private Transform m_spawnPoint;
     [SerializeField] private List<Interactive> m_interactives;
+    [SerializeField] private Cinematic m_cinematic;
     private Animator m_animator;
     private bool m_activated;
     public Vector2 spawnPos => m_spawnPoint.position;
@@ -23,6 +24,8 @@ public class Checkpoint : MonoBehaviour
         m_animator.SetTrigger("Activate");
         GameManager.currentCheckpoint = this;
         if(_saveState) GameManager.mainBalloon.SaveState();
+        
+        if (m_cinematic) m_cinematic.Play();
     }
     
     public void Reset()
