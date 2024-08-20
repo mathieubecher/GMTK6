@@ -26,7 +26,7 @@ public class Pump : MonoBehaviour
     {
         float pression = m_maxPression - m_minPression;
         float pressureRatio = pression > 0.0f? (m_connectedBalloon.length + m_connectedBalloon.pressure - m_minPression) / pression : 1.0f;
-        m_pressureSensor.localRotation = Quaternion.Euler(0.0f,0.0f,m_minPressureAngle + (m_maxPressureAngle - m_minPressureAngle) * pressureRatio);
+        m_pressureSensor.localRotation = Quaternion.Euler(0.0f,0.0f,m_minPressureAngle + (m_maxPressureAngle - m_minPressureAngle) * math.clamp(pressureRatio, 0.0f, 1.0f));
         
         Vector3 pos = transform.position;
         float pressDuration = GameManager.offsetValueToPressDuration.Evaluate(m_offsetValue);
@@ -49,7 +49,7 @@ public class Pump : MonoBehaviour
     {
         float rawForce = GameManager.elbowForceToPressure(_elbowDropHeight);
         float force = math.min(m_maxPression - m_connectedBalloon.length - m_connectedBalloon.pressure, rawForce);
-        //Debug.Log("Height : " + _elbowDropHeight + "Force : " + rawForce + ", Clamp force : " + force + " -> MaxPression : " + m_maxPression + ", Balloon length : " + m_connectedBalloon.length + ", Balloon pressure : " + m_connectedBalloon.pressure);
+        Debug.Log("Height : " + _elbowDropHeight + "Force : " + rawForce + ", Clamp force : " + force + " -> MaxPression : " + m_maxPression + ", Balloon length : " + m_connectedBalloon.length + ", Balloon pressure : " + m_connectedBalloon.pressure);
         m_connectedBalloon.Inflate(force);
         m_offsetValue = GameManager.pressureToOffsetValue.Evaluate(force);
         m_pressTimer = 0.0f;
