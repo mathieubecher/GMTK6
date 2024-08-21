@@ -213,6 +213,17 @@
                 },
                 {
                     "name": "",
+                    "id": "ed2419e7-983e-4124-be98-83f19b21a7d0",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ElbowDrop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a24c786b-afb2-4e97-8a48-0679230b0ecc",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -306,6 +317,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "Piment",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb8b43f2-4d5c-4bf7-8a8d-9a2dbe493b4e",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Piment",
                     "isComposite": false,
                     "isPartOfComposite": false

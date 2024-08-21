@@ -67,7 +67,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'You got a <b>Chili Pepper</b>
 
-    Hold [Z] to inflate near balloon.'
+    Hold [W] to inflate near balloon.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3327176b5c67cd04b932d7e9ce7411e4, type: 2}
   m_sharedMaterial: {fileID: -2720199153423783830, guid: 3327176b5c67cd04b932d7e9ce7411e4, type: 2}
