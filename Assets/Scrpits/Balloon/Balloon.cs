@@ -353,7 +353,7 @@ public class Balloon : Interactive
         m_savePos = m_head.position;
         
         //Debug.Log(m_previousLength + " " + m_currentLength);
-        m_previousLength = m_currentLength;
+        m_previousLength += m_currentLength;
         m_currentLength = 0.0f;
         
         UpdateDirection(m_currentInflateDir, m_head.position);
