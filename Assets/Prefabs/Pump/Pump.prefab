@@ -138,6 +138,7 @@ MonoBehaviour:
   m_minPression: 0
   m_minPressureAngle: 85
   m_maxPressureAngle: -85
+  m_emptyPump: {fileID: 21300000, guid: 17ef5263b8b50dc47a14657bce692664, type: 3}
 --- !u!212 &3557741574882265285
 SpriteRenderer:
   m_ObjectHideFlags: 0

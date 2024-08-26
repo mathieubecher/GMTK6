@@ -11,12 +11,14 @@ public class Pump : MonoBehaviour
     [SerializeField] private float m_minPression = 0.0f;
     [SerializeField] private float m_minPressureAngle = -70.0f;
     [SerializeField] private float m_maxPressureAngle = 70.0f;
+    [SerializeField] private Sprite m_emptyPump;
     private float m_offsetValue = 0.0f;
     private float m_starPos;
     private bool m_pressed;
     private float m_pressTimer;
     private float m_releaseTimer;
     private float m_cooldown = 0.0f;
+    private bool m_isEmpty = false;
 
     private void Awake()
     {
@@ -45,6 +47,14 @@ public class Pump : MonoBehaviour
         }
         transform.position = pos;
 
+        print(pressureRatio);
+
+        if (pressureRatio >= 1.0f && m_isEmpty == false)
+        {
+            GetComponent<SpriteRenderer>().sprite = m_emptyPump;
+            m_isEmpty = true;
+        }
+
         m_cooldown -= Time.deltaTime;
     }
     
@@ -65,5 +75,6 @@ public class Pump : MonoBehaviour
     {
         m_releaseTimer = 0.0f;
         m_pressed = false;
+        
     }
 }
