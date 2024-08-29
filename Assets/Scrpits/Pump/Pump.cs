@@ -47,7 +47,6 @@ public class Pump : MonoBehaviour
         }
         transform.position = pos;
 
-        print(pressureRatio);
 
         if (pressureRatio >= 1.0f && m_isEmpty == false)
         {
