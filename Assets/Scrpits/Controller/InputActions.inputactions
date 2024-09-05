@@ -224,17 +224,6 @@
                 },
                 {
                     "name": "",
-                    "id": "a24c786b-afb2-4e97-8a48-0679230b0ecc",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse and Keyboard",
-                    "action": "Kick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "0b82537b-01dd-46eb-8607-22d5736ec9c3",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
@@ -273,6 +262,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e56cefa-0ff6-4d5a-8996-f41dd1b4bdf9",
+                    "path": "<Keyboard>/#(R)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Reset",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -334,6 +334,17 @@
                 },
                 {
                     "name": "",
+                    "id": "b2e4a473-d260-487a-9a39-f45974c928f2",
+                    "path": "<Keyboard>/#(W)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Piment",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8c55c6a8-6789-43e4-bc91-aa3aa37dbc06",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -346,7 +357,7 @@
                 {
                     "name": "",
                     "id": "43e9d5af-317d-4802-8ae4-66b9b46973f9",
-                    "path": "<Keyboard>/p",
+                    "path": "<Keyboard>/#(C)",
                     "interactions": "",
                     "processors": "",
                     "groups": "Mouse and Keyboard",

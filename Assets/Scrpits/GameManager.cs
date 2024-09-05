@@ -165,4 +165,11 @@ public class GameManager : MonoBehaviour
         }
         return best;
     }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+
 }

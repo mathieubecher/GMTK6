@@ -18,8 +18,10 @@ public class Character : MonoBehaviour
     [Header("Piment")]
     [SerializeField] private Cinematic m_gotPimentTuto;
     [SerializeField] private bool m_hasPiment;
-    
-    
+
+    [SerializeField] public GameObject ui_Piment;
+
+
     private Rigidbody2D m_rigidbody;
     private Animator m_locomotion;
     private Bot m_bot;
@@ -153,6 +155,7 @@ public class Character : MonoBehaviour
             Destroy(_collider.gameObject);
             m_gotPimentTuto.Play();
             m_hasPiment = true;
+            ui_Piment.SetActive(true);
         }
     }
 
