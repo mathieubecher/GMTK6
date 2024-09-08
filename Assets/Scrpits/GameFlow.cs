@@ -3,21 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameFlow : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI m_pedroDialog;
     [SerializeField] private TextMeshProUGUI m_diegoDialog;
-    
+    [SerializeField] private Image m_ctrlsKeyboard;
+    [SerializeField] private Image m_ctrlsGamepad;
+    [SerializeField] private Sprite m_spriteKeyboardPiment;
+    [SerializeField] private Sprite m_spriteGamepadPiment;
+    [SerializeField] private GameObject m_character;
+
     private Animator m_animator;
     private bool m_canCancelDialog;
         
     public delegate void SimpleCallback();
-    private SimpleCallback m_dialogCallback;	
+    private SimpleCallback m_dialogCallback;
+
+    private static GameManager gameManager;
 
     void Awake()
     {
         m_animator = GetComponent<Animator>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void OnEnable()
@@ -49,7 +58,30 @@ public class GameFlow : MonoBehaviour
             m_dialogCallback = null;
         }
     }
-    
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        if (m_character.GetComponent<Character>().m_hasPiment == true)
+        {
+            m_ctrlsKeyboard.sprite = m_spriteKeyboardPiment;
+            m_ctrlsGamepad.sprite = m_spriteGamepadPiment;
+        }
+        m_animator.ResetTrigger("CancelDialog");
+        m_canCancelDialog = false;
+        m_animator.ResetTrigger("Controls");
+        gameManager.GetComponent<GameManager>().TakeControl();
+
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        m_animator.ResetTrigger("Controls");
+        gameManager.GetComponent<GameManager>().GiveControl();
+
+    }
+
     public void Reset()
     {
         m_animator.SetTrigger("Defeat");

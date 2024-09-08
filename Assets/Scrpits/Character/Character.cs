@@ -17,7 +17,7 @@ public class Character : MonoBehaviour
 
     [Header("Piment")]
     [SerializeField] private Cinematic m_gotPimentTuto;
-    [SerializeField] private bool m_hasPiment;
+    [SerializeField] public bool m_hasPiment;
 
     [SerializeField] public GameObject ui_Piment;
 

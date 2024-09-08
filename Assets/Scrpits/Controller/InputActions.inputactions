@@ -441,6 +441,17 @@
                     "action": "Continue",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "52de8d56-e854-4a2d-b2ec-7b62d6ddad19",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
